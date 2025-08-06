@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2025-08-06 21:32+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/app/app.tsx:159
+msgid "© 2024 FindTime. All rights reserved."
+msgstr "© 2024 FindTime. All rights reserved."
+
+#: src/app/app.tsx:40
+msgid "Automatically find the best meeting times based on everyone's availability"
+msgstr "Automatically find the best meeting times based on everyone's availability"
+
+#: src/app/app.tsx:44
+msgid "Calendar Integration"
+msgstr "Calendar Integration"
+
+#: src/app/app.tsx:50
+msgid "Coordinate schedules across your entire team efficiently"
+msgstr "Coordinate schedules across your entire team efficiently"
+
+#: src/app/app.tsx:114
+msgid "Features"
+msgstr "Features"
+
+#: src/app/app.tsx:97
+msgid "Find the perfect time for your meetings"
+msgstr "Find the perfect time for your meetings"
+
+#: src/app/app.tsx:101
+#: src/app/app.tsx:146
+msgid "Get Started"
+msgstr "Get Started"
+
+#: src/app/app.tsx:143
+msgid "Join thousands of teams who have already improved their meeting coordination"
+msgstr "Join thousands of teams who have already improved their meeting coordination"
+
+#: src/app/app.tsx:104
+msgid "Learn More"
+msgstr "Learn More"
+
+#: src/app/app.tsx:140
+msgid "Ready to optimize your scheduling?"
+msgstr "Ready to optimize your scheduling?"
+
+#: src/app/app.tsx:45
+msgid "Seamlessly sync with your existing calendar applications"
+msgstr "Seamlessly sync with your existing calendar applications"
+
+#: src/app/app.tsx:39
+msgid "Smart Scheduling"
+msgstr "Smart Scheduling"
+
+#: src/app/app.tsx:49
+msgid "Team Collaboration"
+msgstr "Team Collaboration"
+
+#: src/app/app.tsx:94
+msgid "Welcome to FindTime"
+msgstr "Welcome to FindTime"

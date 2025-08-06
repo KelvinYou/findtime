@@ -1,0 +1,25 @@
+{
+  "name": "@findtime/shared",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./translations": {
+      "development": "./src/translations.ts",
+      "types": "./dist/translations.d.ts",
+      "import": "./dist/translations.js",
+      "default": "./dist/translations.js"
+    }
+  },
+  "dependencies": {}
+}

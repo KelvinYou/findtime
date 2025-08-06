@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2025-08-06 21:32+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: zh\n"
+
+#: src/app/app.tsx:159
+msgid "© 2024 FindTime. All rights reserved."
+msgstr "© 2024 FindTime. 保留所有权利。"
+
+#: src/app/app.tsx:40
+msgid "Automatically find the best meeting times based on everyone's availability"
+msgstr "根据每个人的可用时间自动找到最佳会议时间"
+
+#: src/app/app.tsx:44
+msgid "Calendar Integration"
+msgstr "日历集成"
+
+#: src/app/app.tsx:50
+msgid "Coordinate schedules across your entire team efficiently"
+msgstr "高效协调整个团队的日程安排"
+
+#: src/app/app.tsx:114
+msgid "Features"
+msgstr "功能"
+
+#: src/app/app.tsx:97
+msgid "Find the perfect time for your meetings"
+msgstr "为您的会议找到完美的时间"
+
+#: src/app/app.tsx:101
+#: src/app/app.tsx:146
+msgid "Get Started"
+msgstr "开始使用"
+
+#: src/app/app.tsx:143
+msgid "Join thousands of teams who have already improved their meeting coordination"
+msgstr "加入数千个已经改善会议协调的团队"
+
+#: src/app/app.tsx:104
+msgid "Learn More"
+msgstr "了解更多"
+
+#: src/app/app.tsx:140
+msgid "Ready to optimize your scheduling?"
+msgstr "准备优化您的日程安排吗？"
+
+#: src/app/app.tsx:45
+msgid "Seamlessly sync with your existing calendar applications"
+msgstr "与您现有的日历应用程序无缝同步"
+
+#: src/app/app.tsx:39
+msgid "Smart Scheduling"
+msgstr "智能调度"
+
+#: src/app/app.tsx:49
+msgid "Team Collaboration"
+msgstr "团队协作"
+
+#: src/app/app.tsx:94
+msgid "Welcome to FindTime"
+msgstr "欢迎使用 FindTime"
