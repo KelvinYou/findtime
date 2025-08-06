@@ -20,7 +20,7 @@ describe('App', () => {
       </BrowserRouter>
     );
     expect(
-      getAllByText(new RegExp('Welcome @find-time/frontend', 'gi')).length > 0
+      getAllByText(new RegExp('Welcome @findtime/frontend', 'gi')).length > 0
     ).toBeTruthy();
   });
 });

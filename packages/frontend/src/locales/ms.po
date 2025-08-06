@@ -1,65 +1,79 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2025-08-06 21:32+0800\n"
+"POT-Creation-Date: 2025-08-06 22:47+0800\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: ms\n"
 
-#: src/app/app.tsx:159
-msgid "© 2024 FindTime. All rights reserved."
-msgstr "© 2024 FindTime. Hak cipta terpelihara."
-
-#: src/app/app.tsx:40
-msgid "Automatically find the best meeting times based on everyone's availability"
-msgstr "Cari masa mesyuarat terbaik secara automatik berdasarkan ketersediaan semua orang"
-
-#: src/app/app.tsx:44
-msgid "Calendar Integration"
-msgstr "Integrasi Kalendar"
-
-#: src/app/app.tsx:50
-msgid "Coordinate schedules across your entire team efficiently"
-msgstr "Menyelaraskan jadual di seluruh pasukan anda dengan cekap"
-
-#: src/app/app.tsx:114
-msgid "Features"
-msgstr "Ciri-ciri"
-
-#: src/app/app.tsx:97
-msgid "Find the perfect time for your meetings"
-msgstr "Cari masa yang sempurna untuk mesyuarat anda"
-
-#: src/app/app.tsx:101
-#: src/app/app.tsx:146
-msgid "Get Started"
-msgstr "Mula Sekarang"
-
-#: src/app/app.tsx:143
-msgid "Join thousands of teams who have already improved their meeting coordination"
-msgstr "Sertai ribuan pasukan yang telah memperbaiki penyelarasan mesyuarat mereka"
-
-#: src/app/app.tsx:104
-msgid "Learn More"
-msgstr "Ketahui Lebih Lanjut"
-
-#: src/app/app.tsx:140
-msgid "Ready to optimize your scheduling?"
-msgstr "Bersedia untuk mengoptimumkan penjadualan anda?"
-
-#: src/app/app.tsx:45
-msgid "Seamlessly sync with your existing calendar applications"
-msgstr "Segerakkan dengan lancar dengan aplikasi kalendar sedia ada anda"
-
-#: src/app/app.tsx:39
+#. js-lingui-explicit-id
+#: src/app/app.tsx
 msgid "Smart Scheduling"
 msgstr "Penjadualan Pintar"
 
-#: src/app/app.tsx:49
+#. js-lingui-explicit-id
+#: src/app/app.tsx
+msgid "Automatically find the best meeting times based on everyone's availability"
+msgstr "Cari masa mesyuarat terbaik secara automatik berdasarkan ketersediaan semua orang"
+
+#. js-lingui-explicit-id
+#: src/app/app.tsx
+msgid "Calendar Integration"
+msgstr "Integrasi Kalendar"
+
+#. js-lingui-explicit-id
+#: src/app/app.tsx
+msgid "Seamlessly sync with your existing calendar applications"
+msgstr "Segerakkan dengan lancar dengan aplikasi kalendar sedia ada anda"
+
+#. js-lingui-explicit-id
+#: src/app/app.tsx
 msgid "Team Collaboration"
 msgstr "Kerjasama Pasukan"
 
-#: src/app/app.tsx:94
+#. js-lingui-explicit-id
+#: src/app/app.tsx
+msgid "Coordinate schedules across your entire team efficiently"
+msgstr "Menyelaraskan jadual di seluruh pasukan anda dengan cekap"
+
+#. js-lingui-explicit-id
+#: src/app/app.tsx
 msgid "Welcome to FindTime"
-msgstr "Selamat datang ke FindTime"
+msgstr "Selamat Datang ke FindTime"
+
+#. js-lingui-explicit-id
+#: src/app/app.tsx
+msgid "Find the perfect time for your meetings"
+msgstr "Cari masa yang sempurna untuk mesyuarat anda"
+
+#. js-lingui-explicit-id
+#: src/app/app.tsx
+#: src/app/app.tsx
+msgid "Get Started"
+msgstr "Mula Sekarang"
+
+#. js-lingui-explicit-id
+#: src/app/app.tsx
+msgid "Learn More"
+msgstr "Ketahui Lebih Lanjut"
+
+#. js-lingui-explicit-id
+#: src/app/app.tsx
+msgid "Features"
+msgstr "Ciri-ciri"
+
+#. js-lingui-explicit-id
+#: src/app/app.tsx
+msgid "Ready to optimize your scheduling?"
+msgstr "Bersedia untuk mengoptimumkan penjadualan anda?"
+
+#. js-lingui-explicit-id
+#: src/app/app.tsx
+msgid "Join thousands of teams who have already improved their meeting coordination"
+msgstr "Sertai beribu-ribu pasukan yang telah menambah baik koordinasi mesyuarat mereka"
+
+#. js-lingui-explicit-id
+#: src/app/app.tsx
+msgid "© 2024 FindTime. All rights reserved."
+msgstr "© 2024 FindTime. Hak cipta terpelihara."

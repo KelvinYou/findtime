@@ -51,18 +51,18 @@ function App() {
   const features = [
     {
       icon: <Clock className="h-8 w-8" />,
-      title: <Trans id="oF3COU" />, // Smart Scheduling
-      description: <Trans id="z+boXh" />, // Automatically find the best meeting times based on everyone's availability
+      title: <Trans id="Smart Scheduling" />,
+      description: <Trans id="Automatically find the best meeting times based on everyone's availability" />,
     },
     {
       icon: <Calendar className="h-8 w-8" />,
-      title: <Trans id="iQ2kun" />, // Calendar Integration
-      description: <Trans id="9xY1Y+" />, // Seamlessly sync with your existing calendar applications
+      title: <Trans id="Calendar Integration" />,
+      description: <Trans id="Seamlessly sync with your existing calendar applications" />,
     },
     {
       icon: <Users className="h-8 w-8" />,
-      title: <Trans id="0q5v/Z" />, // Team Collaboration
-      description: <Trans id="/mzWMj" />, // Coordinate schedules across your entire team efficiently
+      title: <Trans id="Team Collaboration" />,
+      description: <Trans id="Coordinate schedules across your entire team efficiently" />,
     },
   ];
 
@@ -106,17 +106,17 @@ function App() {
         <section className="py-20 px-4">
           <div className="container mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              <Trans id="FindTime" /> {/* Welcome to Find Time */}
+              <Trans id="Welcome to FindTime" />
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              <Trans id="7XEKUX" /> {/* Find the perfect time for your meetings */}
+              <Trans id="Find the perfect time for your meetings" />
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="text-lg px-8 py-3">
-                <Trans id="c3b0B0" /> {/* Get Started */}
+                <Trans id="Get Started" />
               </Button>
               <Button variant="outline" size="lg" className="text-lg px-8 py-3">
-                <Trans id="NgeSlx" /> {/* Learn More */}
+                <Trans id="Learn More" />
               </Button>
             </div>
           </div>
@@ -126,7 +126,7 @@ function App() {
         <section className="py-20 px-4 bg-white">
           <div className="container mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
-              <Trans id="PpZkda" /> {/* Features */}
+              <Trans id="Features" />
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {features.map((feature, index) => (
@@ -152,13 +152,13 @@ function App() {
         <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-purple-600">
           <div className="container mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              <Trans id="7zcOQP" /> {/* Ready to optimize your scheduling? */}
+              <Trans id="Ready to optimize your scheduling?" />
             </h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              <Trans id="xOUnS4" /> {/* Join thousands of teams who have already improved their meeting coordination */}
+              <Trans id="Join thousands of teams who have already improved their meeting coordination" />
             </p>
             <Button size="lg" variant="secondary" className="text-lg px-8 py-3">
-              <Trans id="c3b0B0" /> {/* Get Started */}
+              <Trans id="Get Started" />
             </Button>
           </div>
         </section>
@@ -171,7 +171,7 @@ function App() {
               <span className="text-lg font-semibold">FindTime</span>
             </div>
             <p className="text-gray-400">
-              <Trans id="iTFRU9" /> {/* © 2024 Find Time. All rights reserved. */}
+              <Trans id="© 2024 FindTime. All rights reserved." /> 
             </p>
           </div>
         </footer>
