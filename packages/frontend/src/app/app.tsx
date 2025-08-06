@@ -4,7 +4,7 @@ import { I18nProvider, Trans } from '@lingui/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, Clock, Users } from 'lucide-react';
-import { APP_LOCALES, SOURCE_LOCALE } from '@findtime/shared/translations';
+import { APP_LOCALES, SOURCE_LOCALE } from '@findtime/shared';
 
 export const dynamicActivate = async (locale: keyof typeof APP_LOCALES) => {
   if (!Object.values(APP_LOCALES).includes(locale)) {
@@ -106,7 +106,7 @@ function App() {
         <section className="py-20 px-4">
           <div className="container mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              <Trans id="zXlMy1" /> {/* Welcome to Find Time */}
+              <Trans id="FindTime" /> {/* Welcome to Find Time */}
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               <Trans id="7XEKUX" /> {/* Find the perfect time for your meetings */}

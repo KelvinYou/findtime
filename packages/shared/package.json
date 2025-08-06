@@ -13,12 +13,6 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
-    },
-    "./translations": {
-      "development": "./src/translations.ts",
-      "types": "./dist/translations.d.ts",
-      "import": "./dist/translations.js",
-      "default": "./dist/translations.js"
     }
   },
   "dependencies": {}

@@ -1,6 +1,6 @@
 import { defineConfig } from '@lingui/conf';
 import { formatter } from '@lingui/format-po';
-import { APP_LOCALES, SOURCE_LOCALE } from '@findtime/shared/translations';
+import { APP_LOCALES, SOURCE_LOCALE } from '@findtime/shared';
 
 export default defineConfig({
   sourceLocale: SOURCE_LOCALE,
