@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { i18n } from '@lingui/core';
 import { I18nProvider, Trans } from '@lingui/react';
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, Clock, Users } from 'lucide-react';
-import { APP_LOCALES, SOURCE_LOCALE } from '@findtime/shared';
+import { APP_LOCALES, SOURCE_LOCALE } from '@zync/shared';
 
 export const dynamicActivate = async (locale: keyof typeof APP_LOCALES) => {
   if (!Object.values(APP_LOCALES).includes(locale)) {
@@ -74,7 +75,7 @@ function App() {
           <div className="container mx-auto px-4 py-4 flex justify-between items-center">
             <div className="flex items-center space-x-2">
               <Clock className="h-8 w-8 text-blue-600" />
-              <span className="text-xl font-bold text-gray-900">FindTime</span>
+              <span className="text-xl font-bold text-gray-900">Zync</span>
             </div>
             <div className="flex items-center space-x-2">
               <Button
@@ -106,7 +107,7 @@ function App() {
         <section className="py-20 px-4">
           <div className="container mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              <Trans id="Welcome to FindTime" />
+              <Trans id="Welcome to Zync" />
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               <Trans id="Find the perfect time for your meetings" />
@@ -168,10 +169,10 @@ function App() {
           <div className="container mx-auto text-center">
             <div className="flex items-center justify-center space-x-2 mb-4">
               <Clock className="h-6 w-6 text-blue-400" />
-              <span className="text-lg font-semibold">FindTime</span>
+              <span className="text-lg font-semibold">Zync</span>
             </div>
             <p className="text-gray-400">
-              <Trans id="© 2024 FindTime. All rights reserved." /> 
+              <Trans id="© 2024 Zync. All rights reserved." /> 
             </p>
           </div>
         </footer>

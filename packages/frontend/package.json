@@ -14,7 +14,7 @@
     "dev:extract": "lingui extract --watch"
   },
   "dependencies": {
-    "@findtime/shared": "file:../shared",
+    "@zync/shared": "file:../shared",
     "@hookform/resolvers": "^5.2.1",
     "@lingui/cli": "^5.4.0",
     "@lingui/core": "^5.4.0",

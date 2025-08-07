@@ -6,6 +6,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: ms\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#. js-lingui-explicit-id
+#: src/app/app.tsx
+msgid "Welcome to Zync"
+msgstr "Selamat datang ke Zync"
+
+#. js-lingui-explicit-id
+#: src/app/app.tsx
+msgid "© 2024 Zync. All rights reserved."
+msgstr "© 2024 Zync. Hak cipta terpelihara."
 
 #. js-lingui-explicit-id
 #: src/app/app.tsx
@@ -39,11 +55,6 @@ msgstr "Menyelaraskan jadual di seluruh pasukan anda dengan cekap"
 
 #. js-lingui-explicit-id
 #: src/app/app.tsx
-msgid "Welcome to FindTime"
-msgstr "Selamat Datang ke FindTime"
-
-#. js-lingui-explicit-id
-#: src/app/app.tsx
 msgid "Find the perfect time for your meetings"
 msgstr "Cari masa yang sempurna untuk mesyuarat anda"
 
@@ -73,7 +84,3 @@ msgstr "Bersedia untuk mengoptimumkan penjadualan anda?"
 msgid "Join thousands of teams who have already improved their meeting coordination"
 msgstr "Sertai beribu-ribu pasukan yang telah menambah baik koordinasi mesyuarat mereka"
 
-#. js-lingui-explicit-id
-#: src/app/app.tsx
-msgid "© 2024 FindTime. All rights reserved."
-msgstr "© 2024 FindTime. Hak cipta terpelihara."

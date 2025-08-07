@@ -1,6 +1,6 @@
 import { defineConfig } from '@lingui/conf';
 import { formatter } from '@lingui/format-po';
-import { APP_LOCALES, SOURCE_LOCALE } from '@findtime/shared';
+import { APP_LOCALES, SOURCE_LOCALE } from '@zync/shared';
 
 export default defineConfig({
   sourceLocale: SOURCE_LOCALE,

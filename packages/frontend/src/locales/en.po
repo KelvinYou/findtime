@@ -6,6 +6,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#. js-lingui-explicit-id
+#: src/app/app.tsx
+msgid "Welcome to Zync"
+msgstr "Welcome to Zync"
+
+#. js-lingui-explicit-id
+#: src/app/app.tsx
+msgid "© 2024 Zync. All rights reserved."
+msgstr "© 2024 Zync. All rights reserved."
 
 #. js-lingui-explicit-id
 #: src/app/app.tsx
@@ -39,11 +55,6 @@ msgstr "Coordinate schedules across your entire team efficiently"
 
 #. js-lingui-explicit-id
 #: src/app/app.tsx
-msgid "Welcome to FindTime"
-msgstr "Welcome to FindTime"
-
-#. js-lingui-explicit-id
-#: src/app/app.tsx
 msgid "Find the perfect time for your meetings"
 msgstr "Find the perfect time for your meetings"
 
@@ -73,7 +84,3 @@ msgstr "Ready to optimize your scheduling?"
 msgid "Join thousands of teams who have already improved their meeting coordination"
 msgstr "Join thousands of teams who have already improved their meeting coordination"
 
-#. js-lingui-explicit-id
-#: src/app/app.tsx
-msgid "© 2024 FindTime. All rights reserved."
-msgstr "© 2024 FindTime. All rights reserved."
