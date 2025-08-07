@@ -1,0 +1,53 @@
+---
+description: Guidelines for handling translations using Lingui in the Zync project.
+globs:
+  - "**/*.ts"
+  - "**/*.tsx"
+alwaysApply: true
+---
+
+# 🈯 Translation Guidelines
+
+## 📘 Overview: Internationalization (i18n) in Zync
+
+To ensure our app supports multiple languages, all user-facing strings **must be wrapped using Lingui's i18n tools**.
+
+Use either:
+
+```tsx
+import { Trans } from '@lingui/react';
+
+<Trans id="Welcome to Zync" />
+```
+
+or:
+
+```tsx
+import { useLingui } from '@lingui/react';
+
+const { t } = useLingui();
+t`Welcome to Zync`;
+```
+
+✅ When to Use Trans
+Use <Trans id="..." /> in JSX/TSX when rendering translatable strings directly in component markup:
+
+```tsx
+return <Trans id="Upload your documents" />;
+```
+
+✅ Best for:
+- Static UI text
+- Layout-level components
+- Simple sentence-only translation
+
+✅ When to Use `t` from `useLingui()`
+Use the `t` tagged template for strings inside functions or variables:
+```tsx
+const label = t`Download PDF`;
+```
+
+✅ Best for:
+- Dynamic strings
+- Logging / alerts / error messages
+- Function or hook scopes

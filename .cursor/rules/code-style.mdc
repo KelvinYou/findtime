@@ -1,0 +1,12 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+
+# Code Style Guidelines
+
+## Formatting Standards
+- **Prettier**: 2-space indentation, single quotes, trailing commas, semicolons
+- **Print width**: 80 characters
+- **ESLint**: No unused imports, consistent import ordering, prefer const over let

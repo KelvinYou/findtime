@@ -1,0 +1,26 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+
+# Zync Architecture
+
+## Tech Stack
+- **Frontend**: React 18, TypeScript, Shadcn, Vite
+- **Backend**: NestJS, TypeORM, PostgreSQL, Redis
+- **Monorepo**: Nx workspace with yarn
+
+## Package Structure
+
+packages/
+├── frontend/          # React frontend application
+└── shared/            # Common types and utilities
+
+## Key Principles
+- **Functional components only** (no classes)
+- **Named exports only** (no default exports)
+- **Types over interfaces** (except for extending third-party)
+- **String literals over enums** (except GraphQL)
+- **No 'any' type allowed**
+- **Event handlers over useEffect** for state updates
