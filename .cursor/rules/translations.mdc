@@ -23,7 +23,7 @@ import { Trans } from '@lingui/react';
 or:
 
 ```tsx
-import { useLingui } from '@lingui/react';
+import { useLingui } from '@lingui/react/macro';
 
 const { t } = useLingui();
 t`Welcome to Zync`;
@@ -51,3 +51,27 @@ const label = t`Download PDF`;
 - Dynamic strings
 - Logging / alerts / error messages
 - Function or hook scopes
+
+## 🛠 Extracting & Compiling Translations
+
+To manage translation files, follow this workflow:
+
+### 🧪 1. Extract Missing Messages
+
+Run the following command to extract all translatable strings into the locale catalog files (e.g. `locales/en.po`, `locales/zh.po`, etc.):
+
+```bash
+npm run extract
+```
+
+### 🔄 2. Update Translations
+
+After extraction, open the relevant `.po` files (or use a translation UI) to **fill in any missing translations**.
+
+### ⚙️ 3. Compile Translations
+
+Once translation files are updated, compile them into JavaScript for production use:
+
+```bash
+npm run compile
+```

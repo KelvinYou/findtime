@@ -2,6 +2,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import { lingui } from '@lingui/vite-plugin';
 import path from 'path';
 
 export default defineConfig({
@@ -14,13 +15,24 @@ export default defineConfig({
   },
 
   plugins: [
-    react(),
+    react({
+      babel: {
+        plugins: ['macros'],
+      },
+    }),
+    lingui(),
     nxViteTsPaths(),
   ],
+  
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+
+  define: {
+    global: 'globalThis',
+    'process.env': {},
   },
 
   test: {
