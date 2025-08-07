@@ -4,35 +4,24 @@ import { i18n } from '@lingui/core';
 import { I18nProvider } from '@lingui/react';
 
 import { Clock } from 'lucide-react';
-import { APP_LOCALES, SOURCE_LOCALE } from '@zync/shared';
 import { Layout } from '@/components/layout/Layout';
 import { ROUTES } from '@/constants/routes';
-import CreateSchedulePage from '@/components/pages/CreateSchedulePage';
-import HomePage from '@/components/pages/HomePage';
-import ScheduleViewPage from '@/components/pages/ScheduleViewPage';
-
-export const dynamicActivate = async (locale: keyof typeof APP_LOCALES) => {
-  if (!Object.values(APP_LOCALES).includes(locale)) {
-    console.warn(`Invalid locale "${locale}", defaulting to "${SOURCE_LOCALE}"`);
-    locale = SOURCE_LOCALE;
-  }
-  const { messages } = await import(`../locales/generated/${locale}.ts`);
-  i18n.load(locale, messages);
-  i18n.activate(locale);
-};
+import CreateSchedulePage from '@/pages/CreateSchedulePage';
+import HomePage from '@/pages/HomePage';
+import ScheduleViewPage from '@/pages/ScheduleViewPage';
+import { dynamicActivate, SupportedLocale } from '@/lib/utils';
 
 function App() {
-  const [locale, setLocale] = useState<'en' | 'zh' | 'ms'>('en');
+  const [locale, setLocale] = useState<SupportedLocale>('en');
   const [isLoading, setIsLoading] = useState(true);
 
-  const changeLocale = async (newLocale: 'en' | 'zh' | 'ms') => {
+  const changeLocale = async (newLocale: SupportedLocale) => {
     setIsLoading(true);
     await dynamicActivate(newLocale);
     setLocale(newLocale);
     setIsLoading(false);
   };
 
-  // Initialize with English on first load
   useEffect(() => {
     const initializeLocale = async () => {
       await dynamicActivate('en');

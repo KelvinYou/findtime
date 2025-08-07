@@ -14,6 +14,196 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Schedule Not Found"
+msgstr "Schedule Not Found"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "The schedule you're looking for doesn't exist."
+msgstr "The schedule you're looking for doesn't exist."
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Go Home"
+msgstr "Go Home"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Created by"
+msgstr "Created by"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Join as Guest"
+msgstr "Join as Guest"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Please enter your name to add your availability"
+msgstr "Please enter your name to add your availability"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Your Name"
+msgstr "Your Name"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Continue"
+msgstr "Continue"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Current Responses"
+msgstr "Current Responses"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Select Your Availability"
+msgstr "Select Your Availability"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Click on the time slots when you're available"
+msgstr "Click on the time slots when you're available"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Submit Availability"
+msgstr "Submit Availability"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Create New Schedule"
+msgstr "Create New Schedule"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Set up your availability and share with others"
+msgstr "Set up your availability and share with others"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Basic Information"
+msgstr "Basic Information"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Give your schedule a title and description"
+msgstr "Give your schedule a title and description"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Schedule Title"
+msgstr "Schedule Title"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Description (Optional)"
+msgstr "Description (Optional)"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Available Dates & Times"
+msgstr "Available Dates & Times"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Select the dates when you're available and set your time preferences"
+msgstr "Select the dates when you're available and set your time preferences"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Cancel"
+msgstr "Cancel"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Create & Share"
+msgstr "Create & Share"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Schedule Created Successfully!"
+msgstr "Schedule Created Successfully!"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Your schedule is ready. Share it with others to collect their availability."
+msgstr "Your schedule is ready. Share it with others to collect their availability."
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Smart Scheduling"
+msgstr "Smart Scheduling"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Automatically find the best meeting times based on everyone's availability"
+msgstr "Automatically find the best meeting times based on everyone's availability"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Calendar Integration"
+msgstr "Calendar Integration"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Seamlessly sync with your existing calendar applications"
+msgstr "Seamlessly sync with your existing calendar applications"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Team Collaboration"
+msgstr "Team Collaboration"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Coordinate schedules across your entire team efficiently"
+msgstr "Coordinate schedules across your entire team efficiently"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Welcome to Zync"
+msgstr "Welcome to Zync"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Find the perfect time for your meetings"
+msgstr "Find the perfect time for your meetings"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Create Schedule"
+msgstr "Create Schedule"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Learn More"
+msgstr "Learn More"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Features"
+msgstr "Features"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Ready to optimize your scheduling?"
+msgstr "Ready to optimize your scheduling?"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Join thousands of teams who have already improved their meeting coordination"
+msgstr "Join thousands of teams who have already improved their meeting coordination"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Get Started"
+msgstr "Get Started"
+
+#. js-lingui-explicit-id
 #: src/components/schedule/ShareSchedule.tsx
 msgid "Share Schedule"
 msgstr "Share Schedule"
@@ -52,6 +242,11 @@ msgstr "Others can use this link to view your schedule and add their own availab
 #: src/components/schedule/ShareSchedule.tsx
 msgid "Close"
 msgstr "Close"
+
+#. js-lingui-explicit-id
+#: src/components/layout/Layout.tsx
+msgid "© 2024 Zync. All rights reserved."
+msgstr "© 2024 Zync. All rights reserved."
 
 #. js-lingui-explicit-id
 #: src/components/schedule/ScheduleCalendar.tsx
@@ -108,201 +303,6 @@ msgstr "Add Slot"
 msgid "Current Time Slots"
 msgstr "Current Time Slots"
 
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Create New Schedule"
-msgstr "Create New Schedule"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Set up your availability and share with others"
-msgstr "Set up your availability and share with others"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Basic Information"
-msgstr "Basic Information"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Give your schedule a title and description"
-msgstr "Give your schedule a title and description"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Schedule Title"
-msgstr "Schedule Title"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Description (Optional)"
-msgstr "Description (Optional)"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Available Dates & Times"
-msgstr "Available Dates & Times"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Select the dates when you're available and set your time preferences"
-msgstr "Select the dates when you're available and set your time preferences"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Cancel"
-msgstr "Cancel"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Create & Share"
-msgstr "Create & Share"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Schedule Created Successfully!"
-msgstr "Schedule Created Successfully!"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Your schedule is ready. Share it with others to collect their availability."
-msgstr "Your schedule is ready. Share it with others to collect their availability."
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Schedule Not Found"
-msgstr "Schedule Not Found"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "The schedule you're looking for doesn't exist."
-msgstr "The schedule you're looking for doesn't exist."
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Go Home"
-msgstr "Go Home"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Created by"
-msgstr "Created by"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Join as Guest"
-msgstr "Join as Guest"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Please enter your name to add your availability"
-msgstr "Please enter your name to add your availability"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Your Name"
-msgstr "Your Name"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Continue"
-msgstr "Continue"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Current Responses"
-msgstr "Current Responses"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Select Your Availability"
-msgstr "Select Your Availability"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Click on the time slots when you're available"
-msgstr "Click on the time slots when you're available"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Submit Availability"
-msgstr "Submit Availability"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Smart Scheduling"
-msgstr "Smart Scheduling"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Automatically find the best meeting times based on everyone's availability"
-msgstr "Automatically find the best meeting times based on everyone's availability"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Calendar Integration"
-msgstr "Calendar Integration"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Seamlessly sync with your existing calendar applications"
-msgstr "Seamlessly sync with your existing calendar applications"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Team Collaboration"
-msgstr "Team Collaboration"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Coordinate schedules across your entire team efficiently"
-msgstr "Coordinate schedules across your entire team efficiently"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Welcome to Zync"
-msgstr "Welcome to Zync"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Find the perfect time for your meetings"
-msgstr "Find the perfect time for your meetings"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Create Schedule"
-msgstr "Create Schedule"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Learn More"
-msgstr "Learn More"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Features"
-msgstr "Features"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Ready to optimize your scheduling?"
-msgstr "Ready to optimize your scheduling?"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Join thousands of teams who have already improved their meeting coordination"
-msgstr "Join thousands of teams who have already improved their meeting coordination"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Get Started"
-msgstr "Get Started"
-
-#. js-lingui-explicit-id
-#: src/components/layout/Layout.tsx
-msgid "© 2024 Zync. All rights reserved."
-msgstr "© 2024 Zync. All rights reserved."
-
 #. js-lingui-id: hm+yGI
 #: src/components/schedule/ScheduleCalendar.tsx
 #~ msgid "{0} time slot{1}"
@@ -334,7 +334,7 @@ msgstr "© 2024 Zync. All rights reserved."
 #~ msgstr "Enter your name"
 
 #. js-lingui-id: SlfejT
-#: src/components/pages/CreateSchedulePage.tsx
+#: src/pages/CreateSchedulePage.tsx
 msgid "Error"
 msgstr "Error"
 
@@ -393,7 +393,7 @@ msgstr "Error"
 #~ msgstr "person"
 
 #. js-lingui-id: kdII0R
-#: src/components/pages/CreateSchedulePage.tsx
+#: src/pages/CreateSchedulePage.tsx
 msgid "Please select at least one date for your schedule"
 msgstr "Please select at least one date for your schedule"
 

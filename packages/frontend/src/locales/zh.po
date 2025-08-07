@@ -14,6 +14,196 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Schedule Not Found"
+msgstr "未找到排程"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "The schedule you're looking for doesn't exist."
+msgstr "您查找的排程不存在。"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Go Home"
+msgstr "返回首页"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Created by"
+msgstr "创建者"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Join as Guest"
+msgstr "以访客身份加入"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Please enter your name to add your availability"
+msgstr "请输入您的姓名以添加您的可用时间"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Your Name"
+msgstr "您的姓名"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Continue"
+msgstr "继续"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Current Responses"
+msgstr "当前回复"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Select Your Availability"
+msgstr "选择您的可用时间"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Click on the time slots when you're available"
+msgstr "点击您有空的时间段"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Submit Availability"
+msgstr "提交可用时间"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Create New Schedule"
+msgstr "创建新排程"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Set up your availability and share with others"
+msgstr "设置您的可用时间并与他人分享"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Basic Information"
+msgstr "基本信息"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Give your schedule a title and description"
+msgstr "为您的排程添加标题和描述"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Schedule Title"
+msgstr "排程标题"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Description (Optional)"
+msgstr "描述（可选）"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Available Dates & Times"
+msgstr "可用日期和时间"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Select the dates when you're available and set your time preferences"
+msgstr "选择您有空的日期并设置您的时间偏好"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Cancel"
+msgstr "取消"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Create & Share"
+msgstr "创建并分享"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Schedule Created Successfully!"
+msgstr "排程创建成功！"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Your schedule is ready. Share it with others to collect their availability."
+msgstr "您的排程已准备好。与他人分享以收集他们的可用时间。"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Smart Scheduling"
+msgstr "智能排程"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Automatically find the best meeting times based on everyone's availability"
+msgstr "根据每个人的时间安排自动找到最佳会议时间"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Calendar Integration"
+msgstr "日历集成"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Seamlessly sync with your existing calendar applications"
+msgstr "与您现有的日历应用程序无缝同步"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Team Collaboration"
+msgstr "团队协作"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Coordinate schedules across your entire team efficiently"
+msgstr "高效协调整个团队的日程安排"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Welcome to Zync"
+msgstr "欢迎使用 Zync"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Find the perfect time for your meetings"
+msgstr "为您的会议找到完美的时间"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Create Schedule"
+msgstr "创建排程"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Learn More"
+msgstr "了解更多"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Features"
+msgstr "功能特色"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Ready to optimize your scheduling?"
+msgstr "准备好优化您的排程了吗？"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Join thousands of teams who have already improved their meeting coordination"
+msgstr "加入已经改善会议协调的数千个团队"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Get Started"
+msgstr "开始使用"
+
+#. js-lingui-explicit-id
 #: src/components/schedule/ShareSchedule.tsx
 msgid "Share Schedule"
 msgstr "分享排程"
@@ -52,6 +242,11 @@ msgstr "其他人可以使用此链接查看您的排程并添加他们的可用
 #: src/components/schedule/ShareSchedule.tsx
 msgid "Close"
 msgstr "关闭"
+
+#. js-lingui-explicit-id
+#: src/components/layout/Layout.tsx
+msgid "© 2024 Zync. All rights reserved."
+msgstr "© 2024 Zync。保留所有权利。"
 
 #. js-lingui-explicit-id
 #: src/components/schedule/ScheduleCalendar.tsx
@@ -108,201 +303,6 @@ msgstr "添加时间段"
 msgid "Current Time Slots"
 msgstr "当前时间段"
 
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Create New Schedule"
-msgstr "创建新排程"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Set up your availability and share with others"
-msgstr "设置您的可用时间并与他人分享"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Basic Information"
-msgstr "基本信息"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Give your schedule a title and description"
-msgstr "为您的排程添加标题和描述"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Schedule Title"
-msgstr "排程标题"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Description (Optional)"
-msgstr "描述（可选）"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Available Dates & Times"
-msgstr "可用日期和时间"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Select the dates when you're available and set your time preferences"
-msgstr "选择您有空的日期并设置您的时间偏好"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Cancel"
-msgstr "取消"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Create & Share"
-msgstr "创建并分享"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Schedule Created Successfully!"
-msgstr "排程创建成功！"
-
-#. js-lingui-explicit-id
-#: src/components/pages/CreateSchedulePage.tsx
-msgid "Your schedule is ready. Share it with others to collect their availability."
-msgstr "您的排程已准备好。与他人分享以收集他们的可用时间。"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Schedule Not Found"
-msgstr "未找到排程"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "The schedule you're looking for doesn't exist."
-msgstr "您查找的排程不存在。"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Go Home"
-msgstr "返回首页"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Created by"
-msgstr "创建者"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Join as Guest"
-msgstr "以访客身份加入"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Please enter your name to add your availability"
-msgstr "请输入您的姓名以添加您的可用时间"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Your Name"
-msgstr "您的姓名"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Continue"
-msgstr "继续"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Current Responses"
-msgstr "当前回复"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Select Your Availability"
-msgstr "选择您的可用时间"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Click on the time slots when you're available"
-msgstr "点击您有空的时间段"
-
-#. js-lingui-explicit-id
-#: src/components/pages/ScheduleViewPage.tsx
-msgid "Submit Availability"
-msgstr "提交可用时间"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Smart Scheduling"
-msgstr "智能排程"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Automatically find the best meeting times based on everyone's availability"
-msgstr "根据每个人的时间安排自动找到最佳会议时间"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Calendar Integration"
-msgstr "日历集成"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Seamlessly sync with your existing calendar applications"
-msgstr "与您现有的日历应用程序无缝同步"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Team Collaboration"
-msgstr "团队协作"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Coordinate schedules across your entire team efficiently"
-msgstr "高效协调整个团队的日程安排"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Welcome to Zync"
-msgstr "欢迎使用 Zync"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Find the perfect time for your meetings"
-msgstr "为您的会议找到完美的时间"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Create Schedule"
-msgstr "创建排程"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Learn More"
-msgstr "了解更多"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Features"
-msgstr "功能特色"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Ready to optimize your scheduling?"
-msgstr "准备好优化您的排程了吗？"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Join thousands of teams who have already improved their meeting coordination"
-msgstr "加入已经改善会议协调的数千个团队"
-
-#. js-lingui-explicit-id
-#: src/components/pages/HomePage.tsx
-msgid "Get Started"
-msgstr "开始使用"
-
-#. js-lingui-explicit-id
-#: src/components/layout/Layout.tsx
-msgid "© 2024 Zync. All rights reserved."
-msgstr "© 2024 Zync。保留所有权利。"
-
 #. js-lingui-id: hm+yGI
 #: src/components/schedule/ScheduleCalendar.tsx
 #~ msgid "{0} time slot{1}"
@@ -334,7 +334,7 @@ msgstr "© 2024 Zync。保留所有权利。"
 #~ msgstr "请输入您的姓名"
 
 #. js-lingui-id: SlfejT
-#: src/components/pages/CreateSchedulePage.tsx
+#: src/pages/CreateSchedulePage.tsx
 msgid "Error"
 msgstr "错误"
 
@@ -393,7 +393,7 @@ msgstr "错误"
 #~ msgstr "人"
 
 #. js-lingui-id: kdII0R
-#: src/components/pages/CreateSchedulePage.tsx
+#: src/pages/CreateSchedulePage.tsx
 msgid "Please select at least one date for your schedule"
 msgstr "请为您的排程至少选择一个日期"
 

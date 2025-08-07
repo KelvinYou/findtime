@@ -2,14 +2,15 @@ import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { Trans } from '@lingui/react';
 
-import { Button } from '@/components/ui/button';
 import { Clock } from 'lucide-react';
 import { ROUTES } from '@/constants/routes';
+import { LocaleSelector } from '@/components/ui/locale-selector';
+import { SupportedLocale } from '@/lib/utils';
 
 type LayoutProps = {
   children: ReactNode;
-  locale: 'en' | 'zh' | 'ms';
-  changeLocale: (locale: 'en' | 'zh' | 'ms') => void;
+  locale: SupportedLocale;
+  changeLocale: (locale: SupportedLocale) => void;
 };
 
 export function Layout({ children, locale, changeLocale }: LayoutProps) {
@@ -22,29 +23,12 @@ export function Layout({ children, locale, changeLocale }: LayoutProps) {
             <Clock className="h-8 w-8 text-blue-600" />
             <span className="text-xl font-bold text-gray-900">Zync</span>
           </Link>
-          <div className="flex items-center space-x-2">
-            <Button
-              variant={locale === 'en' ? 'default' : 'outline'}
-              size="sm"
-              onClick={() => changeLocale('en')}
-            >
-              EN
-            </Button>
-            <Button
-              variant={locale === 'zh' ? 'default' : 'outline'}
-              size="sm"
-              onClick={() => changeLocale('zh')}
-            >
-              中文
-            </Button>
-            <Button
-              variant={locale === 'ms' ? 'default' : 'outline'}
-              size="sm"
-              onClick={() => changeLocale('ms')}
-            >
-              MS
-            </Button>
-          </div>
+          <LocaleSelector 
+            currentLocale={locale}
+            onLocaleChange={changeLocale}
+            variant="icon"
+            size="sm"
+          />
         </div>
       </header>
 
