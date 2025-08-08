@@ -20,7 +20,9 @@ export default defineConfig({
         plugins: ['macros'],
       },
     }),
-    lingui(),
+    lingui({
+      configPath: path.resolve(__dirname, 'lingui.config.ts'),
+    }),
     nxViteTsPaths(),
   ],
   

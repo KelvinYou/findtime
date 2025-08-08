@@ -23,8 +23,7 @@
       }
     },
     "dev": {
-      "command": "ts-node src/main.ts",
-      "cwd": "packages/backend"
+      "command": "cd packages/backend && ts-node src/main.ts"
     },
     "lint": {
       "executor": "@nx/eslint:lint",
