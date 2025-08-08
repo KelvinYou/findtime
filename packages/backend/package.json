@@ -1,0 +1,38 @@
+{
+  "name": "@zync/backend",
+  "version": "0.0.1",
+  "description": "NestJS backend for Zync",
+  "author": "",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/main",
+    "start:dev": "ts-node src/main.ts",
+    "start:prod": "node dist/main"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/jwt": "^10.0.0",
+    "@nestjs/passport": "^10.0.0",
+    "@nestjs/platform-express": "^10.0.0",
+    "@nestjs/config": "^3.0.0",
+    "@supabase/supabase-js": "^2.39.0",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.1",
+    "class-validator": "^0.14.0",
+    "class-transformer": "^0.5.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.3.1",
+    "@types/passport-jwt": "^3.0.6",
+    "@types/passport-local": "^1.0.38",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.3"
+  }
+} 
