@@ -8,45 +8,41 @@ import {
   Param,
   UseGuards,
   Request,
+  Optional,
 } from '@nestjs/common';
 import { ScheduleService } from './schedule.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-
-type CreateScheduleDto = {
-  title: string;
-  description?: string;
-  availableSlots: Array<{
-    date: string;
-    startTime: string;
-    endTime: string;
-  }>;
-  duration: number; // in minutes
-  timeZone: string;
-};
-
-type UpdateScheduleDto = Partial<CreateScheduleDto>;
+import { 
+  CreateScheduleDto, 
+  UpdateScheduleDto, 
+  SubmitAvailabilityDto 
+} from '@zync/shared';
 
 @Controller('schedules')
-@UseGuards(JwtAuthGuard)
 export class ScheduleController {
   constructor(private scheduleService: ScheduleService) {}
 
   @Post()
   async create(@Body() createScheduleDto: CreateScheduleDto, @Request() req: any) {
-    return this.scheduleService.create(createScheduleDto, req.user.id);
+    // Support both authenticated and guest users
+    const userId = req.user?.id || null;
+    return this.scheduleService.create(createScheduleDto, userId);
   }
 
   @Get()
+  @UseGuards(JwtAuthGuard)
   async findAll(@Request() req: any) {
     return this.scheduleService.findAllByUser(req.user.id);
   }
 
   @Get(':id')
+  @UseGuards(JwtAuthGuard)
   async findOne(@Param('id') id: string) {
     return this.scheduleService.findOne(id);
   }
 
   @Put(':id')
+  @UseGuards(JwtAuthGuard)
   async update(
     @Param('id') id: string,
     @Body() updateScheduleDto: UpdateScheduleDto,
@@ -56,6 +52,7 @@ export class ScheduleController {
   }
 
   @Delete(':id')
+  @UseGuards(JwtAuthGuard)
   async remove(@Param('id') id: string, @Request() req: any) {
     return this.scheduleService.remove(id, req.user.id);
   }
@@ -63,5 +60,13 @@ export class ScheduleController {
   @Get(':id/public')
   async getPublicSchedule(@Param('id') id: string) {
     return this.scheduleService.getPublicSchedule(id);
+  }
+
+  @Post(':id/availability')
+  async submitAvailability(
+    @Param('id') id: string, 
+    @Body() submitAvailabilityDto: SubmitAvailabilityDto
+  ) {
+    return this.scheduleService.submitAvailability(id, submitAvailabilityDto);
   }
 } 

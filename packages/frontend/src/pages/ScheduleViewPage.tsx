@@ -4,8 +4,9 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Trans } from '@lingui/react';
+import { useLingui } from '@lingui/react/macro';
 import { format, parseISO } from 'date-fns';
-import { Calendar as CalendarIcon, Clock, User, Users, ArrowLeft, Check } from 'lucide-react';
+import { Calendar as CalendarIcon, Clock, User, Users, ArrowLeft, Check, AlertCircle } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -14,57 +15,11 @@ import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useToast } from '@/hooks/use-toast';
 import { ROUTES } from '@/constants/routes';
-
-// Mock data for demonstration
-const MOCK_SCHEDULE = {
-  id: 'schedule_123',
-  title: 'Team Meeting - Q1 Planning',
-  description: 'Let\'s plan our Q1 objectives and discuss upcoming projects. This meeting will help us align on priorities.',
-  createdBy: 'John Doe',
-  availableDates: [
-    {
-      date: '2024-02-15',
-      slots: [
-        { start: '09:00', end: '12:00' },
-        { start: '14:00', end: '17:00' }
-      ]
-    },
-    {
-      date: '2024-02-16',
-      slots: [
-        { start: '10:00', end: '12:00' },
-        { start: '15:00', end: '18:00' }
-      ]
-    },
-    {
-      date: '2024-02-17',
-      slots: [
-        { start: '09:00', end: '11:00' },
-        { start: '13:00', end: '16:00' }
-      ]
-    }
-  ],
-  responses: [
-    {
-      name: 'Alice Johnson',
-      avatar: 'AJ',
-      availability: [
-        { date: '2024-02-15', slots: [{ start: '09:00', end: '12:00' }] },
-        { date: '2024-02-17', slots: [{ start: '13:00', end: '16:00' }] }
-      ]
-    },
-    {
-      name: 'Bob Smith',
-      avatar: 'BS',
-      availability: [
-        { date: '2024-02-15', slots: [{ start: '14:00', end: '17:00' }] },
-        { date: '2024-02-16', slots: [{ start: '10:00', end: '12:00' }] }
-      ]
-    }
-  ]
-};
+import { apiClient, transformFromAvailableSlots } from '@/services/api';
+import { PublicScheduleResponse, DateTimeSlots } from '@zync/shared';
 
 const guestFormSchema = z.object({
   name: z.string().min(1, 'Name is required').max(50, 'Name must be less than 50 characters'),
@@ -81,6 +36,12 @@ export default function ScheduleViewPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { t } = useLingui();
+  
+  // Data state
+  const [schedule, setSchedule] = useState<PublicScheduleResponse | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   
   // Guest user state
   const [isGuest, setIsGuest] = useState(true); // In real app, check authentication
@@ -99,14 +60,34 @@ export default function ScheduleViewPage() {
     resolver: zodResolver(guestFormSchema),
   });
 
-  // Initialize selected availability from mock data
+  // Fetch schedule data
   useEffect(() => {
-    const initialAvailability = MOCK_SCHEDULE.availableDates.map(dateItem => ({
-      date: dateItem.date,
-      slots: dateItem.slots.map(slot => ({ ...slot, selected: false }))
-    }));
-    setSelectedAvailability(initialAvailability);
-  }, []);
+    const fetchSchedule = async () => {
+      if (!id) return;
+      
+      try {
+        setIsLoading(true);
+        setError(null);
+        const scheduleData = await apiClient.getPublicSchedule(id);
+        setSchedule(scheduleData);
+        
+        // Initialize selected availability from schedule data
+        const timeSlots = transformFromAvailableSlots(scheduleData.availableSlots);
+        const initialAvailability = timeSlots.map(dateItem => ({
+          date: dateItem.date,
+          slots: dateItem.slots.map(slot => ({ ...slot, selected: false }))
+        }));
+        setSelectedAvailability(initialAvailability);
+      } catch (error) {
+        console.error('Failed to fetch schedule:', error);
+        setError(error instanceof Error ? error.message : t`Failed to load schedule`);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchSchedule();
+  }, [id, t]);
 
   const handleGuestNameSubmit = (data: GuestFormData) => {
     setGuestName(data.name);
@@ -131,7 +112,9 @@ export default function ScheduleViewPage() {
   };
 
   const handleSubmitAvailability = async () => {
-    const selectedSlots = selectedAvailability
+    if (!id) return;
+    
+    const selectedSlots: DateTimeSlots[] = selectedAvailability
       .map(dateItem => ({
         date: dateItem.date,
         slots: dateItem.slots.filter(slot => slot.selected).map(({ start, end }) => ({ start, end }))
@@ -140,32 +123,45 @@ export default function ScheduleViewPage() {
 
     if (selectedSlots.length === 0) {
       toast({
-        title: 'No availability selected',
-        description: 'Please select at least one time slot.',
+        title: t`No availability selected`,
+        description: t`Please select at least one time slot.`,
         variant: 'destructive',
       });
       return;
     }
 
-    setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    console.log('Submitting availability:', { name: guestName, availability: selectedSlots });
-    
-    toast({
-      title: 'Availability Submitted',
-      description: 'Thank you! Your availability has been recorded.',
-    });
+    try {
+      setIsSubmitting(true);
+      
+      await apiClient.submitAvailability(id, {
+        name: guestName,
+        availability: selectedSlots,
+      });
+      
+      toast({
+        title: t`Availability Submitted`,
+        description: t`Thank you! Your availability has been recorded.`,
+      });
 
-    setIsSubmitting(false);
-    
-    // In real app, might redirect or show success state
+      // Refresh the schedule to show updated responses
+      const updatedSchedule = await apiClient.getPublicSchedule(id);
+      setSchedule(updatedSchedule);
+      
+    } catch (error) {
+      console.error('Failed to submit availability:', error);
+      toast({
+        title: t`Error`,
+        description: error instanceof Error ? error.message : t`Failed to submit availability`,
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const getParticipantCount = (date: string, slot: { start: string; end: string }) => {
-    return MOCK_SCHEDULE.responses.filter(response => 
+    if (!schedule) return 0;
+    return schedule.responses.filter(response => 
       response.availability.some(avail => 
         avail.date === date && 
         avail.slots.some(respSlot => 
@@ -201,6 +197,43 @@ export default function ScheduleViewPage() {
     );
   }
 
+  if (isLoading) {
+    return (
+      <div className="flex-1 flex items-center justify-center">
+        <div className="text-center">
+          <Clock className="h-12 w-12 text-blue-600 mx-auto mb-4 animate-spin" />
+          <p className="text-gray-600">
+            <Trans id="Loading schedule..." />
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !schedule) {
+    return (
+      <div className="flex-1 flex items-center justify-center">
+        <div className="text-center max-w-md">
+          <AlertCircle className="h-12 w-12 text-red-500 mx-auto mb-4" />
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">
+            <Trans id="Failed to Load Schedule" />
+          </h1>
+          <p className="text-gray-600 mb-4">
+            {error || <Trans id="The schedule could not be loaded. Please try again." />}
+          </p>
+          <div className="space-x-2">
+            <Button variant="outline" onClick={() => window.location.reload()}>
+              <Trans id="Try Again" />
+            </Button>
+            <Button onClick={() => navigate(ROUTES.HOME)}>
+              <Trans id="Go Home" />
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex-1">
       <div className="container mx-auto px-4 py-6 max-w-4xl">
@@ -216,19 +249,19 @@ export default function ScheduleViewPage() {
           </Button>
           <div className="flex-1">
             <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
-              {MOCK_SCHEDULE.title}
+              {schedule.title}
             </h1>
             <p className="text-gray-600 mt-1">
-              <Trans id="Created by" /> {MOCK_SCHEDULE.createdBy}
+              <Trans id="Created by" /> {schedule.createdBy}
             </p>
           </div>
         </div>
 
         {/* Description */}
-        {MOCK_SCHEDULE.description && (
+        {schedule.description && (
           <Card className="mb-6">
             <CardContent className="p-4">
-              <p className="text-gray-700">{MOCK_SCHEDULE.description}</p>
+              <p className="text-gray-700">{schedule.description}</p>
             </CardContent>
           </Card>
         )}
@@ -270,24 +303,27 @@ export default function ScheduleViewPage() {
         )}
 
         {/* Current Responses */}
-        {MOCK_SCHEDULE.responses.length > 0 && (
+        {schedule.responses.length > 0 && (
           <Card className="mb-6">
             <CardHeader>
               <CardTitle className="text-lg flex items-center">
                 <Users className="h-5 w-5 mr-2" />
-                <Trans id="Current Responses" /> ({MOCK_SCHEDULE.responses.length})
+                <Trans id="Current Responses" /> ({schedule.responses.length})
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-3">
-                {MOCK_SCHEDULE.responses.map((response, index) => (
-                  <div key={index} className="flex items-center space-x-2">
-                    <Avatar className="h-8 w-8">
-                      <AvatarFallback>{response.avatar}</AvatarFallback>
-                    </Avatar>
-                    <span className="text-sm font-medium">{response.name}</span>
-                  </div>
-                ))}
+                {schedule.responses.map((response, index) => {
+                  const initials = response.name.split(' ').map(n => n[0]).join('').toUpperCase();
+                  return (
+                    <div key={response.id} className="flex items-center space-x-2">
+                      <Avatar className="h-8 w-8">
+                        <AvatarFallback>{initials}</AvatarFallback>
+                      </Avatar>
+                      <span className="text-sm font-medium">{response.name}</span>
+                    </div>
+                  );
+                })}
               </div>
             </CardContent>
           </Card>

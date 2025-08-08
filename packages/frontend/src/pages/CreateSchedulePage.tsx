@@ -5,7 +5,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Trans } from '@lingui/react';
 import { useLingui } from '@lingui/react/macro';
-import { Calendar as CalendarIcon, Clock, Share2, ArrowLeft } from 'lucide-react';
+import { Calendar as CalendarIcon, Clock, Share2, ArrowLeft, User } from 'lucide-react';
+import { format } from 'date-fns';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -17,10 +18,15 @@ import { useToast } from '@/hooks/use-toast';
 import { ROUTES } from '@/constants/routes';
 import { ScheduleCalendar } from '@/components/schedule/ScheduleCalendar';
 import { ShareSchedule } from '@/components/schedule/ShareSchedule';
+import { apiClient, transformTimeSlots } from '@/services/api';
+import { CreateScheduleDto } from '@zync/shared';
 
 const createScheduleSchema = z.object({
   title: z.string().min(1, 'Title is required').max(100, 'Title must be less than 100 characters'),
   description: z.string().max(500, 'Description must be less than 500 characters').optional(),
+  // Guest creator info
+  creatorName: z.string().min(1, 'Your name is required').max(50, 'Name must be less than 50 characters'),
+  creatorEmail: z.string().email('Please enter a valid email').optional().or(z.literal('')),
 });
 
 type CreateScheduleFormData = z.infer<typeof createScheduleSchema>;
@@ -33,6 +39,10 @@ export default function CreateSchedulePage() {
   const [timeSlots, setTimeSlots] = useState<Array<{date: string; slots: Array<{start: string; end: string}>}>>([]);
   const [showShareDialog, setShowShareDialog] = useState(false);
   const [createdScheduleId, setCreatedScheduleId] = useState<string | null>(null);
+
+  // For now, we'll treat everyone as a guest user
+  // TODO: Add authentication logic to determine if user is logged in
+  const isAuthenticated = false;
 
   const {
     register,
@@ -53,20 +63,45 @@ export default function CreateSchedulePage() {
       return;
     }
 
-    // TODO: Implement API call to create schedule
-    console.log('Creating schedule:', { ...data, selectedDates, timeSlots });
-    
-    // Simulate creating schedule and getting ID
-    const scheduleId = `schedule_${Date.now()}`;
-    setCreatedScheduleId(scheduleId);
-    
-    toast({
-      title: 'Schedule Created',
-      description: 'Your schedule has been created successfully',
-    });
+    if (timeSlots.length === 0) {
+      toast({
+        title: t`Error`,
+        description: t`Please add at least one time slot for your available dates`,
+        variant: 'destructive',
+      });
+      return;
+    }
 
-    // Show share dialog
-    setShowShareDialog(true);
+    try {
+      const createScheduleData: CreateScheduleDto = {
+        title: data.title,
+        description: data.description || '',
+        availableSlots: transformTimeSlots(timeSlots),
+        duration: 60, // Default 60 minutes - could be made configurable
+        timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        // Guest creator info
+        creatorName: data.creatorName,
+        creatorEmail: data.creatorEmail || undefined,
+      };
+
+      const schedule = await apiClient.createSchedule(createScheduleData);
+      setCreatedScheduleId(schedule.id);
+      
+      toast({
+        title: t`Schedule Created`,
+        description: t`Your schedule has been created successfully`,
+      });
+
+      // Show share dialog
+      setShowShareDialog(true);
+    } catch (error) {
+      console.error('Failed to create schedule:', error);
+      toast({
+        title: t`Error`,
+        description: error instanceof Error ? error.message : t`Failed to create schedule`,
+        variant: 'destructive',
+      });
+    }
   };
 
   const handleGoBack = () => {
@@ -97,12 +132,60 @@ export default function CreateSchedulePage() {
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          {/* Creator Information */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center">
+                <User className="h-5 w-5 mr-2" />
+                <Trans id="Your Information" />
+              </CardTitle>
+              <CardDescription>
+                <Trans id="Let others know who created this schedule" />
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="creatorName">
+                  <Trans id="Your Name" /> *
+                </Label>
+                <Input
+                  id="creatorName"
+                  placeholder="e.g., John Doe"
+                  {...register('creatorName')}
+                  className="w-full"
+                />
+                {errors.creatorName && (
+                  <p className="text-sm text-red-600">{errors.creatorName.message}</p>
+                )}
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="creatorEmail">
+                  <Trans id="Your Email (Optional)" />
+                </Label>
+                <Input
+                  id="creatorEmail"
+                  type="email"
+                  placeholder="e.g., john@example.com"
+                  {...register('creatorEmail')}
+                  className="w-full"
+                />
+                {errors.creatorEmail && (
+                  <p className="text-sm text-red-600">{errors.creatorEmail.message}</p>
+                )}
+                <p className="text-xs text-gray-500">
+                  <Trans id="Optional. Others can contact you about this schedule." />
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Basic Information */}
           <Card>
             <CardHeader>
               <CardTitle className="text-lg flex items-center">
                 <Clock className="h-5 w-5 mr-2" />
-                <Trans id="Basic Information" />
+                <Trans id="Schedule Details" />
               </CardTitle>
               <CardDescription>
                 <Trans id="Give your schedule a title and description" />
@@ -111,7 +194,7 @@ export default function CreateSchedulePage() {
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="title">
-                  <Trans id="Schedule Title" />
+                  <Trans id="Schedule Title" /> *
                 </Label>
                 <Input
                   id="title"

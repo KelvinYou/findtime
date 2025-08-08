@@ -162,6 +162,9 @@ importers:
       '@supabase/supabase-js':
         specifier: ^2.39.0
         version: 2.54.0
+      '@zync/shared':
+        specifier: file:../shared
+        version: link:../shared
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
