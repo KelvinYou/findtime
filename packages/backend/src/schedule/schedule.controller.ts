@@ -12,6 +12,7 @@ import {
 } from '@nestjs/common';
 import { ScheduleService } from './schedule.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { OptionalJwtAuthGuard } from '../auth/guards/optional-jwt-auth.guard';
 import { 
   CreateScheduleDto, 
   UpdateScheduleDto, 
@@ -23,6 +24,7 @@ export class ScheduleController {
   constructor(private scheduleService: ScheduleService) {}
 
   @Post()
+  @UseGuards(OptionalJwtAuthGuard)
   async create(@Body() createScheduleDto: CreateScheduleDto, @Request() req: any) {
     // Support both authenticated and guest users
     const userId = req.user?.id || null;

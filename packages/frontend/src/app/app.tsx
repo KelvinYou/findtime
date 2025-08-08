@@ -5,11 +5,17 @@ import { I18nProvider } from '@lingui/react';
 
 import { Clock } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
+import { AuthProvider } from '@/contexts/AuthContext';
+import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
 import { ROUTES } from '@/constants/routes';
 import CreateSchedulePage from '@/pages/CreateSchedulePage';
 import HomePage from '@/pages/HomePage';
 import ScheduleViewPage from '@/pages/ScheduleViewPage';
+import { LoginPage } from '@/pages/LoginPage';
+import { RegisterPage } from '@/pages/RegisterPage';
+import { DashboardPage } from '@/pages/DashboardPage';
 import { dynamicActivate, SupportedLocale } from '@/lib/utils';
+import { Toaster } from '@/components/ui/toaster';
 
 function App() {
   const [locale, setLocale] = useState<SupportedLocale>('en');
@@ -43,15 +49,50 @@ function App() {
 
   return (
     <I18nProvider i18n={i18n}>
-      <Router>
-        <Layout locale={locale} changeLocale={changeLocale}>
+      <AuthProvider>
+        <Router>
           <Routes>
-            <Route path={ROUTES.HOME} element={<HomePage />} />
-            <Route path={ROUTES.CREATE_SCHEDULE} element={<CreateSchedulePage />} />
-            <Route path={ROUTES.SCHEDULE} element={<ScheduleViewPage />} />
+            {/* Public routes */}
+            <Route path={ROUTES.HOME} element={
+              <Layout locale={locale} changeLocale={changeLocale}>
+                <HomePage />
+              </Layout>
+            } />
+            <Route path={ROUTES.SCHEDULE} element={
+              <Layout locale={locale} changeLocale={changeLocale}>
+                <ScheduleViewPage />
+              </Layout>
+            } />
+            
+            {/* Auth routes */}
+            <Route path={ROUTES.LOGIN} element={
+              <ProtectedRoute requireAuth={false}>
+                <LoginPage />
+              </ProtectedRoute>
+            } />
+            <Route path={ROUTES.REGISTER} element={
+              <ProtectedRoute requireAuth={false}>
+                <RegisterPage />
+              </ProtectedRoute>
+            } />
+            
+            {/* Protected routes */}
+            <Route path={ROUTES.DASHBOARD} element={
+              <ProtectedRoute>
+                <Layout locale={locale} changeLocale={changeLocale}>
+                  <DashboardPage />
+                </Layout>
+              </ProtectedRoute>
+            } />
+            <Route path={ROUTES.CREATE_SCHEDULE} element={
+              <Layout locale={locale} changeLocale={changeLocale}>
+                <CreateSchedulePage />
+              </Layout>
+            } />
           </Routes>
-        </Layout>
-      </Router>
+          <Toaster />
+        </Router>
+      </AuthProvider>
     </I18nProvider>
   );
 }

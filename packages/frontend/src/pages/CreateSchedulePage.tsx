@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -15,16 +15,18 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
+import { useAuth } from '@/contexts/AuthContext';
 import { ROUTES } from '@/constants/routes';
 import { ScheduleCalendar } from '@/components/schedule/ScheduleCalendar';
 import { ShareSchedule } from '@/components/schedule/ShareSchedule';
 import { apiClient, transformTimeSlots } from '@/services/api';
 import { CreateScheduleDto } from '@zync/shared';
+import { guestStorage } from '@/lib/utils';
 
 const createScheduleSchema = z.object({
   title: z.string().min(1, 'Title is required').max(100, 'Title must be less than 100 characters'),
   description: z.string().max(500, 'Description must be less than 500 characters').optional(),
-  // Guest creator info
+  // Guest creator info (when not authenticated)
   creatorName: z.string().min(1, 'Your name is required').max(50, 'Name must be less than 50 characters'),
   creatorEmail: z.string().email('Please enter a valid email').optional().or(z.literal('')),
 });
@@ -40,18 +42,35 @@ export default function CreateSchedulePage() {
   const [showShareDialog, setShowShareDialog] = useState(false);
   const [createdScheduleId, setCreatedScheduleId] = useState<string | null>(null);
 
-  // For now, we'll treat everyone as a guest user
-  // TODO: Add authentication logic to determine if user is logged in
-  const isAuthenticated = false;
+  const { isAuthenticated, user } = useAuth();
 
   const {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<CreateScheduleFormData>({
     resolver: zodResolver(createScheduleSchema),
   });
+
+  // Auto-fill user info on component mount
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      // For logged-in users, auto-fill with profile info
+      setValue('creatorName', user.name || user.email.split('@')[0]);
+      setValue('creatorEmail', user.email);
+    } else {
+      // For guest users, try to load from localStorage
+      const guestData = guestStorage.getGuestData();
+      if (guestData) {
+        setValue('creatorName', guestData.user.name);
+        if (guestData.user.email) {
+          setValue('creatorEmail', guestData.user.email);
+        }
+      }
+    }
+  }, [isAuthenticated, user, setValue]);
 
   const onSubmit = async (data: CreateScheduleFormData) => {
     if (selectedDates.length === 0) {
@@ -79,13 +98,23 @@ export default function CreateSchedulePage() {
         availableSlots: transformTimeSlots(timeSlots),
         duration: 60, // Default 60 minutes - could be made configurable
         timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-        // Guest creator info
-        creatorName: data.creatorName,
-        creatorEmail: data.creatorEmail || undefined,
+        // Only include guest creator info if not authenticated
+        ...(isAuthenticated ? {} : {
+          creatorName: data.creatorName,
+          creatorEmail: data.creatorEmail || undefined,
+        }),
       };
 
       const schedule = await apiClient.createSchedule(createScheduleData);
       setCreatedScheduleId(schedule.id);
+      
+      // For guest users, save their info to localStorage for future use
+      if (!isAuthenticated) {
+        guestStorage.saveGuestData({
+          name: data.creatorName,
+          email: data.creatorEmail || undefined,
+        });
+      }
       
       toast({
         title: t`Schedule Created`,
@@ -132,7 +161,7 @@ export default function CreateSchedulePage() {
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          {/* Creator Information */}
+          {/* Creator Information - Always show, but disable for logged-in users */}
           <Card>
             <CardHeader>
               <CardTitle className="text-lg flex items-center">
@@ -140,19 +169,23 @@ export default function CreateSchedulePage() {
                 <Trans id="Your Information" />
               </CardTitle>
               <CardDescription>
-                <Trans id="Let others know who created this schedule" />
+                {isAuthenticated ? (
+                  <Trans id="Your account information will be used for this schedule" />
+                ) : (
+                  <Trans id="Let others know who created this schedule" />
+                )}
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="creatorName">
-                  <Trans id="Your Name" /> *
+                  <Trans id="Your Name" />
                 </Label>
                 <Input
                   id="creatorName"
                   placeholder="e.g., John Doe"
                   {...register('creatorName')}
-                  className="w-full"
+                  className={`w-full`}
                 />
                 {errors.creatorName && (
                   <p className="text-sm text-red-600">{errors.creatorName.message}</p>
@@ -168,17 +201,24 @@ export default function CreateSchedulePage() {
                   type="email"
                   placeholder="e.g., john@example.com"
                   {...register('creatorEmail')}
-                  className="w-full"
+                  disabled={isAuthenticated}
+                  className={`w-full ${isAuthenticated ? 'bg-gray-50' : ''}`}
                 />
                 {errors.creatorEmail && (
                   <p className="text-sm text-red-600">{errors.creatorEmail.message}</p>
                 )}
                 <p className="text-xs text-gray-500">
-                  <Trans id="Optional. Others can contact you about this schedule." />
+                  {isAuthenticated ? (
+                    <Trans id="Using your account email address" />
+                  ) : (
+                    <Trans id="Optional. Others can contact you about this schedule." />
+                  )}
                 </p>
               </div>
             </CardContent>
           </Card>
+
+
 
           {/* Basic Information */}
           <Card>
@@ -194,7 +234,7 @@ export default function CreateSchedulePage() {
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="title">
-                  <Trans id="Schedule Title" /> *
+                  <Trans id="Schedule Title" />
                 </Label>
                 <Input
                   id="title"

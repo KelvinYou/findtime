@@ -17,9 +17,11 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useToast } from '@/hooks/use-toast';
+import { useAuth } from '@/contexts/AuthContext';
 import { ROUTES } from '@/constants/routes';
 import { apiClient, transformFromAvailableSlots } from '@/services/api';
 import { PublicScheduleResponse, DateTimeSlots } from '@zync/shared';
+import { guestStorage } from '@/lib/utils';
 
 const guestFormSchema = z.object({
   name: z.string().min(1, 'Name is required').max(50, 'Name must be less than 50 characters'),
@@ -44,7 +46,7 @@ export default function ScheduleViewPage() {
   const [error, setError] = useState<string | null>(null);
   
   // Guest user state
-  const [isGuest, setIsGuest] = useState(true); // In real app, check authentication
+  const { isAuthenticated, user } = useAuth();
   const [guestName, setGuestName] = useState('');
   const [hasSubmittedName, setHasSubmittedName] = useState(false);
   
@@ -55,10 +57,29 @@ export default function ScheduleViewPage() {
   const {
     register: registerGuest,
     handleSubmit: handleGuestSubmit,
+    setValue: setGuestFormValue,
     formState: { errors: guestErrors },
   } = useForm<GuestFormData>({
     resolver: zodResolver(guestFormSchema),
   });
+
+  // Initialize guest name from localStorage or authenticated user
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      // For authenticated users, use their profile name
+      const userName = user.name || user.email.split('@')[0];
+      setGuestName(userName);
+      setHasSubmittedName(true);
+    } else {
+      // For guests, try to load from localStorage
+      const guestData = guestStorage.getGuestData();
+      if (guestData?.user?.name) {
+        setGuestFormValue('name', guestData.user.name);
+        setGuestName(guestData.user.name);
+        setHasSubmittedName(true);
+      }
+    }
+  }, [isAuthenticated, user, setGuestFormValue]);
 
   // Fetch schedule data
   useEffect(() => {
@@ -92,6 +113,13 @@ export default function ScheduleViewPage() {
   const handleGuestNameSubmit = (data: GuestFormData) => {
     setGuestName(data.name);
     setHasSubmittedName(true);
+    
+    // Save guest name to localStorage for future use
+    if (!isAuthenticated) {
+      guestStorage.saveGuestData({
+        name: data.name,
+      });
+    }
   };
 
   const handleSlotToggle = (date: string, slotIndex: number) => {
@@ -267,7 +295,7 @@ export default function ScheduleViewPage() {
         )}
 
         {/* Guest Name Input */}
-        {isGuest && !hasSubmittedName && (
+        {!isAuthenticated && !hasSubmittedName && (
           <Card className="mb-6">
             <CardHeader>
               <CardTitle className="text-lg flex items-center">
@@ -330,7 +358,7 @@ export default function ScheduleViewPage() {
         )}
 
         {/* Availability Selection */}
-        {(!isGuest || hasSubmittedName) && (
+        {(isAuthenticated || hasSubmittedName) && (
           <>
             <Card className="mb-6">
               <CardHeader>

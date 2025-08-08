@@ -6,7 +6,12 @@ import {
   PublicScheduleResponse,
   AvailabilityResponse,
   ApiResponse,
-  ApiError
+  ApiError,
+  LoginDto,
+  RegisterDto,
+  LoginResponse,
+  RegisterResponse,
+  ProfileResponse
 } from '@zync/shared';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
@@ -53,6 +58,35 @@ class ApiClient {
       }
       throw new Error('Network error occurred');
     }
+  }
+
+  // Authentication methods
+  async login(data: LoginDto): Promise<LoginResponse> {
+    const response = await this.request<LoginResponse>('/auth/login', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+    return response;
+  }
+
+  async register(data: RegisterDto): Promise<RegisterResponse> {
+    const response = await this.request<RegisterResponse>('/auth/register', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+    return response;
+  }
+
+  async getProfile(): Promise<ProfileResponse> {
+    const response = await this.request<ProfileResponse>('/auth/profile');
+    return response;
+  }
+
+  async logout(): Promise<{ message: string }> {
+    const response = await this.request<{ message: string }>('/auth/logout', {
+      method: 'POST',
+    });
+    return response;
   }
 
   // Schedule management (authenticated)

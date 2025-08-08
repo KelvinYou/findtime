@@ -14,6 +14,21 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Your account information will be used for this schedule"
+msgstr "Maklumat akaun anda akan digunakan untuk jadual ini"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Using your account email address"
+msgstr "Menggunakan alamat emel akaun anda"
+
+#. js-lingui-explicit-id
+#: src/components/layout/Layout.tsx
+msgid "© 2025 Zync. All rights reserved."
+msgstr "© 2025 Zync. Hak cipta terpelihara."
+
+#. js-lingui-explicit-id
 #: src/pages/ScheduleViewPage.tsx
 msgid "Schedule Not Found"
 msgstr "Jadual Tidak Dijumpai"
@@ -25,8 +40,29 @@ msgstr "Jadual yang anda cari tidak wujud."
 
 #. js-lingui-explicit-id
 #: src/pages/ScheduleViewPage.tsx
+#: src/pages/ScheduleViewPage.tsx
 msgid "Go Home"
 msgstr "Pergi ke Laman Utama"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Loading schedule..."
+msgstr "Memuatkan jadual..."
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Failed to Load Schedule"
+msgstr "Gagal Memuatkan Jadual"
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "The schedule could not be loaded. Please try again."
+msgstr "Jadual tidak dapat dimuatkan. Sila cuba lagi."
+
+#. js-lingui-explicit-id
+#: src/pages/ScheduleViewPage.tsx
+msgid "Try Again"
+msgstr "Cuba Lagi"
 
 #. js-lingui-explicit-id
 #: src/pages/ScheduleViewPage.tsx
@@ -44,6 +80,7 @@ msgid "Please enter your name to add your availability"
 msgstr "Sila masukkan nama anda untuk menambah ketersediaan anda"
 
 #. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
 #: src/pages/ScheduleViewPage.tsx
 msgid "Your Name"
 msgstr "Nama Anda"
@@ -74,9 +111,178 @@ msgid "Submit Availability"
 msgstr "Hantar Ketersediaan"
 
 #. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Smart Scheduling"
+msgstr "Penjadualan Pintar"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Automatically find the best meeting times based on everyone's availability"
+msgstr "Cari masa mesyuarat terbaik secara automatik berdasarkan ketersediaan semua orang"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Calendar Integration"
+msgstr "Integrasi Kalendar"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Seamlessly sync with your existing calendar applications"
+msgstr "Segerakkan dengan lancar dengan aplikasi kalendar sedia ada anda"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Team Collaboration"
+msgstr "Kerjasama Pasukan"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Coordinate schedules across your entire team efficiently"
+msgstr "Menyelaraskan jadual di seluruh pasukan anda dengan cekap"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Welcome to Zync"
+msgstr "Selamat datang ke Zync"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Find the perfect time for your meetings"
+msgstr "Cari masa yang sempurna untuk mesyuarat anda"
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+#: src/pages/HomePage.tsx
+msgid "Create Schedule"
+msgstr "Cipta Jadual"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Learn More"
+msgstr "Ketahui Lebih Lanjut"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Features"
+msgstr "Ciri-ciri"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Ready to optimize your scheduling?"
+msgstr "Bersedia untuk mengoptimumkan penjadualan anda?"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Join thousands of teams who have already improved their meeting coordination"
+msgstr "Sertai beribu-ribu pasukan yang telah menambah baik koordinasi mesyuarat mereka"
+
+#. js-lingui-explicit-id
+#: src/pages/HomePage.tsx
+msgid "Get Started"
+msgstr "Mula Sekarang"
+
+#. js-lingui-explicit-id
+#: src/pages/LoginPage.tsx
+#: src/pages/RegisterPage.tsx
+msgid "Zync"
+msgstr "Zync"
+
+#. js-lingui-explicit-id
+#: src/pages/LoginPage.tsx
+msgid "Sign in to manage your schedules"
+msgstr "Log masuk untuk mengurus jadual anda"
+
+#. js-lingui-explicit-id
+#: src/pages/LoginPage.tsx
+#: src/pages/RegisterPage.tsx
+msgid "Back to Home"
+msgstr "Kembali ke Laman Utama"
+
+#. js-lingui-explicit-id
+#: src/pages/RegisterPage.tsx
+msgid "Create your account to get started"
+msgstr "Cipta akaun anda untuk bermula"
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Dashboard"
+msgstr "Papan Pemuka"
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Welcome back"
+msgstr "Selamat kembali"
+
+#. js-lingui-explicit-id
 #: src/pages/CreateSchedulePage.tsx
+#: src/pages/DashboardPage.tsx
 msgid "Create New Schedule"
 msgstr "Cipta Jadual Baru"
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "New Schedule"
+msgstr "Jadual Baru"
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "My Schedules"
+msgstr "Jadual Saya"
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Active schedules"
+msgstr "Jadual Aktif"
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Recent Activity"
+msgstr "Aktiviti Terkini"
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Recent responses"
+msgstr "Respons Terkini"
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Recent Schedules"
+msgstr "Jadual Terkini"
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "No schedules yet"
+msgstr "Tiada jadual lagi"
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Create your first schedule to start coordinating with others"
+msgstr "Cipta jadual pertama anda untuk mula berkoordinasi dengan orang lain"
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Getting Started"
+msgstr "Bermula"
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Create a Schedule"
+msgstr "Cipta Jadual"
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Set up time slots and invite participants to find the best meeting time"
+msgstr "Tetapkan slot masa dan jemput peserta untuk mencari masa mesyuarat terbaik"
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Share with Others"
+msgstr "Kongsi dengan Orang Lain"
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Send the schedule link to participants so they can submit their availability"
+msgstr "Hantar pautan jadual kepada peserta supaya mereka boleh menghantar ketersediaan mereka"
 
 #. js-lingui-explicit-id
 #: src/pages/CreateSchedulePage.tsx
@@ -85,8 +291,28 @@ msgstr "Tetapkan ketersediaan anda dan kongsi dengan orang lain"
 
 #. js-lingui-explicit-id
 #: src/pages/CreateSchedulePage.tsx
-msgid "Basic Information"
-msgstr "Maklumat Asas"
+msgid "Your Information"
+msgstr "Maklumat Anda"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Let others know who created this schedule"
+msgstr "Maklumkan kepada orang lain siapa yang mencipta jadual ini"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Your Email (Optional)"
+msgstr "Emel Anda (Pilihan)"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Optional. Others can contact you about this schedule."
+msgstr "Pilihan. Orang lain boleh menghubungi anda mengenai jadual ini."
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Schedule Details"
+msgstr "Butiran Jadual"
 
 #. js-lingui-explicit-id
 #: src/pages/CreateSchedulePage.tsx
@@ -134,119 +360,112 @@ msgid "Your schedule is ready. Share it with others to collect their availabilit
 msgstr "Jadual anda sudah sedia. Kongsi dengan orang lain untuk mengumpul ketersediaan mereka."
 
 #. js-lingui-explicit-id
-#: src/pages/HomePage.tsx
-msgid "Smart Scheduling"
-msgstr "Penjadualan Pintar"
+#: src/components/auth/AuthModal.tsx
+#: src/components/auth/LoginForm.tsx
+#: src/components/auth/LoginForm.tsx
+#: src/components/layout/Layout.tsx
+msgid "Sign In"
+msgstr "Log Masuk"
 
 #. js-lingui-explicit-id
-#: src/pages/HomePage.tsx
-msgid "Automatically find the best meeting times based on everyone's availability"
-msgstr "Cari masa mesyuarat terbaik secara automatik berdasarkan ketersediaan semua orang"
+#: src/components/layout/Layout.tsx
+msgid "Sign Up"
+msgstr "Daftar"
 
 #. js-lingui-explicit-id
-#: src/pages/HomePage.tsx
-msgid "Calendar Integration"
-msgstr "Integrasi Kalendar"
+#: src/components/auth/AuthModal.tsx
+#: src/components/auth/RegisterForm.tsx
+#: src/components/auth/RegisterForm.tsx
+msgid "Create Account"
+msgstr "Cipta Akaun"
 
 #. js-lingui-explicit-id
-#: src/pages/HomePage.tsx
-msgid "Seamlessly sync with your existing calendar applications"
-msgstr "Segerakkan dengan lancar dengan aplikasi kalendar sedia ada anda"
+#: src/components/auth/RegisterForm.tsx
+msgid "Enter your information to create a new account"
+msgstr "Masukkan maklumat anda untuk mencipta akaun baru"
 
 #. js-lingui-explicit-id
-#: src/pages/HomePage.tsx
-msgid "Team Collaboration"
-msgstr "Kerjasama Pasukan"
+#: src/components/auth/RegisterForm.tsx
+msgid "Name"
+msgstr "Nama"
 
 #. js-lingui-explicit-id
-#: src/pages/HomePage.tsx
-msgid "Coordinate schedules across your entire team efficiently"
-msgstr "Menyelaraskan jadual di seluruh pasukan anda dengan cekap"
+#: src/components/auth/RegisterForm.tsx
+msgid "optional"
+msgstr "pilihan"
 
 #. js-lingui-explicit-id
-#: src/pages/HomePage.tsx
-msgid "Welcome to Zync"
-msgstr "Selamat datang ke Zync"
-
-#. js-lingui-explicit-id
-#: src/pages/HomePage.tsx
-msgid "Find the perfect time for your meetings"
-msgstr "Cari masa yang sempurna untuk mesyuarat anda"
-
-#. js-lingui-explicit-id
-#: src/pages/HomePage.tsx
-msgid "Create Schedule"
-msgstr "Cipta Jadual"
-
-#. js-lingui-explicit-id
-#: src/pages/HomePage.tsx
-msgid "Learn More"
-msgstr "Ketahui Lebih Lanjut"
-
-#. js-lingui-explicit-id
-#: src/pages/HomePage.tsx
-msgid "Features"
-msgstr "Ciri-ciri"
-
-#. js-lingui-explicit-id
-#: src/pages/HomePage.tsx
-msgid "Ready to optimize your scheduling?"
-msgstr "Bersedia untuk mengoptimumkan penjadualan anda?"
-
-#. js-lingui-explicit-id
-#: src/pages/HomePage.tsx
-msgid "Join thousands of teams who have already improved their meeting coordination"
-msgstr "Sertai beribu-ribu pasukan yang telah menambah baik koordinasi mesyuarat mereka"
-
-#. js-lingui-explicit-id
-#: src/pages/HomePage.tsx
-msgid "Get Started"
-msgstr "Mula Sekarang"
-
-#. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "Share Schedule"
-msgstr "Kongsi Jadual"
-
-#. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "Send this link to others so they can add their availability"
-msgstr "Hantar pautan ini kepada orang lain supaya mereka boleh menambah ketersediaan mereka"
-
-#. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "Schedule Link"
-msgstr "Pautan Jadual"
-
-#. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "Quick Share"
-msgstr "Kongsi Pantas"
-
-#. js-lingui-explicit-id
+#: src/components/auth/LoginForm.tsx
+#: src/components/auth/RegisterForm.tsx
 #: src/components/schedule/ShareSchedule.tsx
 msgid "Email"
 msgstr "Emel"
 
 #. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "SMS"
-msgstr "SMS"
+#: src/components/auth/LoginForm.tsx
+#: src/components/auth/RegisterForm.tsx
+msgid "Password"
+msgstr "Kata Laluan"
 
 #. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "Others can use this link to view your schedule and add their own availability times."
-msgstr "Orang lain boleh menggunakan pautan ini untuk melihat jadual anda dan menambah masa ketersediaan mereka sendiri."
+#: src/components/auth/RegisterForm.tsx
+msgid "Confirm Password"
+msgstr "Sahkan Kata Laluan"
 
 #. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "Close"
-msgstr "Tutup"
+#: src/components/auth/RegisterForm.tsx
+msgid "Creating account..."
+msgstr "Mencipta akaun..."
 
 #. js-lingui-explicit-id
-#: src/components/layout/Layout.tsx
-msgid "© 2024 Zync. All rights reserved."
-msgstr "© 2024 Zync. Hak cipta terpelihara."
+#: src/components/auth/RegisterForm.tsx
+msgid "Already have an account?"
+msgstr "Sudah mempunyai akaun?"
+
+#. js-lingui-explicit-id
+#: src/components/auth/RegisterForm.tsx
+msgid "Sign in"
+msgstr "Log Masuk"
+
+#. js-lingui-explicit-id
+#: src/components/auth/UserMenu.tsx
+msgid "Profile"
+msgstr "Profil"
+
+#. js-lingui-explicit-id
+#: src/components/auth/UserMenu.tsx
+msgid "Settings"
+msgstr "Tetapan"
+
+#. js-lingui-explicit-id
+#: src/components/auth/UserMenu.tsx
+msgid "Log out"
+msgstr "Log Keluar"
+
+#. js-lingui-explicit-id
+#: src/components/auth/ProtectedRoute.tsx
+msgid "Loading..."
+msgstr "Memuatkan..."
+
+#. js-lingui-explicit-id
+#: src/components/auth/LoginForm.tsx
+msgid "Enter your email and password to access your account"
+msgstr "Masukkan emel dan kata laluan anda untuk mengakses akaun anda"
+
+#. js-lingui-explicit-id
+#: src/components/auth/LoginForm.tsx
+msgid "Signing in..."
+msgstr "Sedang log masuk..."
+
+#. js-lingui-explicit-id
+#: src/components/auth/LoginForm.tsx
+msgid "Don't have an account?"
+msgstr "Belum mempunyai akaun?"
+
+#. js-lingui-explicit-id
+#: src/components/auth/LoginForm.tsx
+msgid "Sign up"
+msgstr "Daftar"
 
 #. js-lingui-explicit-id
 #: src/components/schedule/ScheduleCalendar.tsx
@@ -303,6 +522,51 @@ msgstr "Tambah Slot"
 msgid "Current Time Slots"
 msgstr "Slot Masa Semasa"
 
+#. js-lingui-explicit-id
+#: src/components/schedule/ShareSchedule.tsx
+msgid "Share Schedule"
+msgstr "Kongsi Jadual"
+
+#. js-lingui-explicit-id
+#: src/components/schedule/ShareSchedule.tsx
+msgid "Send this link to others so they can add their availability"
+msgstr "Hantar pautan ini kepada orang lain supaya mereka boleh menambah ketersediaan mereka"
+
+#. js-lingui-explicit-id
+#: src/components/schedule/ShareSchedule.tsx
+msgid "Schedule Link"
+msgstr "Pautan Jadual"
+
+#. js-lingui-explicit-id
+#: src/components/schedule/ShareSchedule.tsx
+msgid "Quick Share"
+msgstr "Kongsi Pantas"
+
+#. js-lingui-explicit-id
+#: src/components/schedule/ShareSchedule.tsx
+msgid "SMS"
+msgstr "SMS"
+
+#. js-lingui-explicit-id
+#: src/components/schedule/ShareSchedule.tsx
+msgid "Others can use this link to view your schedule and add their own availability times."
+msgstr "Orang lain boleh menggunakan pautan ini untuk melihat jadual anda dan menambah masa ketersediaan mereka sendiri."
+
+#. js-lingui-explicit-id
+#: src/components/schedule/ShareSchedule.tsx
+msgid "Close"
+msgstr "Tutup"
+
+#. js-lingui-explicit-id
+#: src/components/layout/Layout.tsx
+#~ msgid "© 2024 Zync. All rights reserved."
+#~ msgstr "© 2024 Zync. Hak cipta terpelihara."
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+#~ msgid "Basic Information"
+#~ msgstr "Maklumat Asas"
+
 #. js-lingui-id: hm+yGI
 #: src/components/schedule/ScheduleCalendar.tsx
 #~ msgid "{0} time slot{1}"
@@ -314,9 +578,14 @@ msgstr "Slot Masa Semasa"
 #~ msgstr "Tambah sebarang butiran tambahan tentang jadual ini..."
 
 #. js-lingui-id: vkd3X1
-#: src/components/pages/ScheduleViewPage.tsx
-#~ msgid "Availability Submitted"
-#~ msgstr "Ketersediaan Dihantar"
+#: src/pages/ScheduleViewPage.tsx
+msgid "Availability Submitted"
+msgstr "Ketersediaan Dihantar"
+
+#. js-lingui-id: t0qQZE
+#: src/components/auth/RegisterForm.tsx
+msgid "Confirm your password"
+msgstr "Sahkan kata laluan anda"
 
 #. js-lingui-id: MdArZb
 #: src/components/schedule/ShareSchedule.tsx
@@ -328,13 +597,28 @@ msgstr "Slot Masa Semasa"
 #~ msgid "e.g., Team Meeting - Q1 Planning"
 #~ msgstr "cth., Mesyuarat Pasukan - Perancangan S1"
 
+#. js-lingui-id: C3nD/1
+#: src/components/auth/LoginForm.tsx
+#: src/components/auth/RegisterForm.tsx
+msgid "Enter your email"
+msgstr "Masukkan emel anda"
+
 #. js-lingui-id: n9V+ps
-#: src/components/pages/ScheduleViewPage.tsx
-#~ msgid "Enter your name"
-#~ msgstr "Masukkan nama anda"
+#: src/components/auth/RegisterForm.tsx
+msgid "Enter your name"
+msgstr "Masukkan nama anda"
+
+#. js-lingui-id: NgaR6B
+#: src/components/auth/LoginForm.tsx
+#: src/components/auth/RegisterForm.tsx
+msgid "Enter your password"
+msgstr "Masukkan kata laluan anda"
 
 #. js-lingui-id: SlfejT
 #: src/pages/CreateSchedulePage.tsx
+#: src/pages/CreateSchedulePage.tsx
+#: src/pages/CreateSchedulePage.tsx
+#: src/pages/ScheduleViewPage.tsx
 msgid "Error"
 msgstr "Ralat"
 
@@ -342,6 +626,21 @@ msgstr "Ralat"
 #: src/components/schedule/ShareSchedule.tsx
 #~ msgid "Failed to copy link. Please copy it manually."
 #~ msgstr "Gagal menyalin pautan. Sila salin secara manual."
+
+#. js-lingui-id: fAoRRJ
+#: src/pages/CreateSchedulePage.tsx
+msgid "Failed to create schedule"
+msgstr "Gagal mencipta jadual"
+
+#. js-lingui-id: WNs4tp
+#: src/pages/ScheduleViewPage.tsx
+msgid "Failed to load schedule"
+msgstr "Gagal memuatkan jadual"
+
+#. js-lingui-id: V4m6T0
+#: src/pages/ScheduleViewPage.tsx
+msgid "Failed to submit availability"
+msgstr "Gagal menghantar ketersediaan"
 
 #. js-lingui-id: ErYJ8C
 #: src/components/schedule/ShareSchedule.tsx
@@ -373,9 +672,9 @@ msgstr "Ralat"
 #~ msgstr "Pautan Disalin"
 
 #. js-lingui-id: /VweC0
-#: src/components/pages/ScheduleViewPage.tsx
-#~ msgid "No availability selected"
-#~ msgstr "Tiada ketersediaan dipilih"
+#: src/pages/ScheduleViewPage.tsx
+msgid "No availability selected"
+msgstr "Tiada ketersediaan dipilih"
 
 #. js-lingui-id: 2oA5uh
 #: src/components/schedule/ScheduleCalendar.tsx
@@ -392,20 +691,25 @@ msgstr "Ralat"
 #~ msgid "person"
 #~ msgstr "orang"
 
+#. js-lingui-id: HhIRsG
+#: src/pages/CreateSchedulePage.tsx
+msgid "Please add at least one time slot for your available dates"
+msgstr "Sila tambah sekurang-kurangnya satu slot masa untuk tarikh tersedia anda"
+
 #. js-lingui-id: kdII0R
 #: src/pages/CreateSchedulePage.tsx
 msgid "Please select at least one date for your schedule"
 msgstr "Sila pilih sekurang-kurangnya satu tarikh untuk jadual anda"
 
 #. js-lingui-id: mZMfOw
-#: src/components/pages/ScheduleViewPage.tsx
-#~ msgid "Please select at least one time slot."
-#~ msgstr "Sila pilih sekurang-kurangnya satu slot masa."
+#: src/pages/ScheduleViewPage.tsx
+msgid "Please select at least one time slot."
+msgstr "Sila pilih sekurang-kurangnya satu slot masa."
 
 #. js-lingui-id: Hx0PgC
-#: src/components/pages/CreateSchedulePage.tsx
-#~ msgid "Schedule Created"
-#~ msgstr "Jadual Dicipta"
+#: src/pages/CreateSchedulePage.tsx
+msgid "Schedule Created"
+msgstr "Jadual Dicipta"
 
 #. js-lingui-id: OVeWMX
 #: src/components/schedule/ShareSchedule.tsx
@@ -413,9 +717,9 @@ msgstr "Sila pilih sekurang-kurangnya satu tarikh untuk jadual anda"
 #~ msgstr "Jadual: {scheduleTitle}"
 
 #. js-lingui-id: cSEGqs
-#: src/components/pages/ScheduleViewPage.tsx
-#~ msgid "Thank you! Your availability has been recorded."
-#~ msgstr "Terima kasih! Ketersediaan anda telah direkodkan."
+#: src/pages/ScheduleViewPage.tsx
+msgid "Thank you! Your availability has been recorded."
+msgstr "Terima kasih! Ketersediaan anda telah direkodkan."
 
 #. js-lingui-id: hVxaD5
 #: src/components/schedule/ShareSchedule.tsx
@@ -423,6 +727,6 @@ msgstr "Sila pilih sekurang-kurangnya satu tarikh untuk jadual anda"
 #~ msgstr "Pautan jadual telah disalin ke papan klip anda"
 
 #. js-lingui-id: FrXiBF
-#: src/components/pages/CreateSchedulePage.tsx
-#~ msgid "Your schedule has been created successfully"
-#~ msgstr "Jadual anda telah berjaya dicipta"
+#: src/pages/CreateSchedulePage.tsx
+msgid "Your schedule has been created successfully"
+msgstr "Jadual anda telah berjaya dicipta"

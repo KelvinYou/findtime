@@ -4,9 +4,12 @@ import { Trans } from '@lingui/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, Clock, Users } from 'lucide-react';
+import { useAuth } from '@/contexts/AuthContext';
 import { ROUTES } from '@/constants/routes';
 
 export default function HomePage() {
+  const { isAuthenticated } = useAuth();
+  
   const features = [
     {
       icon: <Clock className="h-8 w-8" />,
@@ -85,7 +88,7 @@ export default function HomePage() {
             <Trans id="Join thousands of teams who have already improved their meeting coordination" />
           </p>
           <Button size="lg" variant="secondary" className="text-lg px-8 py-3" asChild>
-            <Link to={ROUTES.CREATE_SCHEDULE}>
+            <Link to={isAuthenticated ? ROUTES.CREATE_SCHEDULE : ROUTES.REGISTER}>
               <Trans id="Get Started" />
             </Link>
           </Button>
