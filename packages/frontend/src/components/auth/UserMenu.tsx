@@ -1,5 +1,6 @@
 import { Trans } from '@lingui/react';
 import { User, LogOut, Settings } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 import {
   DropdownMenu,
@@ -12,6 +13,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { useAuth } from '@/contexts/AuthContext';
+import { ROUTES } from '@/constants/routes';
 
 export function UserMenu() {
   const { user, logout } = useAuth();
@@ -45,13 +47,17 @@ export function UserMenu() {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <User className="mr-2 h-4 w-4" />
-          <Trans id="Profile" />
+        <DropdownMenuItem asChild>
+          <Link to={ROUTES.PROFILE}>
+            <User className="mr-2 h-4 w-4" />
+            <Trans id="Profile" />
+          </Link>
         </DropdownMenuItem>
-        <DropdownMenuItem>
-          <Settings className="mr-2 h-4 w-4" />
-          <Trans id="Settings" />
+        <DropdownMenuItem asChild>
+          <Link to={ROUTES.SETTINGS}>
+            <Settings className="mr-2 h-4 w-4" />
+            <Trans id="Settings" />
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={logout} className="text-red-600">

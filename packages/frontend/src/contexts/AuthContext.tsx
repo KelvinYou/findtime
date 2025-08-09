@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState, ReactNode } from 'react
 import { AuthContextType, AuthUser } from '@zync/shared';
 import { apiClient } from '@/services/api';
 import { useToast } from '@/hooks/use-toast';
+import { STORAGE_KEYS } from '@/constants/storage';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -21,8 +22,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
   useEffect(() => {
     const initializeAuth = async () => {
       try {
-        const storedToken = localStorage.getItem('auth_token');
-        const storedUser = localStorage.getItem('auth_user');
+        const storedToken = localStorage.getItem(STORAGE_KEYS.AUTH_TOKEN);
+        const storedUser = localStorage.getItem(STORAGE_KEYS.AUTH_USER);
 
         if (storedToken && storedUser) {
           setToken(storedToken);
@@ -56,8 +57,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
       // Store auth data
       setToken(response.access_token);
       setUser(response.user);
-      localStorage.setItem('auth_token', response.access_token);
-      localStorage.setItem('auth_user', JSON.stringify(response.user));
+      localStorage.setItem(STORAGE_KEYS.AUTH_TOKEN, response.access_token);
+      localStorage.setItem(STORAGE_KEYS.AUTH_USER, JSON.stringify(response.user));
 
       toast({
         title: 'Welcome back!',
@@ -101,8 +102,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const logout = (): void => {
     setUser(null);
     setToken(null);
-    localStorage.removeItem('auth_token');
-    localStorage.removeItem('auth_user');
+    localStorage.removeItem(STORAGE_KEYS.AUTH_TOKEN);
+    localStorage.removeItem(STORAGE_KEYS.AUTH_USER);
     
     toast({
       title: 'Logged out',
@@ -116,7 +117,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     try {
       const profile = await apiClient.getProfile();
       setUser(profile);
-      localStorage.setItem('auth_user', JSON.stringify(profile));
+      localStorage.setItem(STORAGE_KEYS.AUTH_USER, JSON.stringify(profile));
     } catch (error) {
       console.error('Error refreshing profile:', error);
       // If profile fetch fails, user might need to login again

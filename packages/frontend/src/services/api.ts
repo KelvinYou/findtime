@@ -11,8 +11,11 @@ import {
   RegisterDto,
   LoginResponse,
   RegisterResponse,
-  ProfileResponse
+  ProfileResponse,
+  UpdateProfileDto,
+  UploadAvatarResponse
 } from '@zync/shared';
+import { STORAGE_KEYS } from '@/constants/storage';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 
@@ -25,14 +28,15 @@ class ApiClient {
     
     const config: RequestInit = {
       headers: {
-        'Content-Type': 'application/json',
+        // Only set Content-Type for non-FormData requests
+        ...(options.body instanceof FormData ? {} : { 'Content-Type': 'application/json' }),
         ...options.headers,
       },
       ...options,
     };
 
     // Add auth token if available
-    const token = localStorage.getItem('auth_token');
+    const token = localStorage.getItem(STORAGE_KEYS.AUTH_TOKEN);
     if (token) {
       config.headers = {
         ...config.headers,
@@ -85,6 +89,26 @@ class ApiClient {
   async logout(): Promise<{ message: string }> {
     const response = await this.request<{ message: string }>('/auth/logout', {
       method: 'POST',
+    });
+    return response;
+  }
+
+  // Profile management
+  async updateProfile(data: UpdateProfileDto): Promise<ProfileResponse> {
+    const response = await this.request<ProfileResponse>('/profile', {
+      method: 'PUT',
+      body: JSON.stringify(data),
+    });
+    return response;
+  }
+
+  async uploadAvatar(file: File): Promise<UploadAvatarResponse> {
+    const formData = new FormData();
+    formData.append('avatar', file);
+
+    const response = await this.request<UploadAvatarResponse>('/profile/avatar', {
+      method: 'POST',
+      body: formData,
     });
     return response;
   }

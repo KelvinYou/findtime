@@ -26,6 +26,8 @@ export type AuthUser = {
   id: string;
   email: string;
   name?: string;
+  bio?: string;
+  avatar_url?: string;
   email_confirmed_at?: string;
   created_at: string;
   updated_at: string;
@@ -41,7 +43,18 @@ export type RegisterResponse = {
   user: AuthUser;
 };
 
+// Profile DTOs
+export type UpdateProfileDto = {
+  name?: string;
+  bio?: string;
+};
+
 export type ProfileResponse = AuthUser;
+
+export type UploadAvatarResponse = {
+  avatar_url: string;
+  user: AuthUser;
+};
 
 // Auth Context Types
 export type AuthState = {

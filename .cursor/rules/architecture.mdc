@@ -15,6 +15,7 @@ alwaysApply: true
 
 packages/
 ├── frontend/          # React frontend application
+├── backend/           # NestJS frontend application
 └── shared/            # Common types and utilities
 
 ## Key Principles

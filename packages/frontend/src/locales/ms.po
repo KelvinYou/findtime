@@ -14,19 +14,85 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/pages/CreateSchedulePage.tsx
-msgid "Your account information will be used for this schedule"
-msgstr "Maklumat akaun anda akan digunakan untuk jadual ini"
+#: src/components/auth/UserMenu.tsx
+#: src/pages/SettingsPage.tsx
+msgid "Settings"
+msgstr "Tetapan"
 
 #. js-lingui-explicit-id
-#: src/pages/CreateSchedulePage.tsx
-msgid "Using your account email address"
-msgstr "Menggunakan alamat emel akaun anda"
+#: src/pages/SettingsPage.tsx
+msgid "Manage your account settings and preferences"
+msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/layout/Layout.tsx
-msgid "© 2025 Zync. All rights reserved."
-msgstr "© 2025 Zync. Hak cipta terpelihara."
+#: src/pages/SettingsPage.tsx
+msgid "Appearance"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Customize how Zync looks and feels"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Theme"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Light"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Dark"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "System"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Choose your preferred color scheme"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Language & Region"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Select your preferred language and regional settings"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Language"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Change the language used throughout the application"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Notifications"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Control how you receive notifications"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Notification settings will be available in a future update"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/pages/ScheduleViewPage.tsx
@@ -111,6 +177,145 @@ msgid "Submit Availability"
 msgstr "Hantar Ketersediaan"
 
 #. js-lingui-explicit-id
+#: src/pages/LoginPage.tsx
+#: src/pages/RegisterPage.tsx
+msgid "Zync"
+msgstr "Zync"
+
+#. js-lingui-explicit-id
+#: src/pages/LoginPage.tsx
+msgid "Sign in to manage your schedules"
+msgstr "Log masuk untuk mengurus jadual anda"
+
+#. js-lingui-explicit-id
+#: src/pages/LoginPage.tsx
+#: src/pages/RegisterPage.tsx
+msgid "Back to Home"
+msgstr "Kembali ke Laman Utama"
+
+#. js-lingui-explicit-id
+#: src/components/auth/UserMenu.tsx
+#: src/pages/ProfilePage.tsx
+msgid "Profile"
+msgstr "Profil"
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Manage your personal information and preferences"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Edit Profile"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Profile Picture"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Upload a profile picture to personalize your account"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Change Picture"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "JPG, PNG or GIF. Max size 5MB."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Personal Information"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Update your personal details"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Full Name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Not set"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Email Address"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Email cannot be changed. Contact support if needed."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Bio"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "No bio added yet"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Account Information"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "View your account details and status"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Member Since"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Unknown"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Account Status"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Active"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Saving..."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Save Changes"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+#: src/pages/ProfilePage.tsx
+msgid "Cancel"
+msgstr "Batal"
+
+#. js-lingui-explicit-id
 #: src/pages/HomePage.tsx
 msgid "Smart Scheduling"
 msgstr "Penjadualan Pintar"
@@ -180,28 +385,6 @@ msgstr "Sertai beribu-ribu pasukan yang telah menambah baik koordinasi mesyuarat
 #: src/pages/HomePage.tsx
 msgid "Get Started"
 msgstr "Mula Sekarang"
-
-#. js-lingui-explicit-id
-#: src/pages/LoginPage.tsx
-#: src/pages/RegisterPage.tsx
-msgid "Zync"
-msgstr "Zync"
-
-#. js-lingui-explicit-id
-#: src/pages/LoginPage.tsx
-msgid "Sign in to manage your schedules"
-msgstr "Log masuk untuk mengurus jadual anda"
-
-#. js-lingui-explicit-id
-#: src/pages/LoginPage.tsx
-#: src/pages/RegisterPage.tsx
-msgid "Back to Home"
-msgstr "Kembali ke Laman Utama"
-
-#. js-lingui-explicit-id
-#: src/pages/RegisterPage.tsx
-msgid "Create your account to get started"
-msgstr "Cipta akaun anda untuk bermula"
 
 #. js-lingui-explicit-id
 #: src/pages/DashboardPage.tsx
@@ -296,6 +479,11 @@ msgstr "Maklumat Anda"
 
 #. js-lingui-explicit-id
 #: src/pages/CreateSchedulePage.tsx
+msgid "Your account information will be used for this schedule"
+msgstr "Maklumat akaun anda akan digunakan untuk jadual ini"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
 msgid "Let others know who created this schedule"
 msgstr "Maklumkan kepada orang lain siapa yang mencipta jadual ini"
 
@@ -303,6 +491,11 @@ msgstr "Maklumkan kepada orang lain siapa yang mencipta jadual ini"
 #: src/pages/CreateSchedulePage.tsx
 msgid "Your Email (Optional)"
 msgstr "Emel Anda (Pilihan)"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Using your account email address"
+msgstr "Menggunakan alamat emel akaun anda"
 
 #. js-lingui-explicit-id
 #: src/pages/CreateSchedulePage.tsx
@@ -341,11 +534,6 @@ msgstr "Pilih tarikh apabila anda tersedia dan tetapkan keutamaan masa anda"
 
 #. js-lingui-explicit-id
 #: src/pages/CreateSchedulePage.tsx
-msgid "Cancel"
-msgstr "Batal"
-
-#. js-lingui-explicit-id
-#: src/pages/CreateSchedulePage.tsx
 msgid "Create & Share"
 msgstr "Cipta & Kongsi"
 
@@ -360,39 +548,29 @@ msgid "Your schedule is ready. Share it with others to collect their availabilit
 msgstr "Jadual anda sudah sedia. Kongsi dengan orang lain untuk mengumpul ketersediaan mereka."
 
 #. js-lingui-explicit-id
-#: src/components/auth/AuthModal.tsx
-#: src/components/auth/LoginForm.tsx
-#: src/components/auth/LoginForm.tsx
-#: src/components/layout/Layout.tsx
-msgid "Sign In"
-msgstr "Log Masuk"
+#: src/pages/RegisterPage.tsx
+msgid "Create your account to get started"
+msgstr "Cipta akaun anda untuk bermula"
 
 #. js-lingui-explicit-id
-#: src/components/layout/Layout.tsx
-msgid "Sign Up"
-msgstr "Daftar"
+#: src/components/schedule/ShareSchedule.tsx
+msgid "Share Schedule"
+msgstr "Kongsi Jadual"
 
 #. js-lingui-explicit-id
-#: src/components/auth/AuthModal.tsx
-#: src/components/auth/RegisterForm.tsx
-#: src/components/auth/RegisterForm.tsx
-msgid "Create Account"
-msgstr "Cipta Akaun"
+#: src/components/schedule/ShareSchedule.tsx
+msgid "Send this link to others so they can add their availability"
+msgstr "Hantar pautan ini kepada orang lain supaya mereka boleh menambah ketersediaan mereka"
 
 #. js-lingui-explicit-id
-#: src/components/auth/RegisterForm.tsx
-msgid "Enter your information to create a new account"
-msgstr "Masukkan maklumat anda untuk mencipta akaun baru"
+#: src/components/schedule/ShareSchedule.tsx
+msgid "Schedule Link"
+msgstr "Pautan Jadual"
 
 #. js-lingui-explicit-id
-#: src/components/auth/RegisterForm.tsx
-msgid "Name"
-msgstr "Nama"
-
-#. js-lingui-explicit-id
-#: src/components/auth/RegisterForm.tsx
-msgid "optional"
-msgstr "pilihan"
+#: src/components/schedule/ShareSchedule.tsx
+msgid "Quick Share"
+msgstr "Kongsi Pantas"
 
 #. js-lingui-explicit-id
 #: src/components/auth/LoginForm.tsx
@@ -402,70 +580,19 @@ msgid "Email"
 msgstr "Emel"
 
 #. js-lingui-explicit-id
-#: src/components/auth/LoginForm.tsx
-#: src/components/auth/RegisterForm.tsx
-msgid "Password"
-msgstr "Kata Laluan"
+#: src/components/schedule/ShareSchedule.tsx
+msgid "SMS"
+msgstr "SMS"
 
 #. js-lingui-explicit-id
-#: src/components/auth/RegisterForm.tsx
-msgid "Confirm Password"
-msgstr "Sahkan Kata Laluan"
+#: src/components/schedule/ShareSchedule.tsx
+msgid "Others can use this link to view your schedule and add their own availability times."
+msgstr "Orang lain boleh menggunakan pautan ini untuk melihat jadual anda dan menambah masa ketersediaan mereka sendiri."
 
 #. js-lingui-explicit-id
-#: src/components/auth/RegisterForm.tsx
-msgid "Creating account..."
-msgstr "Mencipta akaun..."
-
-#. js-lingui-explicit-id
-#: src/components/auth/RegisterForm.tsx
-msgid "Already have an account?"
-msgstr "Sudah mempunyai akaun?"
-
-#. js-lingui-explicit-id
-#: src/components/auth/RegisterForm.tsx
-msgid "Sign in"
-msgstr "Log Masuk"
-
-#. js-lingui-explicit-id
-#: src/components/auth/UserMenu.tsx
-msgid "Profile"
-msgstr "Profil"
-
-#. js-lingui-explicit-id
-#: src/components/auth/UserMenu.tsx
-msgid "Settings"
-msgstr "Tetapan"
-
-#. js-lingui-explicit-id
-#: src/components/auth/UserMenu.tsx
-msgid "Log out"
-msgstr "Log Keluar"
-
-#. js-lingui-explicit-id
-#: src/components/auth/ProtectedRoute.tsx
-msgid "Loading..."
-msgstr "Memuatkan..."
-
-#. js-lingui-explicit-id
-#: src/components/auth/LoginForm.tsx
-msgid "Enter your email and password to access your account"
-msgstr "Masukkan emel dan kata laluan anda untuk mengakses akaun anda"
-
-#. js-lingui-explicit-id
-#: src/components/auth/LoginForm.tsx
-msgid "Signing in..."
-msgstr "Sedang log masuk..."
-
-#. js-lingui-explicit-id
-#: src/components/auth/LoginForm.tsx
-msgid "Don't have an account?"
-msgstr "Belum mempunyai akaun?"
-
-#. js-lingui-explicit-id
-#: src/components/auth/LoginForm.tsx
-msgid "Sign up"
-msgstr "Daftar"
+#: src/components/schedule/ShareSchedule.tsx
+msgid "Close"
+msgstr "Tutup"
 
 #. js-lingui-explicit-id
 #: src/components/schedule/ScheduleCalendar.tsx
@@ -523,39 +650,115 @@ msgid "Current Time Slots"
 msgstr "Slot Masa Semasa"
 
 #. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "Share Schedule"
-msgstr "Kongsi Jadual"
+#: src/components/auth/ProtectedRoute.tsx
+msgid "Loading..."
+msgstr "Memuatkan..."
 
 #. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "Send this link to others so they can add their availability"
-msgstr "Hantar pautan ini kepada orang lain supaya mereka boleh menambah ketersediaan mereka"
+#: src/components/auth/AuthModal.tsx
+#: src/components/auth/LoginForm.tsx
+#: src/components/auth/LoginForm.tsx
+#: src/components/layout/Layout.tsx
+msgid "Sign In"
+msgstr "Log Masuk"
 
 #. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "Schedule Link"
-msgstr "Pautan Jadual"
+#: src/components/layout/Layout.tsx
+msgid "Sign Up"
+msgstr "Daftar"
 
 #. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "Quick Share"
-msgstr "Kongsi Pantas"
+#: src/components/layout/Layout.tsx
+msgid "© 2025 Zync. All rights reserved."
+msgstr "© 2025 Zync. Hak cipta terpelihara."
 
 #. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "SMS"
-msgstr "SMS"
+#: src/components/auth/AuthModal.tsx
+#: src/components/auth/RegisterForm.tsx
+#: src/components/auth/RegisterForm.tsx
+msgid "Create Account"
+msgstr "Cipta Akaun"
 
 #. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "Others can use this link to view your schedule and add their own availability times."
-msgstr "Orang lain boleh menggunakan pautan ini untuk melihat jadual anda dan menambah masa ketersediaan mereka sendiri."
+#: src/components/auth/RegisterForm.tsx
+msgid "Enter your information to create a new account"
+msgstr "Masukkan maklumat anda untuk mencipta akaun baru"
 
 #. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "Close"
-msgstr "Tutup"
+#: src/components/auth/RegisterForm.tsx
+msgid "Name"
+msgstr "Nama"
+
+#. js-lingui-explicit-id
+#: src/components/auth/RegisterForm.tsx
+msgid "optional"
+msgstr "pilihan"
+
+#. js-lingui-explicit-id
+#: src/components/auth/LoginForm.tsx
+#: src/components/auth/RegisterForm.tsx
+msgid "Password"
+msgstr "Kata Laluan"
+
+#. js-lingui-explicit-id
+#: src/components/auth/RegisterForm.tsx
+msgid "Confirm Password"
+msgstr "Sahkan Kata Laluan"
+
+#. js-lingui-explicit-id
+#: src/components/auth/RegisterForm.tsx
+msgid "Creating account..."
+msgstr "Mencipta akaun..."
+
+#. js-lingui-explicit-id
+#: src/components/auth/RegisterForm.tsx
+msgid "Already have an account?"
+msgstr "Sudah mempunyai akaun?"
+
+#. js-lingui-explicit-id
+#: src/components/auth/RegisterForm.tsx
+msgid "Sign in"
+msgstr "Log Masuk"
+
+#. js-lingui-explicit-id
+#: src/components/auth/LoginForm.tsx
+msgid "Enter your email and password to access your account"
+msgstr "Masukkan emel dan kata laluan anda untuk mengakses akaun anda"
+
+#. js-lingui-explicit-id
+#: src/components/auth/LoginForm.tsx
+msgid "Signing in..."
+msgstr "Sedang log masuk..."
+
+#. js-lingui-explicit-id
+#: src/components/auth/LoginForm.tsx
+msgid "Don't have an account?"
+msgstr "Belum mempunyai akaun?"
+
+#. js-lingui-explicit-id
+#: src/components/auth/LoginForm.tsx
+msgid "Sign up"
+msgstr "Daftar"
+
+#. js-lingui-explicit-id
+#: src/components/auth/UserMenu.tsx
+msgid "Log out"
+msgstr "Log Keluar"
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+#~ msgid "Account"
+#~ msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+#~ msgid "Manage your account information"
+#~ msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+#~ msgid "Not logged in"
+#~ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/layout/Layout.tsx

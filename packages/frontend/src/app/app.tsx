@@ -5,15 +5,20 @@ import { I18nProvider } from '@lingui/react';
 
 import { Clock } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
+import { SidebarLayout } from '@/components/layout/SidebarLayout';
 import { AuthProvider } from '@/contexts/AuthContext';
+import { ThemeProvider } from '@/contexts/ThemeContext';
 import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
 import { ROUTES } from '@/constants/routes';
+import { STORAGE_KEYS } from '@/constants/storage';
 import CreateSchedulePage from '@/pages/CreateSchedulePage';
 import HomePage from '@/pages/HomePage';
 import ScheduleViewPage from '@/pages/ScheduleViewPage';
 import { LoginPage } from '@/pages/LoginPage';
 import { RegisterPage } from '@/pages/RegisterPage';
 import { DashboardPage } from '@/pages/DashboardPage';
+import { SettingsPage } from '@/pages/SettingsPage';
+import { ProfilePage } from '@/pages/ProfilePage';
 import { dynamicActivate, SupportedLocale } from '@/lib/utils';
 import { Toaster } from '@/components/ui/toaster';
 
@@ -25,12 +30,18 @@ function App() {
     setIsLoading(true);
     await dynamicActivate(newLocale);
     setLocale(newLocale);
+    localStorage.setItem(STORAGE_KEYS.LOCALE, newLocale);
     setIsLoading(false);
   };
 
   useEffect(() => {
     const initializeLocale = async () => {
-      await dynamicActivate('en');
+      // Load saved locale or default to 'en'
+      const savedLocale = localStorage.getItem(STORAGE_KEYS.LOCALE) as SupportedLocale;
+      const initialLocale = savedLocale && ['en', 'zh', 'ms'].includes(savedLocale) ? savedLocale : 'en';
+      
+      await dynamicActivate(initialLocale);
+      setLocale(initialLocale);
       setIsLoading(false);
     };
     initializeLocale();
@@ -49,50 +60,68 @@ function App() {
 
   return (
     <I18nProvider i18n={i18n}>
-      <AuthProvider>
-        <Router>
-          <Routes>
-            {/* Public routes */}
-            <Route path={ROUTES.HOME} element={
-              <Layout locale={locale} changeLocale={changeLocale}>
-                <HomePage />
-              </Layout>
-            } />
-            <Route path={ROUTES.SCHEDULE} element={
-              <Layout locale={locale} changeLocale={changeLocale}>
-                <ScheduleViewPage />
-              </Layout>
-            } />
-            
-            {/* Auth routes */}
-            <Route path={ROUTES.LOGIN} element={
-              <ProtectedRoute requireAuth={false}>
-                <LoginPage />
-              </ProtectedRoute>
-            } />
-            <Route path={ROUTES.REGISTER} element={
-              <ProtectedRoute requireAuth={false}>
-                <RegisterPage />
-              </ProtectedRoute>
-            } />
-            
-            {/* Protected routes */}
-            <Route path={ROUTES.DASHBOARD} element={
-              <ProtectedRoute>
+      <ThemeProvider>
+        <AuthProvider>
+          <Router>
+            <Routes>
+              {/* Public routes */}
+              <Route path={ROUTES.HOME} element={
                 <Layout locale={locale} changeLocale={changeLocale}>
-                  <DashboardPage />
+                  <HomePage />
                 </Layout>
-              </ProtectedRoute>
-            } />
-            <Route path={ROUTES.CREATE_SCHEDULE} element={
-              <Layout locale={locale} changeLocale={changeLocale}>
-                <CreateSchedulePage />
-              </Layout>
-            } />
-          </Routes>
-          <Toaster />
-        </Router>
-      </AuthProvider>
+              } />
+              <Route path={ROUTES.SCHEDULE} element={
+                <Layout locale={locale} changeLocale={changeLocale}>
+                  <ScheduleViewPage />
+                </Layout>
+              } />
+              
+              {/* Auth routes */}
+              <Route path={ROUTES.LOGIN} element={
+                <ProtectedRoute requireAuth={false}>
+                  <LoginPage />
+                </ProtectedRoute>
+              } />
+              <Route path={ROUTES.REGISTER} element={
+                <ProtectedRoute requireAuth={false}>
+                  <RegisterPage />
+                </ProtectedRoute>
+              } />
+              
+              {/* Protected routes with sidebar layout */}
+              <Route path={ROUTES.DASHBOARD} element={
+                <ProtectedRoute>
+                  <SidebarLayout locale={locale} changeLocale={changeLocale}>
+                    <DashboardPage />
+                  </SidebarLayout>
+                </ProtectedRoute>
+              } />
+              <Route path={ROUTES.CREATE_SCHEDULE} element={
+                <ProtectedRoute>
+                  <SidebarLayout locale={locale} changeLocale={changeLocale}>
+                    <CreateSchedulePage />
+                  </SidebarLayout>
+                </ProtectedRoute>
+              } />
+              <Route path={ROUTES.SETTINGS} element={
+                <ProtectedRoute>
+                  <SidebarLayout locale={locale} changeLocale={changeLocale}>
+                    <SettingsPage locale={locale} changeLocale={changeLocale} />
+                  </SidebarLayout>
+                </ProtectedRoute>
+              } />
+              <Route path={ROUTES.PROFILE} element={
+                <ProtectedRoute>
+                  <SidebarLayout locale={locale} changeLocale={changeLocale}>
+                    <ProfilePage />
+                  </SidebarLayout>
+                </ProtectedRoute>
+              } />
+            </Routes>
+            <Toaster />
+          </Router>
+        </AuthProvider>
+      </ThemeProvider>
     </I18nProvider>
   );
 }

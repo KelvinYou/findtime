@@ -3,6 +3,7 @@ import { twMerge } from 'tailwind-merge';
 import { i18n } from "@lingui/core";
 import { APP_LOCALES, SOURCE_LOCALE } from '@zync/shared';
 import { GuestData, GuestUser } from '@zync/shared';
+import { STORAGE_KEYS } from '@/constants/storage';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -21,7 +22,6 @@ export const dynamicActivate = async (locale: SupportedLocale) => {
 };
 
 // Guest local storage utilities
-const GUEST_STORAGE_KEY = 'guest_user_data';
 
 export const guestStorage = {
   // Save guest user data to localStorage
@@ -31,7 +31,7 @@ export const guestStorage = {
         user: guestUser,
         savedAt: new Date().toISOString(),
       };
-      localStorage.setItem(GUEST_STORAGE_KEY, JSON.stringify(guestData));
+      localStorage.setItem(STORAGE_KEYS.GUEST_USER_DATA, JSON.stringify(guestData));
     } catch (error) {
       console.warn('Failed to save guest data to localStorage:', error);
     }
@@ -40,7 +40,7 @@ export const guestStorage = {
   // Get guest user data from localStorage
   getGuestData: (): GuestData | null => {
     try {
-      const stored = localStorage.getItem(GUEST_STORAGE_KEY);
+      const stored = localStorage.getItem(STORAGE_KEYS.GUEST_USER_DATA);
       if (!stored) return null;
       
       const guestData: GuestData = JSON.parse(stored);
@@ -58,7 +58,7 @@ export const guestStorage = {
   // Clear guest user data from localStorage
   clearGuestData: (): void => {
     try {
-      localStorage.removeItem(GUEST_STORAGE_KEY);
+      localStorage.removeItem(STORAGE_KEYS.GUEST_USER_DATA);
     } catch (error) {
       console.warn('Failed to clear guest data from localStorage:', error);
     }

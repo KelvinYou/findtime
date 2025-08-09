@@ -14,19 +14,85 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/pages/CreateSchedulePage.tsx
-msgid "Your account information will be used for this schedule"
-msgstr "您的账户信息将用于此排程"
+#: src/components/auth/UserMenu.tsx
+#: src/pages/SettingsPage.tsx
+msgid "Settings"
+msgstr "设置"
 
 #. js-lingui-explicit-id
-#: src/pages/CreateSchedulePage.tsx
-msgid "Using your account email address"
-msgstr "使用您的账户电子邮件地址"
+#: src/pages/SettingsPage.tsx
+msgid "Manage your account settings and preferences"
+msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/layout/Layout.tsx
-msgid "© 2025 Zync. All rights reserved."
-msgstr "© 2025 Zync。保留所有权利。"
+#: src/pages/SettingsPage.tsx
+msgid "Appearance"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Customize how Zync looks and feels"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Theme"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Light"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Dark"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "System"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Choose your preferred color scheme"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Language & Region"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Select your preferred language and regional settings"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Language"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Change the language used throughout the application"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Notifications"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Control how you receive notifications"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Notification settings will be available in a future update"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/pages/ScheduleViewPage.tsx
@@ -111,6 +177,145 @@ msgid "Submit Availability"
 msgstr "提交可用时间"
 
 #. js-lingui-explicit-id
+#: src/pages/LoginPage.tsx
+#: src/pages/RegisterPage.tsx
+msgid "Zync"
+msgstr "Zync"
+
+#. js-lingui-explicit-id
+#: src/pages/LoginPage.tsx
+msgid "Sign in to manage your schedules"
+msgstr "登录以管理您的排程"
+
+#. js-lingui-explicit-id
+#: src/pages/LoginPage.tsx
+#: src/pages/RegisterPage.tsx
+msgid "Back to Home"
+msgstr "返回首页"
+
+#. js-lingui-explicit-id
+#: src/components/auth/UserMenu.tsx
+#: src/pages/ProfilePage.tsx
+msgid "Profile"
+msgstr "个人资料"
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Manage your personal information and preferences"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Edit Profile"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Profile Picture"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Upload a profile picture to personalize your account"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Change Picture"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "JPG, PNG or GIF. Max size 5MB."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Personal Information"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Update your personal details"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Full Name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Not set"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Email Address"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Email cannot be changed. Contact support if needed."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Bio"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "No bio added yet"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Account Information"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "View your account details and status"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Member Since"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Unknown"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Account Status"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Active"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Saving..."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
+msgid "Save Changes"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+#: src/pages/ProfilePage.tsx
+msgid "Cancel"
+msgstr "取消"
+
+#. js-lingui-explicit-id
 #: src/pages/HomePage.tsx
 msgid "Smart Scheduling"
 msgstr "智能排程"
@@ -180,28 +385,6 @@ msgstr "加入已经改善会议协调的数千个团队"
 #: src/pages/HomePage.tsx
 msgid "Get Started"
 msgstr "开始使用"
-
-#. js-lingui-explicit-id
-#: src/pages/LoginPage.tsx
-#: src/pages/RegisterPage.tsx
-msgid "Zync"
-msgstr "Zync"
-
-#. js-lingui-explicit-id
-#: src/pages/LoginPage.tsx
-msgid "Sign in to manage your schedules"
-msgstr "登录以管理您的排程"
-
-#. js-lingui-explicit-id
-#: src/pages/LoginPage.tsx
-#: src/pages/RegisterPage.tsx
-msgid "Back to Home"
-msgstr "返回首页"
-
-#. js-lingui-explicit-id
-#: src/pages/RegisterPage.tsx
-msgid "Create your account to get started"
-msgstr "创建您的账户以开始使用"
 
 #. js-lingui-explicit-id
 #: src/pages/DashboardPage.tsx
@@ -296,6 +479,11 @@ msgstr "您的信息"
 
 #. js-lingui-explicit-id
 #: src/pages/CreateSchedulePage.tsx
+msgid "Your account information will be used for this schedule"
+msgstr "您的账户信息将用于此排程"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
 msgid "Let others know who created this schedule"
 msgstr "让他人知道谁创建了此排程"
 
@@ -303,6 +491,11 @@ msgstr "让他人知道谁创建了此排程"
 #: src/pages/CreateSchedulePage.tsx
 msgid "Your Email (Optional)"
 msgstr "您的电子邮件（可选）"
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
+msgid "Using your account email address"
+msgstr "使用您的账户电子邮件地址"
 
 #. js-lingui-explicit-id
 #: src/pages/CreateSchedulePage.tsx
@@ -341,11 +534,6 @@ msgstr "选择您有空的日期并设置您的时间偏好"
 
 #. js-lingui-explicit-id
 #: src/pages/CreateSchedulePage.tsx
-msgid "Cancel"
-msgstr "取消"
-
-#. js-lingui-explicit-id
-#: src/pages/CreateSchedulePage.tsx
 msgid "Create & Share"
 msgstr "创建并分享"
 
@@ -360,39 +548,29 @@ msgid "Your schedule is ready. Share it with others to collect their availabilit
 msgstr "您的排程已准备好。与他人分享以收集他们的可用时间。"
 
 #. js-lingui-explicit-id
-#: src/components/auth/AuthModal.tsx
-#: src/components/auth/LoginForm.tsx
-#: src/components/auth/LoginForm.tsx
-#: src/components/layout/Layout.tsx
-msgid "Sign In"
-msgstr "登录"
+#: src/pages/RegisterPage.tsx
+msgid "Create your account to get started"
+msgstr "创建您的账户以开始使用"
 
 #. js-lingui-explicit-id
-#: src/components/layout/Layout.tsx
-msgid "Sign Up"
-msgstr "注册"
+#: src/components/schedule/ShareSchedule.tsx
+msgid "Share Schedule"
+msgstr "分享排程"
 
 #. js-lingui-explicit-id
-#: src/components/auth/AuthModal.tsx
-#: src/components/auth/RegisterForm.tsx
-#: src/components/auth/RegisterForm.tsx
-msgid "Create Account"
-msgstr "创建账户"
+#: src/components/schedule/ShareSchedule.tsx
+msgid "Send this link to others so they can add their availability"
+msgstr "将此链接发送给他人以添加他们的可用时间"
 
 #. js-lingui-explicit-id
-#: src/components/auth/RegisterForm.tsx
-msgid "Enter your information to create a new account"
-msgstr "输入您的信息以创建新账户"
+#: src/components/schedule/ShareSchedule.tsx
+msgid "Schedule Link"
+msgstr "排程链接"
 
 #. js-lingui-explicit-id
-#: src/components/auth/RegisterForm.tsx
-msgid "Name"
-msgstr "姓名"
-
-#. js-lingui-explicit-id
-#: src/components/auth/RegisterForm.tsx
-msgid "optional"
-msgstr "可选"
+#: src/components/schedule/ShareSchedule.tsx
+msgid "Quick Share"
+msgstr "快速分享"
 
 #. js-lingui-explicit-id
 #: src/components/auth/LoginForm.tsx
@@ -402,70 +580,19 @@ msgid "Email"
 msgstr "电子邮件"
 
 #. js-lingui-explicit-id
-#: src/components/auth/LoginForm.tsx
-#: src/components/auth/RegisterForm.tsx
-msgid "Password"
-msgstr "密码"
+#: src/components/schedule/ShareSchedule.tsx
+msgid "SMS"
+msgstr "短信"
 
 #. js-lingui-explicit-id
-#: src/components/auth/RegisterForm.tsx
-msgid "Confirm Password"
-msgstr "确认密码"
+#: src/components/schedule/ShareSchedule.tsx
+msgid "Others can use this link to view your schedule and add their own availability times."
+msgstr "其他人可以使用此链接查看您的排程并添加他们的可用时间。"
 
 #. js-lingui-explicit-id
-#: src/components/auth/RegisterForm.tsx
-msgid "Creating account..."
-msgstr "正在创建账户..."
-
-#. js-lingui-explicit-id
-#: src/components/auth/RegisterForm.tsx
-msgid "Already have an account?"
-msgstr "已经有账户？"
-
-#. js-lingui-explicit-id
-#: src/components/auth/RegisterForm.tsx
-msgid "Sign in"
-msgstr "登录"
-
-#. js-lingui-explicit-id
-#: src/components/auth/UserMenu.tsx
-msgid "Profile"
-msgstr "个人资料"
-
-#. js-lingui-explicit-id
-#: src/components/auth/UserMenu.tsx
-msgid "Settings"
-msgstr "设置"
-
-#. js-lingui-explicit-id
-#: src/components/auth/UserMenu.tsx
-msgid "Log out"
-msgstr "退出登录"
-
-#. js-lingui-explicit-id
-#: src/components/auth/ProtectedRoute.tsx
-msgid "Loading..."
-msgstr "加载中..."
-
-#. js-lingui-explicit-id
-#: src/components/auth/LoginForm.tsx
-msgid "Enter your email and password to access your account"
-msgstr "请输入您的电子邮件和密码以访问您的账户"
-
-#. js-lingui-explicit-id
-#: src/components/auth/LoginForm.tsx
-msgid "Signing in..."
-msgstr "正在登录..."
-
-#. js-lingui-explicit-id
-#: src/components/auth/LoginForm.tsx
-msgid "Don't have an account?"
-msgstr "还没有账户？"
-
-#. js-lingui-explicit-id
-#: src/components/auth/LoginForm.tsx
-msgid "Sign up"
-msgstr "注册"
+#: src/components/schedule/ShareSchedule.tsx
+msgid "Close"
+msgstr "关闭"
 
 #. js-lingui-explicit-id
 #: src/components/schedule/ScheduleCalendar.tsx
@@ -523,39 +650,115 @@ msgid "Current Time Slots"
 msgstr "当前时间段"
 
 #. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "Share Schedule"
-msgstr "分享排程"
+#: src/components/auth/ProtectedRoute.tsx
+msgid "Loading..."
+msgstr "加载中..."
 
 #. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "Send this link to others so they can add their availability"
-msgstr "将此链接发送给他人以添加他们的可用时间"
+#: src/components/auth/AuthModal.tsx
+#: src/components/auth/LoginForm.tsx
+#: src/components/auth/LoginForm.tsx
+#: src/components/layout/Layout.tsx
+msgid "Sign In"
+msgstr "登录"
 
 #. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "Schedule Link"
-msgstr "排程链接"
+#: src/components/layout/Layout.tsx
+msgid "Sign Up"
+msgstr "注册"
 
 #. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "Quick Share"
-msgstr "快速分享"
+#: src/components/layout/Layout.tsx
+msgid "© 2025 Zync. All rights reserved."
+msgstr "© 2025 Zync。保留所有权利。"
 
 #. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "SMS"
-msgstr "短信"
+#: src/components/auth/AuthModal.tsx
+#: src/components/auth/RegisterForm.tsx
+#: src/components/auth/RegisterForm.tsx
+msgid "Create Account"
+msgstr "创建账户"
 
 #. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "Others can use this link to view your schedule and add their own availability times."
-msgstr "其他人可以使用此链接查看您的排程并添加他们的可用时间。"
+#: src/components/auth/RegisterForm.tsx
+msgid "Enter your information to create a new account"
+msgstr "输入您的信息以创建新账户"
 
 #. js-lingui-explicit-id
-#: src/components/schedule/ShareSchedule.tsx
-msgid "Close"
-msgstr "关闭"
+#: src/components/auth/RegisterForm.tsx
+msgid "Name"
+msgstr "姓名"
+
+#. js-lingui-explicit-id
+#: src/components/auth/RegisterForm.tsx
+msgid "optional"
+msgstr "可选"
+
+#. js-lingui-explicit-id
+#: src/components/auth/LoginForm.tsx
+#: src/components/auth/RegisterForm.tsx
+msgid "Password"
+msgstr "密码"
+
+#. js-lingui-explicit-id
+#: src/components/auth/RegisterForm.tsx
+msgid "Confirm Password"
+msgstr "确认密码"
+
+#. js-lingui-explicit-id
+#: src/components/auth/RegisterForm.tsx
+msgid "Creating account..."
+msgstr "正在创建账户..."
+
+#. js-lingui-explicit-id
+#: src/components/auth/RegisterForm.tsx
+msgid "Already have an account?"
+msgstr "已经有账户？"
+
+#. js-lingui-explicit-id
+#: src/components/auth/RegisterForm.tsx
+msgid "Sign in"
+msgstr "登录"
+
+#. js-lingui-explicit-id
+#: src/components/auth/LoginForm.tsx
+msgid "Enter your email and password to access your account"
+msgstr "请输入您的电子邮件和密码以访问您的账户"
+
+#. js-lingui-explicit-id
+#: src/components/auth/LoginForm.tsx
+msgid "Signing in..."
+msgstr "正在登录..."
+
+#. js-lingui-explicit-id
+#: src/components/auth/LoginForm.tsx
+msgid "Don't have an account?"
+msgstr "还没有账户？"
+
+#. js-lingui-explicit-id
+#: src/components/auth/LoginForm.tsx
+msgid "Sign up"
+msgstr "注册"
+
+#. js-lingui-explicit-id
+#: src/components/auth/UserMenu.tsx
+msgid "Log out"
+msgstr "退出登录"
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+#~ msgid "Account"
+#~ msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+#~ msgid "Manage your account information"
+#~ msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+#~ msgid "Not logged in"
+#~ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/layout/Layout.tsx

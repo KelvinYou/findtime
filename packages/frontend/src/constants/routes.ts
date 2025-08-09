@@ -7,6 +7,7 @@ export const ROUTES = {
   SCHEDULE_SHARE: '/schedule/:id/share',
   DASHBOARD: '/dashboard',
   PROFILE: '/profile',
+  SETTINGS: '/settings',
 } as const;
 
 export type RouteKeys = keyof typeof ROUTES;
