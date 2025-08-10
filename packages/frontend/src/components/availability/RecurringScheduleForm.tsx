@@ -11,6 +11,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { RecurringAvailability } from '@zync/shared';
 import { useCreateRecurringAvailability } from '@/hooks/useApi';
+import { useToast } from '@/hooks/use-toast';
 
 type RecurringScheduleFormProps = {
   onScheduleCreated: (schedule: RecurringAvailability) => void;
@@ -60,6 +61,7 @@ export function RecurringScheduleForm({
     duration_minutes: 60,
     buffer_time_minutes: 15,
   });
+  const { toast } = useToast();
 
   const handleInputChange = (field: string, value: any) => {
     setFormData(prev => ({ ...prev, [field]: value }));
