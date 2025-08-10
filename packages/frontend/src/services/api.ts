@@ -283,7 +283,7 @@ class ApiClient {
     });
     return response;
   }
-  
+
   // Schedule management (authenticated)
   async createSchedule(data: CreateScheduleDto): Promise<ScheduleResponse> {
     const response = await this.request<ApiResponse<ScheduleResponse>>('/schedules', {

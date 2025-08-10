@@ -63,45 +63,45 @@ function App() {
   return (
     <I18nProvider i18n={i18n}>
       <ThemeProvider>
-        <AuthProvider>
-          <Router>
-            <Routes>
-              {/* Public routes */}
-              <Route path={ROUTES.HOME} element={
-                <Layout locale={locale} changeLocale={changeLocale}>
-                  <HomePage />
-                </Layout>
-              } />
-              <Route path={ROUTES.SCHEDULE} element={
-                <Layout locale={locale} changeLocale={changeLocale}>
-                  <ScheduleViewPage />
-                </Layout>
-              } />
-              
-              {/* Auth routes */}
-              <Route path={ROUTES.LOGIN} element={
-                <ProtectedRoute requireAuth={false}>
-                  <LoginPage />
-                </ProtectedRoute>
-              } />
-              <Route path={ROUTES.REGISTER} element={
-                <ProtectedRoute requireAuth={false}>
-                  <RegisterPage />
-                </ProtectedRoute>
-              } />
-              
+      <AuthProvider>
+        <Router>
+          <Routes>
+            {/* Public routes */}
+            <Route path={ROUTES.HOME} element={
+              <Layout locale={locale} changeLocale={changeLocale}>
+                <HomePage />
+              </Layout>
+            } />
+            <Route path={ROUTES.SCHEDULE} element={
+              <Layout locale={locale} changeLocale={changeLocale}>
+                <ScheduleViewPage />
+              </Layout>
+            } />
+            
+            {/* Auth routes */}
+            <Route path={ROUTES.LOGIN} element={
+              <ProtectedRoute requireAuth={false}>
+                <LoginPage />
+              </ProtectedRoute>
+            } />
+            <Route path={ROUTES.REGISTER} element={
+              <ProtectedRoute requireAuth={false}>
+                <RegisterPage />
+              </ProtectedRoute>
+            } />
+            
               {/* Protected routes with sidebar layout */}
-              <Route path={ROUTES.DASHBOARD} element={
-                <ProtectedRoute>
+            <Route path={ROUTES.DASHBOARD} element={
+              <ProtectedRoute>
                   <SidebarLayout locale={locale} changeLocale={changeLocale}>
-                    <DashboardPage />
+                  <DashboardPage />
                   </SidebarLayout>
-                </ProtectedRoute>
-              } />
-              <Route path={ROUTES.CREATE_SCHEDULE} element={
+              </ProtectedRoute>
+            } />
+            <Route path={ROUTES.CREATE_SCHEDULE} element={
                 <ProtectedRoute>
                   <SidebarLayout locale={locale} changeLocale={changeLocale}>
-                    <CreateSchedulePage />
+                <CreateSchedulePage />
                   </SidebarLayout>
                 </ProtectedRoute>
               } />
@@ -129,10 +129,10 @@ function App() {
               
               {/* Public booking page */}
               <Route path={ROUTES.BOOKING} element={<BookingPage />} />
-            </Routes>
-            <Toaster />
-          </Router>
-        </AuthProvider>
+          </Routes>
+          <Toaster />
+        </Router>
+      </AuthProvider>
       </ThemeProvider>
     </I18nProvider>
   );

@@ -49,14 +49,14 @@ export function UserMenu() {
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
           <Link to={ROUTES.PROFILE}>
-            <User className="mr-2 h-4 w-4" />
-            <Trans id="Profile" />
+          <User className="mr-2 h-4 w-4" />
+          <Trans id="Profile" />
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
           <Link to={ROUTES.SETTINGS}>
-            <Settings className="mr-2 h-4 w-4" />
-            <Trans id="Settings" />
+          <Settings className="mr-2 h-4 w-4" />
+          <Trans id="Settings" />
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
