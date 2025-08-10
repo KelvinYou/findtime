@@ -11,7 +11,8 @@ import {
   Menu, 
   X,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  CalendarClock
 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -62,6 +63,12 @@ export function SidebarLayout({ children, locale, changeLocale }: SidebarLayoutP
       href: ROUTES.DASHBOARD,
       icon: LayoutDashboard,
       current: location.pathname === ROUTES.DASHBOARD,
+    },
+    {
+      name: 'Availability',
+      href: ROUTES.AVAILABILITY,
+      icon: CalendarClock,
+      current: location.pathname === ROUTES.AVAILABILITY,
     },
     {
       name: 'Create Schedule',

@@ -6,6 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import { ScheduleModule } from './schedule/schedule.module';
 import { SupabaseModule } from './supabase/supabase.module';
 import { ProfileModule } from './profile/profile.module';
+import { AvailabilityModule } from './availability/availability.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { ProfileModule } from './profile/profile.module';
     AuthModule,
     ScheduleModule,
     ProfileModule,
+    AvailabilityModule,
   ],
   controllers: [AppController],
   providers: [AppService],

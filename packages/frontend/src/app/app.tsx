@@ -19,6 +19,8 @@ import { RegisterPage } from '@/pages/RegisterPage';
 import { DashboardPage } from '@/pages/DashboardPage';
 import { SettingsPage } from '@/pages/SettingsPage';
 import { ProfilePage } from '@/pages/ProfilePage';
+import { AvailabilityPage } from '@/pages/AvailabilityPage';
+import { BookingPage } from '@/pages/BookingPage';
 import { dynamicActivate, SupportedLocale } from '@/lib/utils';
 import { Toaster } from '@/components/ui/toaster';
 
@@ -110,6 +112,13 @@ function App() {
                   </SidebarLayout>
                 </ProtectedRoute>
               } />
+              <Route path={ROUTES.AVAILABILITY} element={
+                <ProtectedRoute>
+                  <SidebarLayout locale={locale} changeLocale={changeLocale}>
+                    <AvailabilityPage />
+                  </SidebarLayout>
+                </ProtectedRoute>
+              } />
               <Route path={ROUTES.PROFILE} element={
                 <ProtectedRoute>
                   <SidebarLayout locale={locale} changeLocale={changeLocale}>
@@ -117,6 +126,9 @@ function App() {
                   </SidebarLayout>
                 </ProtectedRoute>
               } />
+              
+              {/* Public booking page */}
+              <Route path={ROUTES.BOOKING} element={<BookingPage />} />
             </Routes>
             <Toaster />
           </Router>

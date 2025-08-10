@@ -13,7 +13,24 @@ import {
   RegisterResponse,
   ProfileResponse,
   UpdateProfileDto,
-  UploadAvatarResponse
+  UploadAvatarResponse,
+  // Availability types
+  CreateTimeSlotDto,
+  UpdateTimeSlotDto,
+  CreateRecurringAvailabilityDto,
+  UpdateRecurringAvailabilityDto,
+  CreateFreelancerProfileDto,
+  UpdateFreelancerProfileDto,
+  CreateAppointmentDto,
+  UpdateAppointmentStatusDto,
+  FreelancerAvailabilityResponse,
+  PublicAvailabilityResponse,
+  AvailabilityStats,
+  AvailabilityTimeSlot,
+  RecurringAvailability,
+  FreelancerProfile,
+  Appointment,
+  BookingConfirmationResponse
 } from '@zync/shared';
 import { STORAGE_KEYS } from '@/constants/storage';
 
@@ -109,10 +126,164 @@ class ApiClient {
     const response = await this.request<UploadAvatarResponse>('/profile/avatar', {
       method: 'POST',
       body: formData,
+        });
+    return response;
+  }
+
+  // Freelancer Availability Management
+  async createFreelancerProfile(data: CreateFreelancerProfileDto): Promise<FreelancerProfile> {
+    const response = await this.request<FreelancerProfile>('/availability/profile', {
+      method: 'POST',
+      body: JSON.stringify(data),
     });
     return response;
   }
 
+  async getFreelancerProfile(): Promise<FreelancerProfile> {
+    const response = await this.request<FreelancerProfile>('/availability/profile');
+    return response;
+  }
+
+  async updateFreelancerProfile(data: UpdateFreelancerProfileDto): Promise<FreelancerProfile> {
+    const response = await this.request<FreelancerProfile>('/availability/profile', {
+      method: 'PUT',
+      body: JSON.stringify(data),
+    });
+    return response;
+  }
+
+  // Time Slot Management
+  async createTimeSlot(data: CreateTimeSlotDto): Promise<AvailabilityTimeSlot> {
+    const response = await this.request<AvailabilityTimeSlot>('/availability/slots', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+    return response;
+  }
+
+  async getAvailability(startDate?: string, endDate?: string): Promise<FreelancerAvailabilityResponse> {
+    const params = new URLSearchParams();
+    if (startDate) params.append('start_date', startDate);
+    if (endDate) params.append('end_date', endDate);
+    
+    const response = await this.request<FreelancerAvailabilityResponse>(
+      `/availability/slots?${params.toString()}`
+    );
+    return response;
+  }
+
+  async updateTimeSlot(slotId: string, data: UpdateTimeSlotDto): Promise<AvailabilityTimeSlot> {
+    const response = await this.request<AvailabilityTimeSlot>(`/availability/slots/${slotId}`, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+    });
+    return response;
+  }
+
+  async deleteTimeSlot(slotId: string): Promise<{ message: string }> {
+    const response = await this.request<{ message: string }>(`/availability/slots/${slotId}`, {
+      method: 'DELETE',
+    });
+    return response;
+  }
+
+  // Recurring Availability
+  async createRecurringAvailability(data: CreateRecurringAvailabilityDto): Promise<RecurringAvailability> {
+    const response = await this.request<RecurringAvailability>('/availability/recurring', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+    return response;
+  }
+
+  async getRecurringAvailability(): Promise<RecurringAvailability[]> {
+    const response = await this.request<RecurringAvailability[]>('/availability/recurring');
+    return response;
+  }
+
+  async updateRecurringAvailability(recurringId: string, data: UpdateRecurringAvailabilityDto): Promise<RecurringAvailability> {
+    const response = await this.request<RecurringAvailability>(`/availability/recurring/${recurringId}`, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+    });
+    return response;
+  }
+
+  async deleteRecurringAvailability(recurringId: string): Promise<{ message: string }> {
+    const response = await this.request<{ message: string }>(`/availability/recurring/${recurringId}`, {
+      method: 'DELETE',
+    });
+    return response;
+  }
+
+  async generateSlotsFromRecurring(startDate: string, endDate: string): Promise<{ created_slots: number }> {
+    const response = await this.request<{ created_slots: number }>('/availability/generate-slots', {
+      method: 'POST',
+      body: JSON.stringify({ start_date: startDate, end_date: endDate }),
+    });
+    return response;
+  }
+
+  // Public booking
+  async getPublicAvailability(slug: string, startDate?: string, endDate?: string): Promise<PublicAvailabilityResponse> {
+    const params = new URLSearchParams();
+    if (startDate) params.append('start_date', startDate);
+    if (endDate) params.append('end_date', endDate);
+    
+    const response = await this.request<PublicAvailabilityResponse>(
+      `/availability/public/${slug}?${params.toString()}`
+    );
+    return response;
+  }
+
+  async getAvailabilityStats(): Promise<AvailabilityStats> {
+    const response = await this.request<AvailabilityStats>('/availability/stats');
+    return response;
+  }
+
+  // Booking Management
+  async createAppointment(slug: string, data: CreateAppointmentDto): Promise<BookingConfirmationResponse> {
+    const response = await this.request<BookingConfirmationResponse>(`/booking/${slug}/book`, {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+    return response;
+  }
+
+  async getAppointments(
+    status?: string,
+    startDate?: string,
+    endDate?: string
+  ): Promise<Appointment[]> {
+    const params = new URLSearchParams();
+    if (status) params.append('status', status);
+    if (startDate) params.append('start_date', startDate);
+    if (endDate) params.append('end_date', endDate);
+    
+    const response = await this.request<Appointment[]>(`/booking/appointments?${params.toString()}`);
+    return response;
+  }
+
+  async updateAppointmentStatus(appointmentId: string, status: 'confirmed' | 'cancelled'): Promise<Appointment> {
+    const response = await this.request<Appointment>(`/booking/appointments/${appointmentId}/status`, {
+      method: 'PUT',
+      body: JSON.stringify({ status }),
+    });
+    return response;
+  }
+
+  async getAppointmentByReference(reference: string): Promise<Appointment> {
+    const response = await this.request<Appointment>(`/booking/appointment/${reference}`);
+    return response;
+  }
+
+  async cancelAppointmentByReference(reference: string): Promise<Appointment> {
+    const response = await this.request<Appointment>(`/booking/appointment/${reference}/cancel`, {
+      method: 'PUT',
+    });
+    return response;
+  }
+  
   // Schedule management (authenticated)
   async createSchedule(data: CreateScheduleDto): Promise<ScheduleResponse> {
     const response = await this.request<ApiResponse<ScheduleResponse>>('/schedules', {

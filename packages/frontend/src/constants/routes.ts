@@ -8,6 +8,8 @@ export const ROUTES = {
   DASHBOARD: '/dashboard',
   PROFILE: '/profile',
   SETTINGS: '/settings',
+  AVAILABILITY: '/availability',
+  BOOKING: '/book/:slug',
 } as const;
 
 export type RouteKeys = keyof typeof ROUTES;
