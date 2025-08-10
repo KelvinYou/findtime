@@ -9,9 +9,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { useToast } from '@/hooks/use-toast';
-import { apiClient } from '@/services/api';
-import { CreateRecurringAvailabilityDto, RecurringAvailability } from '@zync/shared';
+import { RecurringAvailability } from '@zync/shared';
+import { useCreateRecurringAvailability } from '@/hooks/useApi';
 
 type RecurringScheduleFormProps = {
   onScheduleCreated: (schedule: RecurringAvailability) => void;
@@ -52,8 +51,7 @@ export function RecurringScheduleForm({
   onCancel, 
   existingSchedules = [] 
 }: RecurringScheduleFormProps) {
-  const { toast } = useToast();
-  const [isLoading, setIsLoading] = useState(false);
+  const createRecurringAvailability = useCreateRecurringAvailability();
   const [conflictWarning, setConflictWarning] = useState<string>('');
   const [formData, setFormData] = useState({
     day_of_week: 1, // Monday by default
@@ -150,45 +148,28 @@ export function RecurringScheduleForm({
     
     if (!validateSchedule()) return;
 
-    setIsLoading(true);
-    try {
-      const scheduleData: CreateRecurringAvailabilityDto = {
-        day_of_week: formData.day_of_week,
-        start_time: formData.start_time,
-        end_time: formData.end_time,
-        duration_minutes: formData.duration_minutes,
-        buffer_time_minutes: formData.buffer_time_minutes,
-      };
+    const scheduleData = {
+      day_of_week: formData.day_of_week,
+      start_time: formData.start_time,
+      end_time: formData.end_time,
+      duration_minutes: formData.duration_minutes,
+      buffer_time_minutes: formData.buffer_time_minutes,
+    };
 
-      const createdSchedule = await apiClient.createRecurringAvailability(scheduleData);
-      
-      const dayName = DAYS_OF_WEEK.find(d => d.value === formData.day_of_week)?.label;
-      toast({
-        title: 'Recurring Schedule Created',
-        description: `${dayName} schedule created: ${formData.start_time} - ${formData.end_time}`,
-      });
-
-      onScheduleCreated(createdSchedule);
-      
-      // Reset form
-      setFormData({
-        day_of_week: 1,
-        start_time: '09:00',
-        end_time: '17:00',
-        duration_minutes: 60,
-        buffer_time_minutes: 15,
-      });
-      
-    } catch (error) {
-      console.error('Failed to create recurring schedule:', error);
-      toast({
-        title: 'Error',
-        description: error instanceof Error ? error.message : 'Failed to create recurring schedule',
-        variant: 'destructive',
-      });
-    } finally {
-      setIsLoading(false);
-    }
+    createRecurringAvailability.mutate(scheduleData, {
+      onSuccess: (createdSchedule) => {
+        onScheduleCreated(createdSchedule);
+        
+        // Reset form
+        setFormData({
+          day_of_week: 1,
+          start_time: '09:00',
+          end_time: '17:00',
+          duration_minutes: 60,
+          buffer_time_minutes: 15,
+        });
+      },
+    });
   };
 
   const slotsCount = calculateSlotsCount(
@@ -343,8 +324,8 @@ export function RecurringScheduleForm({
                 <Trans id="Cancel" />
               </Button>
             )}
-            <Button type="submit" disabled={isLoading || slotsCount === 0}>
-              {isLoading ? (
+            <Button type="submit" disabled={createRecurringAvailability.isPending || slotsCount === 0}>
+              {createRecurringAvailability.isPending ? (
                 <>
                   <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-transparent border-t-current" />
                   <Trans id="Creating..." />

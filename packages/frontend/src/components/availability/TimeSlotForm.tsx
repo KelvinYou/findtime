@@ -8,9 +8,8 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { useToast } from '@/hooks/use-toast';
-import { apiClient } from '@/services/api';
-import { CreateTimeSlotDto, AvailabilityTimeSlot } from '@zync/shared';
+import { AvailabilityTimeSlot } from '@zync/shared';
+import { useCreateTimeSlot } from '@/hooks/useApi';
 
 type TimeSlotFormProps = {
   onSlotCreated: (slot: AvailabilityTimeSlot) => void;
@@ -37,8 +36,7 @@ const BUFFER_OPTIONS = [
 ];
 
 export function TimeSlotForm({ onSlotCreated, onCancel, existingSlots = [] }: TimeSlotFormProps) {
-  const { toast } = useToast();
-  const [isLoading, setIsLoading] = useState(false);
+  const createTimeSlot = useCreateTimeSlot();
   const [conflictWarning, setConflictWarning] = useState<string>('');
   const [formData, setFormData] = useState({
     date: '',
@@ -82,14 +80,9 @@ export function TimeSlotForm({ onSlotCreated, onCancel, existingSlots = [] }: Ti
     return endDate.toTimeString().slice(0, 5); // HH:MM format
   };
 
-  const validateTimeSlot = (): boolean => {
+  const validateTimeSlot = (): string | null => {
     if (!formData.date || !formData.start_time) {
-      toast({
-        title: 'Validation Error',
-        description: 'Please fill in all required fields',
-        variant: 'destructive',
-      });
-      return false;
+      return 'Please fill in all required fields';
     }
 
     // Check if date is in the past
@@ -98,12 +91,7 @@ export function TimeSlotForm({ onSlotCreated, onCancel, existingSlots = [] }: Ti
     today.setHours(0, 0, 0, 0);
     
     if (selectedDate < today) {
-      toast({
-        title: 'Invalid Date',
-        description: 'Cannot create time slots in the past',
-        variant: 'destructive',
-      });
-      return false;
+      return 'Cannot create time slots in the past';
     }
 
     // Check for conflicts
@@ -111,67 +99,47 @@ export function TimeSlotForm({ onSlotCreated, onCancel, existingSlots = [] }: Ti
     if (conflicts.length > 0) {
       const conflictTime = `${conflicts[0].start_time} - ${conflicts[0].end_time}`;
       setConflictWarning(`Time slot conflicts with existing slot: ${conflictTime}`);
-      return false;
+      return `Time slot conflicts with existing slot: ${conflictTime}`;
     }
 
     // Check if end time is valid (not past midnight)
     const endTime = calculateEndTime(formData.start_time, formData.duration_minutes);
     if (endTime < formData.start_time) {
-      toast({
-        title: 'Invalid Time Range',
-        description: 'Time slot cannot extend past midnight',
-        variant: 'destructive',
-      });
-      return false;
+      return 'Time slot cannot extend past midnight';
     }
 
-    return true;
+    return null;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!validateTimeSlot()) return;
+    const validationError = validateTimeSlot();
+    if (validationError) return;
 
-    setIsLoading(true);
-    try {
-      const endTime = calculateEndTime(formData.start_time, formData.duration_minutes);
-      
-      const slotData: CreateTimeSlotDto = {
-        date: formData.date,
-        start_time: formData.start_time,
-        end_time: endTime,
-        duration_minutes: formData.duration_minutes,
-        buffer_time_minutes: formData.buffer_time_minutes,
-      };
+    const endTime = calculateEndTime(formData.start_time, formData.duration_minutes);
+    
+    const slotData = {
+      date: formData.date,
+      start_time: formData.start_time,
+      end_time: endTime,
+      duration_minutes: formData.duration_minutes,
+      buffer_time_minutes: formData.buffer_time_minutes,
+    };
 
-      const createdSlot = await apiClient.createTimeSlot(slotData);
-      
-      toast({
-        title: 'Time Slot Created',
-        description: `Available slot created for ${formData.date} at ${formData.start_time}`,
-      });
-
-      onSlotCreated(createdSlot);
-      
-      // Reset form
-      setFormData({
-        date: '',
-        start_time: '',
-        duration_minutes: 60,
-        buffer_time_minutes: 15,
-      });
-      
-    } catch (error) {
-      console.error('Failed to create time slot:', error);
-      toast({
-        title: 'Error',
-        description: error instanceof Error ? error.message : 'Failed to create time slot',
-        variant: 'destructive',
-      });
-    } finally {
-      setIsLoading(false);
-    }
+    createTimeSlot.mutate(slotData, {
+      onSuccess: (createdSlot) => {
+        onSlotCreated(createdSlot);
+        
+        // Reset form
+        setFormData({
+          date: '',
+          start_time: '',
+          duration_minutes: 60,
+          buffer_time_minutes: 15,
+        });
+      },
+    });
   };
 
   const today = new Date().toISOString().split('T')[0];
@@ -295,8 +263,8 @@ export function TimeSlotForm({ onSlotCreated, onCancel, existingSlots = [] }: Ti
                 <Trans id="Cancel" />
               </Button>
             )}
-            <Button type="submit" disabled={isLoading}>
-              {isLoading ? (
+            <Button type="submit" disabled={createTimeSlot.isPending}>
+              {createTimeSlot.isPending ? (
                 <>
                   <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-transparent border-t-current" />
                   <Trans id="Creating..." />

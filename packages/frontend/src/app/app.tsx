@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { i18n } from '@lingui/core';
 import { I18nProvider } from '@lingui/react';
 
@@ -22,6 +24,7 @@ import { ProfilePage } from '@/pages/ProfilePage';
 import { AvailabilityPage } from '@/pages/AvailabilityPage';
 import { BookingPage } from '@/pages/BookingPage';
 import { dynamicActivate, SupportedLocale } from '@/lib/utils';
+import { queryClient } from '@/lib/queryClient';
 import { Toaster } from '@/components/ui/toaster';
 
 function App() {
@@ -60,11 +63,12 @@ function App() {
     );
   }
 
-  return (
-    <I18nProvider i18n={i18n}>
-      <ThemeProvider>
-      <AuthProvider>
-        <Router>
+    return (
+    <QueryClientProvider client={queryClient}>
+      <I18nProvider i18n={i18n}>
+        <ThemeProvider>
+          <AuthProvider>
+            <Router>
           <Routes>
             {/* Public routes */}
             <Route path={ROUTES.HOME} element={
@@ -129,12 +133,14 @@ function App() {
               
               {/* Public booking page */}
               <Route path={ROUTES.BOOKING} element={<BookingPage />} />
-          </Routes>
-          <Toaster />
-        </Router>
-      </AuthProvider>
+                      </Routes>
+            <Toaster />
+          </Router>
+        </AuthProvider>
       </ThemeProvider>
+      <ReactQueryDevtools initialIsOpen={false} />
     </I18nProvider>
+    </QueryClientProvider>
   );
 }
 

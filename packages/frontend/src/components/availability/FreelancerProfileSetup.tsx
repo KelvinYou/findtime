@@ -10,10 +10,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
 import { Badge } from '@/components/ui/badge';
-import { useToast } from '@/hooks/use-toast';
-import { apiClient } from '@/services/api';
-import { FreelancerProfile, CreateFreelancerProfileDto, UpdateFreelancerProfileDto } from '@zync/shared';
+import { FreelancerProfile } from '@zync/shared';
 import { CURRENCIES } from '@zync/shared/constants/currency';
+import { useCreateFreelancerProfile, useUpdateFreelancerProfile } from '@/hooks/useApi';
 
 type FreelancerProfileSetupProps = {
   existingProfile?: FreelancerProfile | null;
@@ -39,8 +38,8 @@ export function FreelancerProfileSetup({
   onProfileCreated, 
   isEditing = false 
 }: FreelancerProfileSetupProps) {
-  const { toast } = useToast();
-  const [isLoading, setIsLoading] = useState(false);
+  const createFreelancerProfile = useCreateFreelancerProfile();
+  const updateFreelancerProfile = useUpdateFreelancerProfile();
   const [formData, setFormData] = useState({
     business_name: existingProfile?.business_name || '',
     description: existingProfile?.description || '',
@@ -85,50 +84,36 @@ export function FreelancerProfileSetup({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
 
-    try {
-      const profileData = {
-        business_name: formData.business_name,
-        description: formData.description || undefined,
-        services_offered: formData.services_offered.length > 0 ? formData.services_offered : undefined,
-        hourly_rate: formData.hourly_rate ? parseFloat(formData.hourly_rate.toString()) : undefined,
-        currency: formData.currency,
-        time_zone: formData.time_zone,
-        booking_url_slug: formData.booking_url_slug,
-        booking_advance_days: formData.booking_advance_days,
-        cancellation_policy: formData.cancellation_policy || undefined,
-        is_public: formData.is_public,
-      };
+    const profileData = {
+      business_name: formData.business_name,
+      description: formData.description || undefined,
+      services_offered: formData.services_offered.length > 0 ? formData.services_offered : undefined,
+      hourly_rate: formData.hourly_rate ? parseFloat(formData.hourly_rate.toString()) : undefined,
+      currency: formData.currency,
+      time_zone: formData.time_zone,
+      booking_url_slug: formData.booking_url_slug,
+      booking_advance_days: formData.booking_advance_days,
+      cancellation_policy: formData.cancellation_policy || undefined,
+      is_public: formData.is_public,
+    };
 
-      let profile: FreelancerProfile;
-      
-      if (isEditing && existingProfile) {
-        profile = await apiClient.updateFreelancerProfile(profileData as UpdateFreelancerProfileDto);
-        toast({
-          title: 'Profile updated',
-          description: 'Your freelancer profile has been updated successfully',
-        });
-      } else {
-        profile = await apiClient.createFreelancerProfile(profileData as CreateFreelancerProfileDto);
-        toast({
-          title: 'Profile created',
-          description: 'Your freelancer profile has been created successfully',
-        });
-      }
-
-      onProfileCreated(profile);
-    } catch (error) {
-      console.error('Profile save error:', error);
-      toast({
-        title: 'Error',
-        description: error instanceof Error ? error.message : 'Failed to save profile',
-        variant: 'destructive',
+    if (isEditing && existingProfile) {
+      updateFreelancerProfile.mutate(profileData, {
+        onSuccess: (profile) => {
+          onProfileCreated(profile);
+        },
       });
-    } finally {
-      setIsLoading(false);
+    } else {
+      createFreelancerProfile.mutate(profileData, {
+        onSuccess: (profile) => {
+          onProfileCreated(profile);
+        },
+      });
     }
   };
+
+  const isLoading = createFreelancerProfile.isPending || updateFreelancerProfile.isPending;
 
   const bookingUrl = `${window.location.origin}/book/${formData.booking_url_slug}`;
 

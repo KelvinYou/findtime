@@ -7,7 +7,7 @@ alwaysApply: true
 # Zync Architecture
 
 ## Tech Stack
-- **Frontend**: React 18, TypeScript, Shadcn, Vite, React Query
+- **Frontend**: React 18, TypeScript, Shadcn, Vite, React Query, React Hook Form
 - **Backend**: NestJS, Supabase
 - **Monorepo**: Nx workspace with yarn
 

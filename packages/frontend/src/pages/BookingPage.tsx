@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Trans } from '@lingui/react';
 import { 
@@ -19,23 +19,19 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { useToast } from '@/hooks/use-toast';
-import { apiClient } from '@/services/api';
 import { 
-  PublicAvailabilityResponse, 
   AvailabilityTimeSlot,
-  CreateAppointmentDto,
   BookingConfirmationResponse
 } from '@zync/shared';
+import { usePublicAvailability, useCreateAppointment } from '@/hooks/useApi';
 
 export function BookingPage() {
   const { slug } = useParams<{ slug: string }>();
-  const { toast } = useToast();
   
-  const [availabilityData, setAvailabilityData] = useState<PublicAvailabilityResponse | null>(null);
+  const { data: availabilityData, isLoading } = usePublicAvailability(slug || '');
+  const createAppointment = useCreateAppointment(slug || '');
+  
   const [selectedSlot, setSelectedSlot] = useState<AvailabilityTimeSlot | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isBooking, setIsBooking] = useState(false);
   const [bookingComplete, setBookingComplete] = useState<BookingConfirmationResponse | null>(null);
   const [formData, setFormData] = useState({
     customer_name: '',
@@ -43,29 +39,6 @@ export function BookingPage() {
     customer_phone: '',
     customer_message: '',
   });
-
-  useEffect(() => {
-    if (slug) {
-      loadAvailability();
-    }
-  }, [slug]);
-
-  const loadAvailability = async () => {
-    try {
-      setIsLoading(true);
-      const data = await apiClient.getPublicAvailability(slug!);
-      setAvailabilityData(data);
-    } catch (error) {
-      console.error('Failed to load availability:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to load booking page',
-        variant: 'destructive',
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -79,33 +52,19 @@ export function BookingPage() {
     e.preventDefault();
     if (!selectedSlot || !slug) return;
 
-    setIsBooking(true);
-    try {
-      const bookingData: CreateAppointmentDto = {
-        time_slot_id: selectedSlot.id,
-        customer_name: formData.customer_name,
-        customer_email: formData.customer_email,
-        customer_phone: formData.customer_phone || undefined,
-        customer_message: formData.customer_message || undefined,
-      };
+    const bookingData = {
+      time_slot_id: selectedSlot.id,
+      customer_name: formData.customer_name,
+      customer_email: formData.customer_email,
+      customer_phone: formData.customer_phone || undefined,
+      customer_message: formData.customer_message || undefined,
+    };
 
-      const result = await apiClient.createAppointment(slug, bookingData);
-      setBookingComplete(result);
-      
-      toast({
-        title: 'Booking Confirmed',
-        description: 'Your appointment has been booked successfully!',
-      });
-    } catch (error) {
-      console.error('Booking failed:', error);
-      toast({
-        title: 'Booking Failed',
-        description: error instanceof Error ? error.message : 'Failed to book appointment',
-        variant: 'destructive',
-      });
-    } finally {
-      setIsBooking(false);
-    }
+    createAppointment.mutate(bookingData, {
+      onSuccess: (result) => {
+        setBookingComplete(result);
+      },
+    });
   };
 
   if (isLoading) {
@@ -320,8 +279,8 @@ export function BookingPage() {
                       />
                     </div>
 
-                    <Button type="submit" className="w-full" disabled={isBooking}>
-                      {isBooking ? (
+                    <Button type="submit" className="w-full" disabled={createAppointment.isPending}>
+                      {createAppointment.isPending ? (
                         <>
                           <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-transparent border-t-current" />
                           <Trans id="Booking..." />

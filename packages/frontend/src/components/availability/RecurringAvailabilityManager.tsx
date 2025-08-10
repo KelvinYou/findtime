@@ -5,9 +5,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { useToast } from '@/hooks/use-toast';
-import { apiClient } from '@/services/api';
 import { RecurringAvailability } from '@zync/shared';
+import { 
+  useUpdateRecurringAvailability, 
+  useDeleteRecurringAvailability, 
+  useGenerateSlots 
+} from '@/hooks/useApi';
 import { RecurringScheduleForm } from './RecurringScheduleForm';
 
 type RecurringAvailabilityManagerProps = {
@@ -21,75 +24,48 @@ export function RecurringAvailabilityManager({
   recurringAvailability, 
   onAvailabilityUpdated 
 }: RecurringAvailabilityManagerProps) {
-  const { toast } = useToast();
+  const updateRecurringAvailability = useUpdateRecurringAvailability();
+  const deleteRecurringAvailability = useDeleteRecurringAvailability();
+  const generateSlots = useGenerateSlots();
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
-  const [isGenerating, setIsGenerating] = useState(false);
 
   const handleScheduleCreated = (schedule: RecurringAvailability) => {
     setIsAddDialogOpen(false);
     onAvailabilityUpdated();
   };
 
-  const handleToggleSchedule = async (scheduleId: string, isActive: boolean) => {
-    try {
-      await apiClient.updateRecurringAvailability(scheduleId, { is_active: !isActive });
-      toast({
-        title: 'Schedule Updated',
-        description: `Schedule ${!isActive ? 'activated' : 'deactivated'} successfully`,
-      });
-      onAvailabilityUpdated();
-    } catch (error) {
-      console.error('Failed to toggle schedule:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to update schedule',
-        variant: 'destructive',
-      });
-    }
+  const handleToggleSchedule = (scheduleId: string, isActive: boolean) => {
+    updateRecurringAvailability.mutate(
+      { id: scheduleId, data: { is_active: !isActive } },
+      {
+        onSuccess: () => {
+          onAvailabilityUpdated();
+        },
+      }
+    );
   };
 
-  const handleDeleteSchedule = async (scheduleId: string) => {
-    try {
-      await apiClient.deleteRecurringAvailability(scheduleId);
-      toast({
-        title: 'Schedule Deleted',
-        description: 'Recurring schedule has been removed successfully',
-      });
-      onAvailabilityUpdated();
-    } catch (error) {
-      console.error('Failed to delete schedule:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to delete schedule',
-        variant: 'destructive',
-      });
-    }
+  const handleDeleteSchedule = (scheduleId: string) => {
+    deleteRecurringAvailability.mutate(scheduleId, {
+      onSuccess: () => {
+        onAvailabilityUpdated();
+      },
+    });
   };
 
-  const handleGenerateSlots = async () => {
-    try {
-      setIsGenerating(true);
-      
-      // Generate slots for the next 4 weeks
-      const startDate = new Date().toISOString().split('T')[0];
-      const endDate = new Date(Date.now() + 28 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
-      
-      const result = await apiClient.generateSlotsFromRecurring(startDate, endDate);
-      toast({
-        title: 'Slots Generated',
-        description: `${result.created_slots} time slots have been generated from your recurring schedules`,
-      });
-      onAvailabilityUpdated();
-    } catch (error) {
-      console.error('Failed to generate slots:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to generate time slots',
-        variant: 'destructive',
-      });
-    } finally {
-      setIsGenerating(false);
-    }
+  const handleGenerateSlots = () => {
+    // Generate slots for the next 4 weeks
+    const startDate = new Date().toISOString().split('T')[0];
+    const endDate = new Date(Date.now() + 28 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+    
+    generateSlots.mutate(
+      { startDate, endDate },
+      {
+        onSuccess: () => {
+          onAvailabilityUpdated();
+        },
+      }
+    );
   };
 
   const activeSchedules = recurringAvailability.filter(s => s.is_active);
@@ -105,12 +81,12 @@ export function RecurringAvailabilityManager({
             </div>
             <div className="flex items-center space-x-2">
               {activeSchedules.length > 0 && (
-                <Button
-                  variant="outline"
-                  onClick={handleGenerateSlots}
-                  disabled={isGenerating}
-                >
-                  {isGenerating ? (
+                                 <Button
+                   variant="outline"
+                   onClick={handleGenerateSlots}
+                   disabled={generateSlots.isPending}
+                 >
+                   {generateSlots.isPending ? (
                     <>
                       <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-transparent border-t-current" />
                       <Trans id="Generating..." />
@@ -205,12 +181,12 @@ export function RecurringAvailabilityManager({
                   <p className="text-sm text-blue-800 mb-3">
                     <Trans id="Generate individual time slots from your active recurring schedules for the next few weeks." />
                   </p>
-                  <Button
-                    onClick={handleGenerateSlots}
-                    disabled={isGenerating}
-                    size="sm"
-                  >
-                    {isGenerating ? (
+                                     <Button
+                     onClick={handleGenerateSlots}
+                     disabled={generateSlots.isPending}
+                     size="sm"
+                   >
+                     {generateSlots.isPending ? (
                       <>
                         <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-transparent border-t-current" />
                         <Trans id="Generating..." />

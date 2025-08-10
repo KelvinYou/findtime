@@ -5,9 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { useToast } from '@/hooks/use-toast';
-import { apiClient } from '@/services/api';
 import { FreelancerAvailabilityResponse, AvailabilityTimeSlot } from '@zync/shared';
+import { useDeleteTimeSlot } from '@/hooks/useApi';
 import { TimeSlotForm } from './TimeSlotForm';
 
 type AvailabilityCalendarProps = {
@@ -16,7 +15,7 @@ type AvailabilityCalendarProps = {
 };
 
 export function AvailabilityCalendar({ availability, onAvailabilityUpdated }: AvailabilityCalendarProps) {
-  const { toast } = useToast();
+  const deleteTimeSlot = useDeleteTimeSlot();
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState<string>('');
 
@@ -25,22 +24,12 @@ export function AvailabilityCalendar({ availability, onAvailabilityUpdated }: Av
     onAvailabilityUpdated();
   };
 
-  const handleDeleteSlot = async (slotId: string) => {
-    try {
-      await apiClient.deleteTimeSlot(slotId);
-      toast({
-        title: 'Time Slot Deleted',
-        description: 'The time slot has been removed successfully',
-      });
-      onAvailabilityUpdated();
-    } catch (error) {
-      console.error('Failed to delete time slot:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to delete time slot',
-        variant: 'destructive',
-      });
-    }
+  const handleDeleteSlot = (slotId: string) => {
+    deleteTimeSlot.mutate(slotId, {
+      onSuccess: () => {
+        onAvailabilityUpdated();
+      },
+    });
   };
 
   const groupSlotsByDate = (slots: AvailabilityTimeSlot[]) => {

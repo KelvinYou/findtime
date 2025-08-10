@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Trans } from '@lingui/react';
 import { 
   Calendar, 
@@ -19,16 +19,12 @@ import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Separator } from '@/components/ui/separator';
 import { useAuth } from '@/contexts/AuthContext';
-import { useToast } from '@/hooks/use-toast';
-import { apiClient } from '@/services/api';
 import { 
-  FreelancerProfile, 
-  FreelancerAvailabilityResponse, 
-  AvailabilityStats,
-  RecurringAvailability,
-  AvailabilityTimeSlot,
-  Appointment
-} from '@zync/shared';
+  useFreelancerProfile,
+  useAvailability,
+  useAvailabilityStats,
+  useAppointments
+} from '@/hooks/useApi';
 import { FreelancerProfileSetup } from '@/components/availability/FreelancerProfileSetup';
 import { AvailabilityCalendar } from '@/components/availability/AvailabilityCalendar';
 import { RecurringAvailabilityManager } from '@/components/availability/RecurringAvailabilityManager';
@@ -36,65 +32,27 @@ import { AppointmentsList } from '@/components/availability/AppointmentsList';
 
 export function AvailabilityPage() {
   const { user } = useAuth();
-  const { toast } = useToast();
-  
-  const [freelancerProfile, setFreelancerProfile] = useState<FreelancerProfile | null>(null);
-  const [availability, setAvailability] = useState<FreelancerAvailabilityResponse | null>(null);
-  const [stats, setStats] = useState<AvailabilityStats | null>(null);
-  const [appointments, setAppointments] = useState<Appointment[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('overview');
 
-  useEffect(() => {
-    loadData();
-  }, []);
+  // React Query hooks
+  const { data: freelancerProfile, isLoading: profileLoading, refetch: refetchProfile } = useFreelancerProfile();
+  const { data: availability, refetch: refetchAvailability } = useAvailability();
+  const { data: stats, refetch: refetchStats } = useAvailabilityStats();
+  const { data: appointments, refetch: refetchAppointments } = useAppointments();
 
-  const loadData = async () => {
-    try {
-      setIsLoading(true);
-      
-      // Try to load freelancer profile
-      let profile: FreelancerProfile | null = null;
-      try {
-        profile = await apiClient.getFreelancerProfile();
-        setFreelancerProfile(profile);
-      } catch (error) {
-        // Profile doesn't exist yet
-        setFreelancerProfile(null);
-        setIsLoading(false);
-        return;
-      }
+  const isLoading = profileLoading;
 
-      // If profile exists, load other data
-      const [availabilityData, statsData, appointmentsData] = await Promise.all([
-        apiClient.getAvailability(),
-        apiClient.getAvailabilityStats(),
-        apiClient.getAppointments()
-      ]);
-
-      setAvailability(availabilityData);
-      setStats(statsData);
-      setAppointments(appointmentsData);
-      
-    } catch (error) {
-      console.error('Failed to load availability data:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to load availability data',
-        variant: 'destructive',
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleProfileCreated = (profile: FreelancerProfile) => {
-    setFreelancerProfile(profile);
-    loadData(); // Reload all data
+  const handleProfileCreated = () => {
+    refetchProfile();
+    refetchAvailability();
+    refetchStats();
+    refetchAppointments();
   };
 
   const handleAvailabilityUpdated = () => {
-    loadData(); // Reload data when availability changes
+    refetchAvailability();
+    refetchStats();
+    refetchAppointments();
   };
 
   if (isLoading) {
@@ -218,20 +176,20 @@ export function AvailabilityPage() {
             </CardContent>
           </Card>
 
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">
-                <Trans id="Upcoming" />
-              </CardTitle>
-              <Clock className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">{stats.upcoming_appointments.length}</div>
-              <p className="text-xs text-muted-foreground">
-                <Trans id="appointments" />
-              </p>
-            </CardContent>
-          </Card>
+                      <Card>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">
+                  <Trans id="Upcoming" />
+                </CardTitle>
+                <Clock className="h-4 w-4 text-muted-foreground" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">{stats?.upcoming_appointments?.length || 0}</div>
+                <p className="text-xs text-muted-foreground">
+                  <Trans id="appointments" />
+                </p>
+              </CardContent>
+            </Card>
         </div>
       )}
 
@@ -308,9 +266,9 @@ export function AvailabilityPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                {stats?.upcoming_appointments && stats.upcoming_appointments.length > 0 ? (
+                {appointments && appointments.length > 0 ? (
                   <div className="space-y-3">
-                    {stats.upcoming_appointments.slice(0, 3).map((appointment) => (
+                    {appointments.slice(0, 3).map((appointment) => (
                       <div key={appointment.id} className="flex items-center space-x-3">
                         <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
                         <div className="flex-1">
@@ -353,7 +311,7 @@ export function AvailabilityPage() {
 
         <TabsContent value="calendar">
           <AvailabilityCalendar 
-            availability={availability}
+            availability={availability || null}
             onAvailabilityUpdated={handleAvailabilityUpdated}
           />
         </TabsContent>
@@ -367,7 +325,7 @@ export function AvailabilityPage() {
 
         <TabsContent value="appointments">
           <AppointmentsList 
-            appointments={appointments}
+            appointments={appointments || []}
             onAppointmentUpdated={handleAvailabilityUpdated}
           />
         </TabsContent>
