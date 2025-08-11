@@ -106,7 +106,7 @@ export function ScheduleCalendar({
             <h3 className="text-lg font-medium mb-2">
               <Trans id="Select Available Dates" />
             </h3>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-muted-foreground">
               <Trans id="Click on dates when you're available" />
             </p>
           </div>
@@ -115,7 +115,7 @@ export function ScheduleCalendar({
             selected={selectedDates}
             onSelect={(dates) => dates && onDatesChange(dates)}
             disabled={(date) => date < new Date()}
-            className="rounded-md border bg-white"
+            className="rounded-xl border border-border bg-card shadow-sm"
           />
         </div>
 
@@ -125,13 +125,13 @@ export function ScheduleCalendar({
             <h3 className="text-lg font-medium mb-2">
               <Trans id="Selected Dates" />
             </h3>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-muted-foreground">
               <Trans id="Click on a date to set specific time slots" />
             </p>
           </div>
           
           {selectedDates.length === 0 ? (
-            <div className="text-center py-8 text-gray-500">
+            <div className="text-center py-8 text-muted-foreground">
               <CalendarIcon className="h-12 w-12 mx-auto mb-2 opacity-50" />
               <p>
                 <Trans id="No dates selected yet" />
@@ -144,7 +144,7 @@ export function ScheduleCalendar({
                 .map((date, index) => {
                   const slots = getTimeSlotsForDate(date);
                   return (
-                    <Card key={index} className="cursor-pointer hover:bg-gray-50 transition-colors">
+                    <Card key={index} className="cursor-pointer hover:bg-muted/50 transition-colors">
                       <CardContent 
                         className="p-4"
                         onClick={() => setSelectedDateForTime(date)}
@@ -154,7 +154,7 @@ export function ScheduleCalendar({
                             <div className="font-medium">
                               {format(date, 'EEEE, MMMM d, yyyy')}
                             </div>
-                            <div className="text-sm text-gray-500">
+                            <div className="text-sm text-muted-foreground">
                               {slots.length > 0 
                                 ? `${slots.length} time slot${slots.length === 1 ? '' : 's'}`
                                 : 'No time slots set'
@@ -240,7 +240,7 @@ function TimeSlotEditor({ date, timeSlots, onAdd, onRemove }: TimeSlotEditorProp
   return (
     <div className="space-y-4">
       {/* Add New Time Slot */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 bg-gray-50 rounded-lg">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 bg-muted/50 rounded-lg">
         <div>
           <Label htmlFor="start-time">
             <Trans id="Start Time" />

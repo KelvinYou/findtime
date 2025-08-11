@@ -54,10 +54,18 @@ function App() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5 flex items-center justify-center">
         <div className="text-center">
-          <Clock className="h-12 w-12 text-blue-600 mx-auto mb-4 animate-spin" />
-          <p className="text-gray-600">Loading...</p>
+          <div className="relative mb-8">
+            <Clock className="h-16 w-16 text-primary mx-auto animate-spin float" />
+            <div className="absolute inset-0 h-16 w-16 bg-primary/30 rounded-full blur-xl pulse-soft mx-auto" />
+          </div>
+          <div className="space-y-2">
+            <h2 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              Zync
+            </h2>
+            <p className="text-muted-foreground animate-pulse">Loading your experience...</p>
+          </div>
         </div>
       </div>
     );

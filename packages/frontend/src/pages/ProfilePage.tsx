@@ -138,7 +138,7 @@ export function ProfilePage() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center">
-            <Camera className="mr-2 h-5 w-5" />
+            <Camera className="mr-2 h-5 w-5 text-primary" />
             <Trans id="Profile Picture" />
           </CardTitle>
           <CardDescription>
@@ -189,7 +189,7 @@ export function ProfilePage() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center">
-            <User className="mr-2 h-5 w-5" />
+            <User className="mr-2 h-5 w-5 text-primary" />
             <Trans id="Personal Information" />
           </CardTitle>
           <CardDescription>
@@ -259,7 +259,7 @@ export function ProfilePage() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center">
-            <Shield className="mr-2 h-5 w-5" />
+            <Shield className="mr-2 h-5 w-5 text-primary" />
             <Trans id="Account Information" />
           </CardTitle>
           <CardDescription>

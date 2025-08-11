@@ -2,7 +2,6 @@ import { useState, useEffect, ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Trans } from '@lingui/react';
 import { 
-  Clock, 
   LayoutDashboard, 
   Calendar, 
   Plus, 
@@ -50,7 +49,6 @@ export function SidebarLayout({ children, locale, changeLocale }: SidebarLayoutP
     }
   }, []);
 
-  // Save sidebar state to localStorage
   const toggleSidebar = () => {
     const newState = !isCollapsed;
     setIsCollapsed(newState);
@@ -97,66 +95,96 @@ export function SidebarLayout({ children, locale, changeLocale }: SidebarLayoutP
   ];
 
   return (
-    <div className="flex h-screen bg-background">
+    <div className="flex h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5">
       {/* Sidebar */}
       <div className={cn(
-        "hidden lg:flex lg:flex-col lg:fixed lg:inset-y-0",
+        "hidden lg:flex lg:flex-col lg:fixed lg:inset-y-0 z-40",
         isCollapsed ? "lg:w-16" : "lg:w-64"
       )}>
-        <div className="flex flex-col flex-1 bg-card border-r border-border">
+        <div className="flex flex-col flex-1 glass border-r border-border/50 shadow-2xl">
           {/* Logo and Toggle */}
-          <div className="flex items-center justify-between p-4 border-b border-border">
+          <div className={cn(
+            "flex items-center p-4 border-b border-border/50",
+            isCollapsed ? "justify-center" : "justify-between"
+          )}>
             <Link 
               to={ROUTES.DASHBOARD} 
               className={cn(
-                "flex items-center space-x-2",
-                isCollapsed && "justify-center"
+                "flex items-center group transition-all duration-300 hover:scale-105",
+                isCollapsed ? "justify-center" : "space-x-3"
               )}
             >
-              <Clock className="h-8 w-8 text-primary flex-shrink-0" />
+              <div className="relative">
+                <img 
+                  src="/favicon-32x32.png" 
+                  alt="Zync Logo" 
+                  className="h-8 w-8 flex-shrink-0 transition-transform duration-300 group-hover:scale-110" 
+                />
+                <div className="absolute inset-0 h-8 w-8 bg-primary/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
               {!isCollapsed && (
-                <span className="text-xl font-bold text-foreground">Zync</span>
+                <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  Zync
+                </span>
               )}
             </Link>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleSidebar}
-              className="h-8 w-8 p-0"
-            >
-              {isCollapsed ? (
-                <ChevronRight className="h-4 w-4" />
-              ) : (
-                <ChevronLeft className="h-4 w-4" />
-              )}
-            </Button>
+            {!isCollapsed && (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={toggleSidebar}
+                className="h-8 w-8 p-0 hover:bg-primary/10 transition-all duration-300"
+              >
+                <ChevronLeft className="h-4 w-4 text-primary" />
+              </Button>
+            )}
+            {isCollapsed && (
+              <div className="absolute top-4 right-2">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={toggleSidebar}
+                  className="h-8 w-8 p-0 hover:bg-primary/10 transition-all duration-300"
+                >
+                  <ChevronRight className="h-4 w-4 text-primary" />
+                </Button>
+              </div>
+            )}
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1 px-2 py-4 space-y-1">
+          <nav className="flex-1 px-3 py-6 space-y-2">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
                 className={cn(
-                  "group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors",
+                  "group flex items-center px-3 py-3 text-sm font-medium rounded-xl transition-all duration-300 relative overflow-hidden",
                   item.current
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
+                    ? "bg-gradient-to-r from-primary to-secondary text-primary-foreground shadow-lg transform scale-105"
+                    : "text-muted-foreground hover:bg-gradient-to-r hover:from-primary/10 hover:to-secondary/10 hover:text-primary hover:scale-105 hover:shadow-md",
                   isCollapsed ? "justify-center" : "space-x-3"
                 )}
                 title={isCollapsed ? item.name : undefined}
               >
-                <item.icon className="h-5 w-5 flex-shrink-0" />
+                {item.current && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-xl blur-lg" />
+                )}
+                <item.icon className={cn(
+                  "h-5 w-5 flex-shrink-0 transition-transform duration-300 group-hover:scale-110 relative z-10",
+                  item.current && "drop-shadow-sm"
+                )} />
                 {!isCollapsed && (
-                  <Trans id={item.name} />
+                  <span className="relative z-10">
+                    <Trans id={item.name} />
+                  </span>
                 )}
               </Link>
             ))}
           </nav>
 
           {/* Footer */}
-          <div className="p-4 border-t border-border">
+          <div className="p-4 border-t border-border/50 bg-gradient-to-r from-muted/30 to-accent/30">
             <div className={cn(
               "flex items-center",
               isCollapsed ? "justify-center" : "justify-between"
@@ -178,47 +206,64 @@ export function SidebarLayout({ children, locale, changeLocale }: SidebarLayoutP
       {/* Mobile Sidebar */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
-          <div className="fixed inset-0 bg-black/20" onClick={() => setIsMobileMenuOpen(false)} />
-          <div className="fixed inset-y-0 left-0 w-64 bg-card border-r border-border">
+          <div className="fixed inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setIsMobileMenuOpen(false)} />
+          <div className="fixed inset-y-0 left-0 w-64 glass border-r border-border/50 shadow-2xl">
             <div className="flex flex-col h-full">
               {/* Mobile Header */}
-              <div className="flex items-center justify-between p-4 border-b border-border">
-                <Link to={ROUTES.DASHBOARD} className="flex items-center space-x-2">
-                  <Clock className="h-8 w-8 text-primary" />
-                  <span className="text-xl font-bold text-foreground">Zync</span>
+              <div className="flex items-center justify-between p-4 border-b border-border/50">
+                <Link to={ROUTES.DASHBOARD} className="flex items-center space-x-3 group">
+                  <div className="relative">
+                    <img 
+                      src="/favicon-32x32.png" 
+                      alt="Zync Logo" 
+                      className="h-8 w-8 transition-transform duration-300 group-hover:scale-110" 
+                    />
+                    <div className="absolute inset-0 h-8 w-8 bg-primary/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                  <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                    Zync
+                  </span>
                 </Link>
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="h-8 w-8 p-0"
+                  className="h-8 w-8 p-0 hover:bg-primary/10 transition-all duration-300"
                 >
-                  <X className="h-4 w-4" />
+                  <X className="h-4 w-4 text-primary" />
                 </Button>
               </div>
 
               {/* Mobile Navigation */}
-              <nav className="flex-1 px-2 py-4 space-y-1">
+              <nav className="flex-1 px-3 py-6 space-y-2">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
                     to={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={cn(
-                      "group flex items-center space-x-3 px-2 py-2 text-sm font-medium rounded-md transition-colors",
+                      "group flex items-center space-x-3 px-3 py-3 text-sm font-medium rounded-xl transition-all duration-300 relative overflow-hidden",
                       item.current
-                        ? "bg-primary text-primary-foreground"
-                        : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                        ? "bg-gradient-to-r from-primary to-secondary text-primary-foreground shadow-lg transform scale-105"
+                        : "text-muted-foreground hover:bg-gradient-to-r hover:from-primary/10 hover:to-secondary/10 hover:text-primary hover:scale-105 hover:shadow-md"
                     )}
                   >
-                    <item.icon className="h-5 w-5 flex-shrink-0" />
-                    <Trans id={item.name} />
+                    {item.current && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-xl blur-lg" />
+                    )}
+                    <item.icon className={cn(
+                      "h-5 w-5 flex-shrink-0 transition-transform duration-300 group-hover:scale-110 relative z-10",
+                      item.current && "drop-shadow-sm"
+                    )} />
+                    <span className="relative z-10">
+                      <Trans id={item.name} />
+                    </span>
                   </Link>
                 ))}
               </nav>
 
               {/* Mobile Footer */}
-              <div className="p-4 border-t border-border">
+              <div className="p-4 border-t border-border/50 bg-gradient-to-r from-muted/30 to-accent/30">
                 <div className="flex items-center justify-between">
                   <LocaleSelector 
                     currentLocale={locale}
@@ -241,19 +286,28 @@ export function SidebarLayout({ children, locale, changeLocale }: SidebarLayoutP
         isCollapsed && "lg:ml-16"
       )}>
         {/* Mobile Header */}
-        <div className="lg:hidden flex items-center justify-between p-4 border-b border-border bg-card">
+        <div className="lg:hidden flex items-center justify-between p-4 border-b border-border/50 glass sticky top-0 z-30">
           <Button
             variant="ghost"
             size="sm"
             onClick={() => setIsMobileMenuOpen(true)}
-            className="h-8 w-8 p-0"
+            className="h-8 w-8 p-0 hover:bg-primary/10 transition-all duration-300"
           >
-            <Menu className="h-4 w-4" />
+            <Menu className="h-4 w-4 text-primary" />
           </Button>
           
-          <Link to={ROUTES.DASHBOARD} className="flex items-center space-x-2">
-            <Clock className="h-6 w-6 text-primary" />
-            <span className="text-lg font-bold text-foreground">Zync</span>
+          <Link to={ROUTES.DASHBOARD} className="flex items-center space-x-2 group">
+            <div className="relative">
+              <img 
+                src="/favicon-32x32.png" 
+                alt="Zync Logo" 
+                className="h-6 w-6 transition-transform duration-300 group-hover:scale-110" 
+              />
+              <div className="absolute inset-0 h-6 w-6 bg-primary/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <span className="text-lg font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              Zync
+            </span>
           </Link>
 
           <div className="flex items-center space-x-2">
@@ -268,8 +322,10 @@ export function SidebarLayout({ children, locale, changeLocale }: SidebarLayoutP
         </div>
 
         {/* Page Content */}
-        <main className="flex-1 overflow-y-auto">
-          {children}
+        <main className="flex-1 overflow-y-auto bg-gradient-to-br from-background via-muted/10 to-accent/10">
+          <div className="container-padding py-4 sm:py-6 lg:py-8">
+            {children}
+          </div>
         </main>
       </div>
     </div>

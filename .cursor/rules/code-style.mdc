@@ -10,3 +10,4 @@ alwaysApply: true
 - **Prettier**: 2-space indentation, single quotes, trailing commas, semicolons
 - **Print width**: 80 characters
 - **ESLint**: No unused imports, consistent import ordering, prefer const over let
+- **Date format**: `DD MMMM YYYY` (e.g., 11 Aug 2025)

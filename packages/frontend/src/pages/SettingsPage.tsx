@@ -50,7 +50,7 @@ export function SettingsPage({ locale, changeLocale }: SettingsPageProps) {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center">
-            <Monitor className="mr-2 h-5 w-5" />
+            <Monitor className="mr-2 h-5 w-5 text-primary" />
             <Trans id="Appearance" />
           </CardTitle>
           <CardDescription>
@@ -101,7 +101,7 @@ export function SettingsPage({ locale, changeLocale }: SettingsPageProps) {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center">
-            <Globe className="mr-2 h-5 w-5" />
+            <Globe className="mr-2 h-5 w-5 text-primary" />
             <Trans id="Language & Region" />
           </CardTitle>
           <CardDescription>
@@ -144,7 +144,7 @@ export function SettingsPage({ locale, changeLocale }: SettingsPageProps) {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center">
-            <Bell className="mr-2 h-5 w-5" />
+            <Bell className="mr-2 h-5 w-5 text-primary" />
             <Trans id="Notifications" />
           </CardTitle>
           <CardDescription>

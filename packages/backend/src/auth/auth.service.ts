@@ -10,6 +10,42 @@ export class AuthService {
     private supabaseService: SupabaseService,
   ) {}
 
+  /**
+   * Ensures a profile record exists for the given user
+   * Creates one if it doesn't exist
+   */
+  private async ensureProfileExists(user: any): Promise<void> {
+    const supabase = this.supabaseService.getClient();
+    
+    // Check if profile already exists
+    const { data: existingProfile } = await supabase
+      .from('profiles')
+      .select('id')
+      .eq('id', user.id)
+      .single();
+    
+    if (existingProfile) {
+      // Profile already exists
+      return;
+    }
+    
+    // Create profile record
+    const { error: insertError } = await supabase
+      .from('profiles')
+      .insert({
+        id: user.id,
+        email: user.email,
+        display_name: user.user_metadata?.name || user.email?.split('@')[0] || null,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      });
+    
+    if (insertError && !insertError.message.includes('duplicate key')) {
+      // Ignore duplicate key errors (race condition protection)
+      console.warn(`Failed to create profile for user ${user.id}: ${insertError.message}`);
+    }
+  }
+
   async register(registerDto: RegisterDto): Promise<RegisterResponse> {
     const { email, password, name } = registerDto;
     const supabase = this.supabaseService.getClient();
@@ -26,6 +62,11 @@ export class AuthService {
 
     if (error) {
       throw new BadRequestException(error.message);
+    }
+
+    // Ensure profile exists
+    if (data.user) {
+      await this.ensureProfileExists(data.user);
     }
 
     const user: AuthUser = {
@@ -56,6 +97,11 @@ export class AuthService {
 
     if (error) {
       throw new UnauthorizedException('Invalid credentials');
+    }
+
+    // Ensure profile exists
+    if (data.user) {
+      await this.ensureProfileExists(data.user);
     }
 
     const payload = {

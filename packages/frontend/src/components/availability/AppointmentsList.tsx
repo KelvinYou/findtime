@@ -15,7 +15,7 @@ export function AppointmentsList({ appointments, onAppointmentUpdated }: Appoint
     <Card>
       <CardHeader>
         <CardTitle className="flex items-center">
-          <Users className="mr-2 h-5 w-5" />
+          <Users className="mr-2 h-5 w-5 text-primary" />
           <Trans id="Appointments" />
         </CardTitle>
         <CardDescription>
@@ -38,19 +38,19 @@ export function AppointmentsList({ appointments, onAppointmentUpdated }: Appoint
                       {appointment.status}
                     </Badge>
                   </div>
-                  <p className="text-sm text-gray-600">{appointment.customer_email}</p>
-                  <div className="flex items-center space-x-4 mt-1 text-sm text-gray-500">
+                  <p className="text-sm text-muted-foreground">{appointment.customer_email}</p>
+                  <div className="flex items-center space-x-4 mt-1 text-sm text-muted-foreground">
                     <span className="flex items-center">
-                      <Calendar className="mr-1 h-3 w-3" />
+                      <Calendar className="mr-1 h-3 w-3 text-muted-foreground" />
                       {appointment.appointment_date}
                     </span>
                     <span className="flex items-center">
-                      <Clock className="mr-1 h-3 w-3" />
+                      <Clock className="mr-1 h-3 w-3 text-muted-foreground" />
                       {appointment.start_time} - {appointment.end_time}
                     </span>
                   </div>
                   {appointment.customer_message && (
-                    <p className="text-sm text-gray-600 mt-2">
+                    <p className="text-sm text-muted-foreground mt-2">
                       "{appointment.customer_message}"
                     </p>
                   )}
@@ -72,11 +72,11 @@ export function AppointmentsList({ appointments, onAppointmentUpdated }: Appoint
           </div>
         ) : (
           <div className="text-center py-12">
-            <Users className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-gray-900 mb-2">
+            <Users className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+            <h3 className="text-lg font-medium text-foreground mb-2">
               <Trans id="No Appointments" />
             </h3>
-            <p className="text-gray-600">
+            <p className="text-muted-foreground">
               <Trans id="Your appointments will appear here once customers start booking." />
             </p>
           </div>

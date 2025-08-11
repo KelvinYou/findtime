@@ -80,7 +80,7 @@ export function LocaleSelector({
         <Button 
           variant="ghost" 
           size={size}
-          className="h-8 px-2 hover:bg-gray-100 focus:bg-gray-100"
+          className="h-8 px-2 hover:bg-muted focus:bg-muted"
           aria-label="Select language"
         >
           {triggerContent}
@@ -97,11 +97,11 @@ export function LocaleSelector({
               <span className="text-lg">{locale.flag}</span>
               <div className="flex flex-col">
                 <span className="text-sm font-medium">{locale.nativeName}</span>
-                <span className="text-xs text-gray-500">{locale.englishName}</span>
+                <span className="text-xs text-muted-foreground">{locale.englishName}</span>
               </div>
             </div>
             {currentLocale === locale.code && (
-              <Check className="h-4 w-4 text-blue-600" />
+              <Check className="h-4 w-4 text-primary" />
             )}
           </DropdownMenuItem>
         ))}

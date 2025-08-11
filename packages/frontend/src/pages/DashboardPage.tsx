@@ -109,7 +109,7 @@ export function DashboardPage() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center">
-                <Calendar className="mr-2 h-5 w-5" />
+                <Calendar className="mr-2 h-5 w-5 text-primary" />
                 <Trans id="Create a Schedule" />
               </CardTitle>
               <CardDescription>
@@ -121,7 +121,7 @@ export function DashboardPage() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center">
-                <Users className="mr-2 h-5 w-5" />
+                <Users className="mr-2 h-5 w-5 text-primary" />
                 <Trans id="Share with Others" />
               </CardTitle>
               <CardDescription>

@@ -165,7 +165,7 @@ export default function CreateSchedulePage() {
           <Card>
             <CardHeader>
               <CardTitle className="text-lg flex items-center">
-                <User className="h-5 w-5 mr-2" />
+                <User className="mr-2 h-5 w-5 text-primary" />
                 <Trans id="Your Information" />
               </CardTitle>
               <CardDescription>
@@ -224,7 +224,7 @@ export default function CreateSchedulePage() {
           <Card>
             <CardHeader>
               <CardTitle className="text-lg flex items-center">
-                <Clock className="h-5 w-5 mr-2" />
+                <Clock className="mr-2 h-5 w-5 text-primary" />
                 <Trans id="Schedule Details" />
               </CardTitle>
               <CardDescription>
@@ -268,7 +268,7 @@ export default function CreateSchedulePage() {
           <Card>
             <CardHeader>
               <CardTitle className="text-lg flex items-center">
-                <CalendarIcon className="h-5 w-5 mr-2" />
+                <CalendarIcon className="mr-2 h-5 w-5 text-primary" />
                 <Trans id="Available Dates & Times" />
               </CardTitle>
               <CardDescription>

@@ -14,12 +14,59 @@ import {
 export class ScheduleService {
   constructor(private supabaseService: SupabaseService) {}
 
+  /**
+   * Ensures a profile record exists for the given user ID
+   * Creates one if it doesn't exist
+   */
+  private async ensureProfileExists(userId: string): Promise<void> {
+    const supabase = this.supabaseService.getClient();
+    
+    // Check if profile already exists
+    const { data: existingProfile, error: checkError } = await supabase
+      .from('profiles')
+      .select('id')
+      .eq('id', userId)
+      .single();
+    
+    if (existingProfile) {
+      // Profile already exists
+      return;
+    }
+    
+    // Get user data from auth.users to create profile
+    const { data: authUser, error: authError } = await supabase.auth.admin.getUserById(userId);
+    
+    if (authError || !authUser?.user) {
+      throw new Error('Unable to fetch user data for profile creation');
+    }
+    
+    // Create profile record
+    const { error: insertError } = await supabase
+      .from('profiles')
+      .insert({
+        id: userId,
+        email: authUser.user.email,
+        display_name: authUser.user.user_metadata?.name || authUser.user.email?.split('@')[0] || null,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      });
+    
+    if (insertError) {
+      throw new Error(`Failed to create profile: ${insertError.message}`);
+    }
+  }
+
   async create(createScheduleDto: CreateScheduleDto, userId?: string): Promise<ApiResponse<ScheduleResponse>> {
     const supabase = this.supabaseService.getClient();
     
     // Validate guest user data if not authenticated
     if (!userId && !createScheduleDto.creatorName) {
       throw new Error('Creator name is required for guest users');
+    }
+
+    // Ensure profile exists for authenticated users
+    if (userId) {
+      await this.ensureProfileExists(userId);
     }
 
     // Prepare insert data
