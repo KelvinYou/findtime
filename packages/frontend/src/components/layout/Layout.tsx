@@ -41,7 +41,16 @@ export function Layout({ children, locale, changeLocale }: LayoutProps) {
             </span>
           </Link>
           
-                      <div className="flex items-center space-x-2 sm:space-x-4">
+          <nav className="hidden md:flex items-center space-x-6">
+            <Link 
+              to={ROUTES.ABOUT}
+              className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+            >
+              <Trans id="About" />
+            </Link>
+          </nav>
+          
+          <div className="flex items-center space-x-2 sm:space-x-4">
             <LocaleSelector 
               currentLocale={locale}
               onLocaleChange={changeLocale}
@@ -101,6 +110,20 @@ export function Layout({ children, locale, changeLocale }: LayoutProps) {
             <p className="text-white/80 text-base sm:text-lg lg:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
               <Trans id="Streamline your scheduling and make time management effortless with our modern platform." />
             </p>
+            <div className="flex justify-center space-x-6 mb-8">
+              <Link 
+                to={ROUTES.ABOUT} 
+                className="text-white/70 hover:text-white transition-colors duration-200"
+              >
+                <Trans id="About" />
+              </Link>
+              <Link 
+                to={ROUTES.HOME} 
+                className="text-white/70 hover:text-white transition-colors duration-200"
+              >
+                <Trans id="Home" />
+              </Link>
+            </div>
             <div className="border-t border-white/20 pt-8">
               <p className="text-white/60">
                 <Trans id="© 2025 Zync. All rights reserved." /> 

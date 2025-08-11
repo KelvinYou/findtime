@@ -15,6 +15,7 @@ import { ROUTES } from '@/constants/routes';
 import { STORAGE_KEYS } from '@/constants/storage';
 import CreateSchedulePage from '@/pages/CreateSchedulePage';
 import HomePage from '@/pages/HomePage';
+import { AboutPage } from '@/pages/AboutPage';
 import ScheduleViewPage from '@/pages/ScheduleViewPage';
 import { LoginPage } from '@/pages/LoginPage';
 import { RegisterPage } from '@/pages/RegisterPage';
@@ -82,6 +83,11 @@ function App() {
             <Route path={ROUTES.HOME} element={
               <Layout locale={locale} changeLocale={changeLocale}>
                 <HomePage />
+              </Layout>
+            } />
+            <Route path={ROUTES.ABOUT} element={
+              <Layout locale={locale} changeLocale={changeLocale}>
+                <AboutPage />
               </Layout>
             } />
             <Route path={ROUTES.SCHEDULE} element={
