@@ -82,12 +82,85 @@ The Vercel configuration includes:
 
 ### Backend Deployment
 
-The backend (`packages/backend`) is a NestJS application that can be deployed separately:
+The backend (`packages/backend`) is a NestJS application configured for serverless deployment on Vercel.
 
-1. **Vercel**: Create a separate Vercel project for the backend
-2. **Railway**: Deploy to Railway for a Node.js backend
-3. **Heroku**: Deploy to Heroku
-4. **AWS/GCP/Azure**: Deploy to your preferred cloud provider
+#### Environment Variables for Backend
+
+Configure these environment variables in your Vercel backend project:
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `SUPABASE_URL` | Your Supabase project URL | `https://your-project.supabase.co` |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service role key | `eyJhbGciOiJIUzI1NiIsIn...` |
+| `JWT_SECRET` | Secret for JWT token signing | `your-secure-random-jwt-secret` |
+| `FRONTEND_URL` | Frontend URL for CORS | `https://your-frontend.vercel.app` |
+| `NODE_ENV` | Environment mode | `production` |
+
+#### Backend Deployment Steps
+
+1. **Create Separate Vercel Project**:
+   - Go to [vercel.com/dashboard](https://vercel.com/dashboard)
+   - Click "Add New..." → "Project"
+   - Import the same GitHub repository
+   - Set the **Root Directory** to `packages/backend`
+
+2. **Configure Build Settings**:
+   - Vercel will detect the `vercel.json` in the backend directory
+   - Build Command: `pnpm run build`
+   - Output Directory: `dist`
+   - Install Command: `pnpm install`
+
+3. **Set Environment Variables**:
+   - In your backend Vercel project dashboard, go to "Settings" → "Environment Variables"
+   - Add all the required environment variables listed above
+
+4. **Deploy**:
+   - Push to the main branch to trigger deployment
+   - The backend will be available at `https://your-backend.vercel.app/api`
+
+#### Backend Architecture
+
+The backend is configured for serverless deployment with:
+- **Serverless Adapter**: Custom Express adapter for Vercel Functions
+- **CORS Configuration**: Automatically configured for frontend domains
+- **Environment Handling**: Production-ready environment variable loading
+- **Database**: Supabase PostgreSQL with Row Level Security
+
+#### Alternative Deployment Options
+
+1. **Railway**: Deploy to Railway for a persistent Node.js backend
+2. **Heroku**: Deploy to Heroku with PostgreSQL addon
+3. **AWS/GCP/Azure**: Deploy to your preferred cloud provider
+4. **DigitalOcean App Platform**: Deploy with managed database
+
+### Connecting Frontend and Backend
+
+After deploying both frontend and backend:
+
+1. **Update Frontend Environment Variables**:
+   - In your frontend Vercel project, update `VITE_API_URL`
+   - Set it to your backend URL: `https://your-backend.vercel.app/api`
+
+2. **Update Backend CORS Configuration**:
+   - In your backend Vercel project, set `FRONTEND_URL`
+   - Set it to your frontend URL: `https://your-frontend.vercel.app`
+
+3. **Test the Connection**:
+   - Visit your frontend URL
+   - Try logging in or registering
+   - Check browser network tab for API calls
+
+### Testing Builds Locally
+
+Use the provided scripts to test builds before deployment:
+
+```bash
+# Test frontend build
+./scripts/test-build.sh
+
+# Test backend build  
+./scripts/test-backend-build.sh
+```
 
 ### Troubleshooting
 
@@ -112,6 +185,28 @@ The backend (`packages/backend`) is a NestJS application that can be deployed se
 2. **Route Issues**:
    - Verify the SPA routing configuration in `vercel.json`
    - Check React Router configuration
+
+#### Backend-Specific Issues
+
+1. **Environment Variable Issues**:
+   - Verify all required backend environment variables are set
+   - Check Supabase connection by testing the `/api/health` endpoint
+   - Ensure `JWT_SECRET` is properly configured
+
+2. **Database Connection Issues**:
+   - Verify `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` are correct
+   - Check Supabase project status and quotas
+   - Ensure database migrations have been run
+
+3. **CORS Issues**:
+   - Verify `FRONTEND_URL` is set correctly
+   - Check that the frontend domain is whitelisted
+   - Test API endpoints directly using tools like Postman
+
+4. **Serverless Function Issues**:
+   - Check Vercel function logs in the dashboard
+   - Verify the `serverless.js` file is being built correctly
+   - Ensure function timeout limits are adequate for your operations
 
 ### Performance Optimization
 

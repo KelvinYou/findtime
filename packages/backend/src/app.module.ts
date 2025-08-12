@@ -12,7 +12,9 @@ import { AvailabilityModule } from './availability/availability.module';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: '../../.env',
+      // For production deployment, rely on environment variables
+      // For development, use the env file
+      envFilePath: process.env.NODE_ENV === 'production' ? undefined : '../../.env',
     }),
     SupabaseModule,
     AuthModule,
