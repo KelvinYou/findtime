@@ -410,6 +410,79 @@ export class AvailabilityService {
     };
   }
 
+  // Appointments Management
+  async getAppointments(userId: string, startDate?: string, endDate?: string): Promise<Appointment[]> {
+    const supabase = this.supabaseService.getClient();
+
+    let query = supabase
+      .from('appointments')
+      .select(`
+        *,
+        time_slots!inner(user_id)
+      `)
+      .eq('time_slots.user_id', userId)
+      .order('appointment_date', { ascending: true })
+      .order('start_time', { ascending: true });
+
+    if (startDate) {
+      query = query.gte('appointment_date', startDate);
+    }
+    if (endDate) {
+      query = query.lte('appointment_date', endDate);
+    }
+
+    const { data, error } = await query;
+
+    if (error) {
+      throw new BadRequestException('Failed to fetch appointments');
+    }
+
+    return data || [];
+  }
+
+  async updateAppointmentStatus(userId: string, appointmentId: string, status: 'confirmed' | 'cancelled'): Promise<Appointment> {
+    const supabase = this.supabaseService.getClient();
+
+    // Verify the appointment belongs to the user
+    const { data: appointment, error: fetchError } = await supabase
+      .from('appointments')
+      .select(`
+        *,
+        time_slots!inner(user_id)
+      `)
+      .eq('id', appointmentId)
+      .eq('time_slots.user_id', userId)
+      .single();
+
+    if (fetchError || !appointment) {
+      throw new NotFoundException('Appointment not found or not authorized');
+    }
+
+    const { data, error } = await supabase
+      .from('appointments')
+      .update({
+        status,
+        updated_at: new Date().toISOString(),
+      })
+      .eq('id', appointmentId)
+      .select()
+      .single();
+
+    if (error) {
+      throw new BadRequestException('Failed to update appointment status');
+    }
+
+    // If cancelling, make the time slot available again
+    if (status === 'cancelled') {
+      await supabase
+        .from('time_slots')
+        .update({ is_available: true })
+        .eq('id', appointment.time_slot_id);
+    }
+
+    return data;
+  }
+
   // Analytics
   async getAvailabilityStats(userId: string): Promise<AvailabilityStats> {
     const supabase = this.supabaseService.getClient();

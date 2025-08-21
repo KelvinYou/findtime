@@ -7,6 +7,7 @@ import { ScheduleModule } from './schedule/schedule.module';
 import { SupabaseModule } from './supabase/supabase.module';
 import { ProfileModule } from './profile/profile.module';
 import { AvailabilityModule } from './availability/availability.module';
+import { AnalyticsModule } from './analytics/analytics.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { AvailabilityModule } from './availability/availability.module';
     ScheduleModule,
     ProfileModule,
     AvailabilityModule,
+    AnalyticsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

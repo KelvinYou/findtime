@@ -14,44 +14,214 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/components/auth/UserMenu.tsx
 #: src/pages/SettingsPage.tsx
-msgid "Settings"
-msgstr "设置"
-
-#. js-lingui-explicit-id
-#: src/pages/SettingsPage.tsx
-msgid "Manage your account settings and preferences"
+msgid "Color Theme"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/pages/SettingsPage.tsx
-msgid "Appearance"
+msgid "Display Options"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/pages/SettingsPage.tsx
-msgid "Customize how Zync looks and feels"
+msgid "Customize how content is displayed"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/pages/SettingsPage.tsx
-msgid "Theme"
+msgid "Compact Mode"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/pages/SettingsPage.tsx
-msgid "Light"
+msgid "Reduce spacing and show more content"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/pages/SettingsPage.tsx
-msgid "Dark"
+msgid "Show Preview"
 msgstr ""
 
 #. js-lingui-explicit-id
 #: src/pages/SettingsPage.tsx
-msgid "System"
+msgid "Display preview information in cards"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Choose your preferred language"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Regional Settings"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Configure date, time, and number formats"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Time Format"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Date Format"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Notification Types"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Choose which notifications you want to receive"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Email Notifications"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Receive notifications via email"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Push Notifications"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Receive push notifications on your device"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Sound Notifications"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Play sounds for notifications"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Sound Settings"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Adjust notification sound volume"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Volume"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Privacy Settings"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Control your privacy and data sharing preferences"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Privacy Features Coming Soon"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Advanced privacy controls and data management features will be available in a future update."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Profile Visibility"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Control who can see your profile"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Schedule Privacy"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Make your schedules private by default"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "App Preferences"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Customize how the app behaves"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Auto Save"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Automatically save changes as you work"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Working Hours"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Set your default working hours for scheduling"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "You have unsaved changes"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+#: src/pages/SettingsPage.tsx
+msgid "Save"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+msgid "Unsaved changes"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Loading schedules..."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Loading analytics..."
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -60,13 +230,9 @@ msgid "Choose your preferred color scheme"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: src/pages/ProfilePage.tsx
 #: src/pages/SettingsPage.tsx
-msgid "Language & Region"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/pages/SettingsPage.tsx
-msgid "Select your preferred language and regional settings"
+msgid "Active"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -75,24 +241,201 @@ msgid "Language"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: src/components/availability/RecurringScheduleForm.tsx
+#: src/components/availability/TimeSlotForm.tsx
+#: src/components/schedule/ScheduleCalendar.tsx
 #: src/pages/SettingsPage.tsx
-msgid "Change the language used throughout the application"
-msgstr ""
+msgid "Start Time"
+msgstr "开始时间"
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringScheduleForm.tsx
+#: src/components/availability/TimeSlotForm.tsx
+#: src/components/schedule/ScheduleCalendar.tsx
+#: src/pages/SettingsPage.tsx
+msgid "End Time"
+msgstr "结束时间"
+
+#. js-lingui-explicit-id
+#: src/components/auth/UserMenu.tsx
+#: src/pages/AvailabilityPage.tsx
+#: src/pages/AvailabilityPage.tsx
+#: src/pages/AvailabilityPage.tsx
+#: src/pages/SettingsPage.tsx
+#: src/pages/SettingsPage.tsx
+msgid "Settings"
+msgstr "设置"
 
 #. js-lingui-explicit-id
 #: src/pages/SettingsPage.tsx
-msgid "Notifications"
+#: src/pages/SettingsPage.tsx
+msgid "Manage your account settings and preferences"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/pages/SettingsPage.tsx
-msgid "Control how you receive notifications"
+#: src/pages/MySchedulesPage.tsx
+msgid "My Schedules"
+msgstr "我的排程"
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Manage and track all your scheduling activities"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/pages/SettingsPage.tsx
-msgid "Notification settings will be available in a future update"
+#: src/components/availability/RecurringScheduleForm.tsx
+#: src/pages/HomePage.tsx
+#: src/pages/MySchedulesPage.tsx
+msgid "Create Schedule"
+msgstr "创建排程"
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Total Schedules"
 msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "All time"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Active Schedules"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Currently collecting responses"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Total Participants"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Across all schedules"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+#: src/pages/MySchedulesPage.tsx
+msgid "Response Rate"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Average response rate"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Filter"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "responses"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Created"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Deadline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "View"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Share"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Edit"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Duplicate"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Export"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Delete"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "No schedules yet"
+msgstr "暂无排程"
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Create your first schedule to start coordinating with others"
+msgstr "创建您的第一个排程以开始与他人协作"
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Create Your First Schedule"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Getting Started"
+msgstr "快速开始"
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Create a Schedule"
+msgstr "创建排程"
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Set up time slots and invite participants to find the best meeting time"
+msgstr "设置时间段并邀请参与者找到最佳会议时间"
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Share with Others"
+msgstr "与他人分享"
+
+#. js-lingui-explicit-id
+#: src/pages/MySchedulesPage.tsx
+msgid "Send the schedule link to participants so they can submit their availability"
+msgstr "将排程链接发送给参与者，以便他们提交可用时间"
+
+#. js-lingui-explicit-id
+#: src/pages/LoginPage.tsx
+#: src/pages/RegisterPage.tsx
+msgid "Zync"
+msgstr "Zync"
+
+#. js-lingui-explicit-id
+#: src/pages/LoginPage.tsx
+msgid "Sign in to manage your schedules"
+msgstr "登录以管理您的排程"
+
+#. js-lingui-explicit-id
+#: src/pages/LoginPage.tsx
+#: src/pages/RegisterPage.tsx
+msgid "Back to Home"
+msgstr "返回首页"
 
 #. js-lingui-explicit-id
 #: src/pages/ScheduleViewPage.tsx
@@ -177,23 +520,6 @@ msgid "Submit Availability"
 msgstr "提交可用时间"
 
 #. js-lingui-explicit-id
-#: src/pages/LoginPage.tsx
-#: src/pages/RegisterPage.tsx
-msgid "Zync"
-msgstr "Zync"
-
-#. js-lingui-explicit-id
-#: src/pages/LoginPage.tsx
-msgid "Sign in to manage your schedules"
-msgstr "登录以管理您的排程"
-
-#. js-lingui-explicit-id
-#: src/pages/LoginPage.tsx
-#: src/pages/RegisterPage.tsx
-msgid "Back to Home"
-msgstr "返回首页"
-
-#. js-lingui-explicit-id
 #: src/components/auth/UserMenu.tsx
 #: src/pages/ProfilePage.tsx
 msgid "Profile"
@@ -240,6 +566,7 @@ msgid "Update your personal details"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
 #: src/pages/ProfilePage.tsx
 msgid "Full Name"
 msgstr ""
@@ -250,6 +577,7 @@ msgid "Not set"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
 #: src/pages/ProfilePage.tsx
 msgid "Email Address"
 msgstr ""
@@ -295,11 +623,7 @@ msgid "Account Status"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/pages/ProfilePage.tsx
-msgid "Active"
-msgstr ""
-
-#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
 #: src/pages/ProfilePage.tsx
 msgid "Saving..."
 msgstr ""
@@ -310,6 +634,9 @@ msgid "Save Changes"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: src/components/availability/AppointmentsList.tsx
+#: src/components/availability/RecurringScheduleForm.tsx
+#: src/components/availability/TimeSlotForm.tsx
 #: src/pages/CreateSchedulePage.tsx
 #: src/pages/ProfilePage.tsx
 msgid "Cancel"
@@ -356,12 +683,7 @@ msgid "Find the perfect time for your meetings"
 msgstr "为您的会议找到完美的时间"
 
 #. js-lingui-explicit-id
-#: src/pages/DashboardPage.tsx
-#: src/pages/HomePage.tsx
-msgid "Create Schedule"
-msgstr "创建排程"
-
-#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
 #: src/pages/HomePage.tsx
 msgid "Learn More"
 msgstr "了解更多"
@@ -387,6 +709,169 @@ msgid "Get Started"
 msgstr "开始使用"
 
 #. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "Loading availability..."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "Set Up Your Booking Page"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "Create your freelancer profile to start accepting bookings"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "Availability Management"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "Manage your schedule and bookings"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "View Booking Page"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "Your booking page is currently private. Enable it in settings to accept bookings."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+#: src/pages/DashboardPage.tsx
+msgid "Available This Week"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "out of"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "total slots"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "Bookings This Week"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "booking rate"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "This Month"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+#: src/pages/AvailabilityPage.tsx
+msgid "appointments"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+#: src/pages/DashboardPage.tsx
+msgid "Upcoming"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+#: src/pages/AvailabilityPage.tsx
+msgid "Overview"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+#: src/pages/AvailabilityPage.tsx
+msgid "Calendar"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "Recurring Schedule"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "Recurring"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/AppointmentsList.tsx
+#: src/pages/AvailabilityPage.tsx
+msgid "Appointments"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "Appts"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "Quick Actions"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "Common tasks to manage your availability"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "Add Available Times"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "Set Recurring Schedule"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "Preview Booking Page"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+#: src/pages/DashboardPage.tsx
+msgid "Recent Appointments"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+#: src/pages/DashboardPage.tsx
+msgid "Latest booking activity"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "View all appointments"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "No appointments yet"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AvailabilityPage.tsx
+msgid "Share your booking page to start receiving appointments"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: src/pages/DashboardPage.tsx
 msgid "Dashboard"
 msgstr "仪表盘"
@@ -397,75 +882,110 @@ msgid "Welcome back"
 msgstr "欢迎回来"
 
 #. js-lingui-explicit-id
-#: src/pages/CreateSchedulePage.tsx
 #: src/pages/DashboardPage.tsx
+msgid "Live"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Monthly Revenue"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "from last month"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Total Bookings"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "This month"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Booking Rate"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Target"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Avg Session"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Average duration"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Weekly Performance"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Bookings and revenue over the past week"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+#: src/pages/DashboardPage.tsx
+msgid "bookings"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Top Services"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Most popular services this month"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "revenue"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "No recent appointments"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Your recent bookings will appear here"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Quick Stats"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "Customer Rating"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+msgid "View Feedback"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/CreateSchedulePage.tsx
 msgid "Create New Schedule"
 msgstr "创建新排程"
-
-#. js-lingui-explicit-id
-#: src/pages/DashboardPage.tsx
-msgid "New Schedule"
-msgstr "新排程"
-
-#. js-lingui-explicit-id
-#: src/pages/DashboardPage.tsx
-msgid "My Schedules"
-msgstr "我的排程"
-
-#. js-lingui-explicit-id
-#: src/pages/DashboardPage.tsx
-msgid "Active schedules"
-msgstr "活跃排程"
-
-#. js-lingui-explicit-id
-#: src/pages/DashboardPage.tsx
-msgid "Recent Activity"
-msgstr "最近活动"
-
-#. js-lingui-explicit-id
-#: src/pages/DashboardPage.tsx
-msgid "Recent responses"
-msgstr "最近回复"
-
-#. js-lingui-explicit-id
-#: src/pages/DashboardPage.tsx
-msgid "Recent Schedules"
-msgstr "最近的排程"
-
-#. js-lingui-explicit-id
-#: src/pages/DashboardPage.tsx
-msgid "No schedules yet"
-msgstr "暂无排程"
-
-#. js-lingui-explicit-id
-#: src/pages/DashboardPage.tsx
-msgid "Create your first schedule to start coordinating with others"
-msgstr "创建您的第一个排程以开始与他人协作"
-
-#. js-lingui-explicit-id
-#: src/pages/DashboardPage.tsx
-msgid "Getting Started"
-msgstr "快速开始"
-
-#. js-lingui-explicit-id
-#: src/pages/DashboardPage.tsx
-msgid "Create a Schedule"
-msgstr "创建排程"
-
-#. js-lingui-explicit-id
-#: src/pages/DashboardPage.tsx
-msgid "Set up time slots and invite participants to find the best meeting time"
-msgstr "设置时间段并邀请参与者找到最佳会议时间"
-
-#. js-lingui-explicit-id
-#: src/pages/DashboardPage.tsx
-msgid "Share with Others"
-msgstr "与他人分享"
-
-#. js-lingui-explicit-id
-#: src/pages/DashboardPage.tsx
-msgid "Send the schedule link to participants so they can submit their availability"
-msgstr "将排程链接发送给参与者，以便他们提交可用时间"
 
 #. js-lingui-explicit-id
 #: src/pages/CreateSchedulePage.tsx
@@ -548,9 +1068,306 @@ msgid "Your schedule is ready. Share it with others to collect their availabilit
 msgstr "您的排程已准备好。与他人分享以收集他们的可用时间。"
 
 #. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "Loading booking page..."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "Booking Page Not Found"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "The booking page you're looking for doesn't exist or is not available."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "Booking Confirmed!"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "Booking Details"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "Reference"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/TimeSlotForm.tsx
+#: src/pages/BookingPage.tsx
+msgid "Date"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "Time"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "You'll receive a confirmation email shortly. Save your booking reference for future reference."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "Available Times"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "Select a time slot that works for you"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "No Available Times"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "There are no available appointment slots at the moment. Please check back later."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "Book Appointment"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "Fill in your details to confirm the booking"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "Selected time"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "Phone Number"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "Message"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "Booking..."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "Confirm Booking"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "Select a Time Slot"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "Please select an available time slot to continue with your booking."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "Additional Information"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/BookingPage.tsx
+msgid "Rate"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+#: src/pages/BookingPage.tsx
+msgid "Cancellation Policy"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: src/pages/RegisterPage.tsx
 msgid "Create your account to get started"
 msgstr "创建您的账户以开始使用"
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Very Sociable"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Otters are naturally social creatures who enjoy group activities, just like how Zync brings people together for seamless scheduling and collaboration."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Connected Friends"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Otters sleeping hand in hand in the river symbolize friends staying connected. Zync helps your team stay connected through smart scheduling."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Cute & Approachable"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "With their cute and approachable appearance, otters make scheduling feel friendly and welcoming, especially for young users and teams."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Time Respect"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "We believe everyone's time is valuable and should be respected."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Connection First"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Technology should bring people together, not drive them apart."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Simplicity"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Complex problems deserve simple, elegant solutions."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "User Focus"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Every feature is designed with the user experience in mind."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "About Zync"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "We're on a mission to make scheduling as natural and connected as otters holding hands in a river."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Meet Our Otter Mascot"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Bringing people together, one scheduling session at a time"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Why Choose Otter as Our Mascot?"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Our choice of the otter as our mascot isn't just about cuteness – it represents everything we stand for."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Our Story"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Born from the frustration of endless back-and-forth emails trying to find a time that works for everyone, Zync was created to solve the universal problem of scheduling."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Just like otters naturally come together in groups, we believe people should be able to connect and coordinate effortlessly. Our platform eliminates the chaos of scheduling and brings the joy back to meeting up."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Whether you're planning a team meeting, a family gathering, or a casual hangout with friends, Zync makes it as easy as otters floating together down a river."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Together we're stronger, just like otters"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Our Values"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "The principles that guide everything we do"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Ready to Join Our Otter Pack?"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Experience the joy of effortless scheduling. Let's make coordination as natural as otters holding hands."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/AboutPage.tsx
+msgid "Get Started Free"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/ui/theme-toggle.tsx
+msgid "Toggle theme"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/ui/theme-toggle.tsx
+msgid "Light"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/ui/theme-toggle.tsx
+msgid "Dark"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/ui/theme-toggle.tsx
+msgid "System"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/schedule/ShareSchedule.tsx
@@ -631,16 +1448,6 @@ msgstr "添加您有空的具体时间范围"
 
 #. js-lingui-explicit-id
 #: src/components/schedule/ScheduleCalendar.tsx
-msgid "Start Time"
-msgstr "开始时间"
-
-#. js-lingui-explicit-id
-#: src/components/schedule/ScheduleCalendar.tsx
-msgid "End Time"
-msgstr "结束时间"
-
-#. js-lingui-explicit-id
-#: src/components/schedule/ScheduleCalendar.tsx
 msgid "Add Slot"
 msgstr "添加时间段"
 
@@ -650,9 +1457,10 @@ msgid "Current Time Slots"
 msgstr "当前时间段"
 
 #. js-lingui-explicit-id
-#: src/components/auth/ProtectedRoute.tsx
-msgid "Loading..."
-msgstr "加载中..."
+#: src/components/layout/Layout.tsx
+#: src/components/layout/Layout.tsx
+msgid "About"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/auth/AuthModal.tsx
@@ -669,8 +1477,311 @@ msgstr "注册"
 
 #. js-lingui-explicit-id
 #: src/components/layout/Layout.tsx
+msgid "Streamline your scheduling and make time management effortless with our modern platform."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/layout/Layout.tsx
+msgid "Home"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/layout/Layout.tsx
 msgid "© 2025 Zync. All rights reserved."
 msgstr "© 2025 Zync。保留所有权利。"
+
+#. js-lingui-explicit-id
+#: src/components/availability/AvailabilityCalendar.tsx
+#: src/components/availability/TimeSlotForm.tsx
+msgid "Add Time Slot"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/TimeSlotForm.tsx
+msgid "Create a new available time slot for booking"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/TimeSlotForm.tsx
+msgid "Duration"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringScheduleForm.tsx
+#: src/components/availability/RecurringScheduleForm.tsx
+#: src/components/availability/TimeSlotForm.tsx
+#: src/components/availability/TimeSlotForm.tsx
+msgid "Buffer Time"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/TimeSlotForm.tsx
+msgid "Total Slot Duration"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringScheduleForm.tsx
+#: src/components/availability/TimeSlotForm.tsx
+msgid "Creating..."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/TimeSlotForm.tsx
+msgid "Create Time Slot"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringAvailabilityManager.tsx
+msgid "Recurring Schedules"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringAvailabilityManager.tsx
+#: src/components/availability/RecurringAvailabilityManager.tsx
+msgid "Generating..."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringAvailabilityManager.tsx
+msgid "Generate Slots"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringAvailabilityManager.tsx
+msgid "Add Schedule"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringAvailabilityManager.tsx
+#: src/components/availability/RecurringAvailabilityManager.tsx
+msgid "Create Recurring Schedule"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringAvailabilityManager.tsx
+msgid "Set up weekly recurring availability patterns that automatically generate time slots"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringAvailabilityManager.tsx
+msgid "Auto-Generate Time Slots"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringAvailabilityManager.tsx
+msgid "Generate individual time slots from your active recurring schedules for the next few weeks."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringAvailabilityManager.tsx
+msgid "Generate Time Slots"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringAvailabilityManager.tsx
+msgid "No Recurring Schedules"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringAvailabilityManager.tsx
+msgid "Create recurring schedules to automatically generate time slots every week."
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringAvailabilityManager.tsx
+msgid "Create First Schedule"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringScheduleForm.tsx
+msgid "Add Recurring Schedule"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringScheduleForm.tsx
+msgid "Create a weekly recurring availability pattern"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringScheduleForm.tsx
+msgid "Day of Week"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringScheduleForm.tsx
+msgid "Slot Duration"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringScheduleForm.tsx
+msgid "Schedule Preview"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringScheduleForm.tsx
+msgid "Generated Slots"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/RecurringScheduleForm.tsx
+msgid "Time range is too short for the selected duration and buffer time"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "Business Information"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "Basic details about your freelance business"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "Business Name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "Description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "Services Offered"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "Add"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "Pricing & Location"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "Set your rates and timezone preferences"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "Hourly Rate"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "Currency"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "Time Zone"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "Booking Settings"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "Configure how customers can book with you"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "Booking URL"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "Your booking page will be available at:"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "Booking Advance Days"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "How many days in advance customers can book appointments"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "Make booking page public"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "When enabled, customers can find and book appointments on your public page"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "Update Profile"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/FreelancerProfileSetup.tsx
+msgid "Create Profile"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/AvailabilityCalendar.tsx
+msgid "Time Slots"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/AvailabilityCalendar.tsx
+#: src/components/availability/AvailabilityCalendar.tsx
+msgid "Create New Time Slot"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/AvailabilityCalendar.tsx
+msgid "Manage your individual available time slots"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/AvailabilityCalendar.tsx
+msgid "No Time Slots"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/AvailabilityCalendar.tsx
+msgid "Create your first time slot to start accepting bookings"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/AvailabilityCalendar.tsx
+msgid "Create First Time Slot"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/AppointmentsList.tsx
+msgid "Manage your upcoming and past appointments"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/AppointmentsList.tsx
+msgid "Confirm"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/AppointmentsList.tsx
+msgid "No Appointments"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/availability/AppointmentsList.tsx
+msgid "Your appointments will appear here once customers start booking."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/auth/AuthModal.tsx
@@ -744,6 +1855,81 @@ msgstr "注册"
 #: src/components/auth/UserMenu.tsx
 msgid "Log out"
 msgstr "退出登录"
+
+#. js-lingui-explicit-id
+#: src/components/auth/ProtectedRoute.tsx
+msgid "Loading..."
+msgstr "加载中..."
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+#~ msgid "Appearance"
+#~ msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+#~ msgid "Customize how Zync looks and feels"
+#~ msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+#~ msgid "Theme"
+#~ msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+#~ msgid "Language & Region"
+#~ msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+#~ msgid "Select your preferred language and regional settings"
+#~ msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+#~ msgid "Change the language used throughout the application"
+#~ msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+#~ msgid "Notifications"
+#~ msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+#~ msgid "Control how you receive notifications"
+#~ msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/SettingsPage.tsx
+#~ msgid "Notification settings will be available in a future update"
+#~ msgstr ""
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+#~ msgid "New Schedule"
+#~ msgstr "新排程"
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+#~ msgid "Active schedules"
+#~ msgstr "活跃排程"
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+#~ msgid "Recent Activity"
+#~ msgstr "最近活动"
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+#~ msgid "Recent responses"
+#~ msgstr "最近回复"
+
+#. js-lingui-explicit-id
+#: src/pages/DashboardPage.tsx
+#~ msgid "Recent Schedules"
+#~ msgstr "最近的排程"
 
 #. js-lingui-explicit-id
 #: src/pages/SettingsPage.tsx

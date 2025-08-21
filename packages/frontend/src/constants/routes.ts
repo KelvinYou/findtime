@@ -7,6 +7,7 @@ export const ROUTES = {
   SCHEDULE: '/schedule/:id',
   SCHEDULE_SHARE: '/schedule/:id/share',
   DASHBOARD: '/dashboard',
+  MY_SCHEDULES: '/my-schedules',
   PROFILE: '/profile',
   SETTINGS: '/settings',
   AVAILABILITY: '/availability',

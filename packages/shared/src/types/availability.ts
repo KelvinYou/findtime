@@ -167,4 +167,53 @@ export type AvailabilityStats = {
   available_slots_this_week: number;
   total_appointments_this_month: number;
   upcoming_appointments: Appointment[];
+};
+
+// Dashboard Analytics Types
+export type DashboardAnalytics = {
+  revenue: {
+    thisMonth: number;
+    lastMonth: number;
+    growth: number;
+  };
+  bookingRate: {
+    current: number;
+    target: number;
+  };
+  avgSessionDuration: string;
+  customerSatisfaction: number;
+  topServices: ServiceAnalytics[];
+  weeklyStats: WeeklyStats[];
+  responseRate: number;
+};
+
+export type ServiceAnalytics = {
+  name: string;
+  bookings: number;
+  revenue: number;
+};
+
+export type WeeklyStats = {
+  day: string;
+  bookings: number;
+  revenue: number;
+};
+
+export type ScheduleAnalytics = {
+  totalSchedules: number;
+  activeSchedules: number;
+  totalParticipants: number;
+  averageResponseRate: number;
+  recentSchedules: ScheduleSummary[];
+};
+
+export type ScheduleSummary = {
+  id: string;
+  title: string;
+  description?: string;
+  participants: number;
+  responses: number;
+  status: 'active' | 'completed' | 'expired';
+  created: string;
+  deadline?: string;
 }; 

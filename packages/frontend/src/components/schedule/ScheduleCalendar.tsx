@@ -287,7 +287,7 @@ function TimeSlotEditor({ date, timeSlots, onAdd, onRemove }: TimeSlotEditorProp
           {timeSlots.map((slot, index) => (
             <div
               key={index}
-              className="flex items-center justify-between p-3 bg-blue-50 rounded-lg"
+              className="flex items-center justify-between p-3 bg-blue-50 rounded-lg dark:bg-blue-950"
             >
               <div className="flex items-center">
                 <Clock className="h-4 w-4 text-blue-600 mr-2" />
@@ -299,7 +299,6 @@ function TimeSlotEditor({ date, timeSlots, onAdd, onRemove }: TimeSlotEditorProp
                 variant="ghost"
                 size="sm"
                 onClick={() => onRemove(index)}
-                className="text-red-600 hover:text-red-700 hover:bg-red-50"
               >
                 <X className="h-4 w-4" />
               </Button>

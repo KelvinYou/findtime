@@ -80,7 +80,7 @@ export function AvailabilityCalendar({ availability, onAvailabilityUpdated }: Av
         <CardHeader>
           <CardTitle className="flex items-center justify-between">
             <div className="flex items-center">
-              <Calendar className="mr-2 h-5 w-5" />
+              <Calendar className="mr-2 h-5 w-5 text-primary" />
               <Trans id="Time Slots" />
             </div>
             <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
@@ -114,38 +114,40 @@ export function AvailabilityCalendar({ availability, onAvailabilityUpdated }: Av
               {sortedDates.map((date) => (
                 <div key={date} className="space-y-3">
                   <h3 className="font-medium text-lg">{formatDate(date)}</h3>
-                  <div className="grid gap-3 md:grid-cols-2">
+                  <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                     {groupedSlots[date].map((slot) => {
                       const status = getSlotStatus(slot);
                       return (
                         <div 
                           key={slot.id} 
-                          className="flex items-center justify-between p-3 border rounded-lg hover:bg-muted/50"
+                          className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-3 border rounded-lg hover:bg-muted/50 gap-2 sm:gap-0"
                         >
-                          <div className="flex-1">
-                            <div className="flex items-center space-x-2">
-                              <span className="font-medium">
+                          <div className="flex-1 min-w-0">
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                              <span className="font-medium text-sm sm:text-base">
                                 {slot.start_time} - {slot.end_time}
                               </span>
-                              <Badge variant={status.variant}>
+                              <Badge variant={status.variant} className="self-start sm:self-auto">
                                 {status.text}
                               </Badge>
                             </div>
-                            <div className="text-sm text-muted-foreground mt-1">
+                            <div className="text-xs sm:text-sm text-muted-foreground mt-1">
                               {slot.duration_minutes} minutes
                               {slot.buffer_time_minutes && slot.buffer_time_minutes > 0 && (
                                 <span> • {slot.buffer_time_minutes}min buffer</span>
                               )}
                             </div>
                           </div>
-                          <div className="flex items-center space-x-2">
+                          <div className="flex items-center justify-end sm:justify-start">
                             {slot.is_available && (
                               <Button
                                 size="sm"
                                 variant="outline"
                                 onClick={() => handleDeleteSlot(slot.id)}
+                                className="w-full sm:w-auto"
                               >
-                                <Trash2 className="h-4 w-4" />
+                                <Trash2 className="h-4 w-4 sm:mr-0 mr-2" />
+                                <span className="sm:hidden">Delete</span>
                               </Button>
                             )}
                           </div>

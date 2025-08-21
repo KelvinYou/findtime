@@ -90,25 +90,25 @@ export function AvailabilityPage() {
   const bookingUrl = `${window.location.origin}/book/${freelancerProfile.booking_url_slug}`;
 
   return (
-    <div className="flex-1 space-y-6 p-6">
+    <div className="flex-1 space-y-4 sm:space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">
             <Trans id="Availability Management" />
           </h1>
           <p className="text-muted-foreground">
             <Trans id="Manage your schedule and bookings" />
           </p>
         </div>
-        <div className="flex items-center space-x-2">
-          <Button variant="outline" asChild>
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+          <Button variant="outline" asChild className="w-full sm:w-auto">
             <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
               <ExternalLink className="mr-2 h-4 w-4" />
               <Trans id="View Booking Page" />
             </a>
           </Button>
-          <Button onClick={() => setActiveTab('settings')}>
+          <Button onClick={() => setActiveTab('settings')} className="w-full sm:w-auto">
             <Settings className="mr-2 h-4 w-4" />
             <Trans id="Settings" />
           </Button>
@@ -127,13 +127,13 @@ export function AvailabilityPage() {
 
       {/* Stats Cards */}
       {stats && (
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">
                 <Trans id="Available This Week" />
               </CardTitle>
-              <Calendar className="h-4 w-4 text-muted-foreground" />
+              <Calendar className="h-4 w-4 text-primary" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{stats.available_slots_this_week}</div>
@@ -148,7 +148,7 @@ export function AvailabilityPage() {
               <CardTitle className="text-sm font-medium">
                 <Trans id="Bookings This Week" />
               </CardTitle>
-              <Users className="h-4 w-4 text-muted-foreground" />
+              <Users className="h-4 w-4 text-primary" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{stats.booked_slots_this_week}</div>
@@ -166,7 +166,7 @@ export function AvailabilityPage() {
               <CardTitle className="text-sm font-medium">
                 <Trans id="This Month" />
               </CardTitle>
-              <BarChart3 className="h-4 w-4 text-muted-foreground" />
+              <BarChart3 className="h-4 w-4 text-primary" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{stats.total_appointments_this_month}</div>
@@ -181,7 +181,7 @@ export function AvailabilityPage() {
                 <CardTitle className="text-sm font-medium">
                   <Trans id="Upcoming" />
                 </CardTitle>
-                <Clock className="h-4 w-4 text-muted-foreground" />
+                <Clock className="h-4 w-4 text-primary" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{stats?.upcoming_appointments?.length || 0}</div>
@@ -194,27 +194,34 @@ export function AvailabilityPage() {
       )}
 
       {/* Main Content Tabs */}
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-        <TabsList>
-          <TabsTrigger value="overview">
-            <Trans id="Overview" />
-          </TabsTrigger>
-          <TabsTrigger value="calendar">
-            <Trans id="Calendar" />
-          </TabsTrigger>
-          <TabsTrigger value="recurring">
-            <Trans id="Recurring Schedule" />
-          </TabsTrigger>
-          <TabsTrigger value="appointments">
-            <Trans id="Appointments" />
-          </TabsTrigger>
-          <TabsTrigger value="settings">
-            <Trans id="Settings" />
-          </TabsTrigger>
-        </TabsList>
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4 sm:space-y-6">
+        <div className="overflow-x-auto">
+          <TabsList className="grid w-full grid-cols-5 min-w-[500px] sm:min-w-0">
+            <TabsTrigger value="overview" className="text-xs sm:text-sm">
+              <span className="hidden sm:inline"><Trans id="Overview" /></span>
+              <span className="sm:hidden"><Trans id="Overview" /></span>
+            </TabsTrigger>
+            <TabsTrigger value="calendar" className="text-xs sm:text-sm">
+              <span className="hidden sm:inline"><Trans id="Calendar" /></span>
+              <span className="sm:hidden"><Trans id="Calendar" /></span>
+            </TabsTrigger>
+            <TabsTrigger value="recurring" className="text-xs sm:text-sm">
+              <span className="hidden sm:inline"><Trans id="Recurring Schedule" /></span>
+              <span className="sm:hidden"><Trans id="Recurring" /></span>
+            </TabsTrigger>
+            <TabsTrigger value="appointments" className="text-xs sm:text-sm">
+              <span className="hidden sm:inline"><Trans id="Appointments" /></span>
+              <span className="sm:hidden"><Trans id="Appts" /></span>
+            </TabsTrigger>
+            <TabsTrigger value="settings" className="text-xs sm:text-sm">
+              <span className="hidden sm:inline"><Trans id="Settings" /></span>
+              <span className="sm:hidden"><Trans id="Settings" /></span>
+            </TabsTrigger>
+          </TabsList>
+        </div>
 
-        <TabsContent value="overview" className="space-y-6">
-          <div className="grid gap-6 md:grid-cols-2">
+        <TabsContent value="overview" className="space-y-4 sm:space-y-6">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-2">
             {/* Quick Actions */}
             <Card>
               <CardHeader>

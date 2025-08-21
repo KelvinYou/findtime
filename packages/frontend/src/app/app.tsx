@@ -20,6 +20,7 @@ import ScheduleViewPage from '@/pages/ScheduleViewPage';
 import { LoginPage } from '@/pages/LoginPage';
 import { RegisterPage } from '@/pages/RegisterPage';
 import { DashboardPage } from '@/pages/DashboardPage';
+import { MySchedulesPage } from '@/pages/MySchedulesPage';
 import { SettingsPage } from '@/pages/SettingsPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { AvailabilityPage } from '@/pages/AvailabilityPage';
@@ -131,6 +132,13 @@ function App() {
                   <SidebarLayout locale={locale} changeLocale={changeLocale}>
                   <DashboardPage />
                   </SidebarLayout>
+              </ProtectedRoute>
+            } />
+            <Route path={ROUTES.MY_SCHEDULES} element={
+              <ProtectedRoute>
+                <SidebarLayout locale={locale} changeLocale={changeLocale}>
+                  <MySchedulesPage />
+                </SidebarLayout>
               </ProtectedRoute>
             } />
             <Route path={ROUTES.CREATE_SCHEDULE} element={

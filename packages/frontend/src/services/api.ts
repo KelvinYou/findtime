@@ -30,7 +30,10 @@ import {
   RecurringAvailability,
   FreelancerProfile,
   Appointment,
-  BookingConfirmationResponse
+  BookingConfirmationResponse,
+  // Analytics types
+  DashboardAnalytics,
+  ScheduleAnalytics
 } from '@zync/shared';
 import { STORAGE_KEYS } from '@/constants/storage';
 
@@ -260,12 +263,12 @@ class ApiClient {
     if (startDate) params.append('start_date', startDate);
     if (endDate) params.append('end_date', endDate);
     
-    const response = await this.request<Appointment[]>(`/booking/appointments?${params.toString()}`);
+    const response = await this.request<Appointment[]>(`/availability/appointments?${params.toString()}`);
     return response;
   }
 
   async updateAppointmentStatus(appointmentId: string, status: 'confirmed' | 'cancelled'): Promise<Appointment> {
-    const response = await this.request<Appointment>(`/booking/appointments/${appointmentId}/status`, {
+    const response = await this.request<Appointment>(`/availability/appointments/${appointmentId}/status`, {
       method: 'PUT',
       body: JSON.stringify({ status }),
     });
@@ -335,6 +338,17 @@ class ApiClient {
       body: JSON.stringify(submitData),
     });
     return response.data;
+  }
+
+  // Analytics
+  async getDashboardAnalytics(): Promise<DashboardAnalytics> {
+    const response = await this.request<DashboardAnalytics>('/analytics/dashboard');
+    return response;
+  }
+
+  async getScheduleAnalytics(): Promise<ScheduleAnalytics> {
+    const response = await this.request<ScheduleAnalytics>('/analytics/schedules');
+    return response;
   }
 }
 

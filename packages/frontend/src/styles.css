@@ -435,4 +435,60 @@
       box-shadow: 0 0 30px hsl(var(--primary) / 0.5);
     }
   }
+
+  /* Mobile-specific improvements */
+  @media (max-width: 640px) {
+    .mobile-stack {
+      @apply flex-col space-y-2 space-x-0;
+    }
+    
+    .mobile-full {
+      @apply w-full;
+    }
+    
+    .mobile-text-sm {
+      @apply text-sm;
+    }
+    
+    .mobile-p-3 {
+      @apply p-3;
+    }
+    
+    .mobile-gap-2 {
+      @apply gap-2;
+    }
+  }
+
+  /* Tablet-specific improvements */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .tablet-grid-2 {
+      @apply grid-cols-2;
+    }
+    
+    .tablet-text-base {
+      @apply text-base;
+    }
+  }
+
+  /* Line clamp utilities for responsive text */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
 }

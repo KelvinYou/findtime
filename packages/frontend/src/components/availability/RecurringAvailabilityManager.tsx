@@ -76,32 +76,33 @@ export function RecurringAvailabilityManager({
         <CardHeader>
           <CardTitle className="flex items-center justify-between">
             <div className="flex items-center">
-              <Repeat className="mr-2 h-5 w-5" />
+              <Repeat className="mr-2 h-5 w-5 text-primary" />
               <Trans id="Recurring Schedules" />
             </div>
-            <div className="flex items-center space-x-2">
+                        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
               {activeSchedules.length > 0 && (
                                  <Button
-                   variant="outline"
-                   onClick={handleGenerateSlots}
-                   disabled={generateSlots.isPending}
-                 >
-                   {generateSlots.isPending ? (
-                    <>
-                      <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-transparent border-t-current" />
-                      <Trans id="Generating..." />
-                    </>
-                  ) : (
-                    <>
-                      <Calendar className="mr-2 h-4 w-4" />
-                      <Trans id="Generate Slots" />
-                    </>
-                  )}
-                </Button>
+                  variant="outline"
+                  onClick={handleGenerateSlots}
+                  disabled={generateSlots.isPending}
+                  className="w-full sm:w-auto"
+                >
+                  {generateSlots.isPending ? (
+                   <>
+                     <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-transparent border-t-current" />
+                     <Trans id="Generating..." />
+                   </>
+                 ) : (
+                   <>
+                     <Calendar className="mr-2 h-4 w-4" />
+                     <Trans id="Generate Slots" />
+                   </>
+                 )}
+               </Button>
               )}
               <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
                 <DialogTrigger asChild>
-                  <Button>
+                  <Button className="w-full sm:w-auto">
                     <Plus className="mr-2 h-4 w-4" />
                     <Trans id="Add Schedule" />
                   </Button>
@@ -129,36 +130,39 @@ export function RecurringAvailabilityManager({
           {recurringAvailability.length > 0 ? (
             <div className="space-y-3">
               {recurringAvailability.map((recurring) => (
-                <div key={recurring.id} className="flex items-center justify-between p-4 border rounded-lg">
-                  <div className="flex-1">
-                    <div className="flex items-center space-x-3">
-                      <span className="font-medium text-lg">
+                <div key={recurring.id} className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 border rounded-lg gap-3 sm:gap-0">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                      <span className="font-medium text-base sm:text-lg">
                         {DAYS[recurring.day_of_week]}
                       </span>
-                      <Badge variant={recurring.is_active ? 'default' : 'secondary'}>
+                      <Badge variant={recurring.is_active ? 'default' : 'secondary'} className="self-start sm:self-auto">
                         {recurring.is_active ? 'Active' : 'Inactive'}
                       </Badge>
                     </div>
-                    <div className="text-sm text-gray-600 mt-1">
+                    <div className="text-xs sm:text-sm text-gray-600 mt-1">
                       {recurring.start_time} - {recurring.end_time} • {recurring.duration_minutes}min slots
                       {recurring.buffer_time_minutes > 0 && (
                         <span> • {recurring.buffer_time_minutes}min buffer</span>
                       )}
                     </div>
                   </div>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center gap-2">
                     <Button
                       size="sm"
                       variant="outline"
                       onClick={() => handleToggleSchedule(recurring.id, recurring.is_active)}
+                      className="flex-1 sm:flex-none"
                     >
                       {recurring.is_active ? (
                         <>
-                          <Pause className="h-4 w-4" />
+                          <Pause className="h-4 w-4 mr-2 sm:mr-0" />
+                          <span className="sm:hidden">Pause</span>
                         </>
                       ) : (
                         <>
-                          <Play className="h-4 w-4" />
+                          <Play className="h-4 w-4 mr-2 sm:mr-0" />
+                          <span className="sm:hidden">Resume</span>
                         </>
                       )}
                     </Button>
@@ -166,8 +170,10 @@ export function RecurringAvailabilityManager({
                       size="sm"
                       variant="outline"
                       onClick={() => handleDeleteSchedule(recurring.id)}
+                      className="flex-1 sm:flex-none"
                     >
-                      <Trash2 className="h-4 w-4" />
+                      <Trash2 className="h-4 w-4 mr-2 sm:mr-0" />
+                      <span className="sm:hidden">Delete</span>
                     </Button>
                   </div>
                 </div>

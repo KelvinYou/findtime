@@ -76,9 +76,9 @@ export function SidebarLayout({ children, locale, changeLocale }: SidebarLayoutP
     },
     {
       name: 'My Schedules',
-      href: ROUTES.DASHBOARD, // Will be updated when we have a schedules page
+      href: ROUTES.MY_SCHEDULES,
       icon: Calendar,
-      current: false,
+      current: location.pathname === ROUTES.MY_SCHEDULES,
     },
     {
       name: 'Profile',

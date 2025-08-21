@@ -161,6 +161,27 @@ export class AvailabilityController {
     return this.availabilityService.getPublicAvailability(slug, startDate, endDate);
   }
 
+  // Appointments Management
+  @UseGuards(JwtAuthGuard)
+  @Get('appointments')
+  async getAppointments(
+    @Request() req: any,
+    @Query('start_date') startDate?: string,
+    @Query('end_date') endDate?: string
+  ): Promise<any[]> {
+    return this.availabilityService.getAppointments(req.user.id, startDate, endDate);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Put('appointments/:id/status')
+  async updateAppointmentStatus(
+    @Request() req: any,
+    @Param('id') appointmentId: string,
+    @Body() body: { status: 'confirmed' | 'cancelled' }
+  ): Promise<any> {
+    return this.availabilityService.updateAppointmentStatus(req.user.id, appointmentId, body.status);
+  }
+
   // Analytics and Stats
   @UseGuards(JwtAuthGuard)
   @Get('stats')

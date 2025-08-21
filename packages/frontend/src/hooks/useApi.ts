@@ -23,6 +23,10 @@ import {
   AvailabilityStats,
   PublicAvailabilityResponse,
   
+  // Analytics types
+  DashboardAnalytics,
+  ScheduleAnalytics,
+  
   // Booking types
   Appointment,
   CreateAppointmentDto,
@@ -52,6 +56,10 @@ export const QUERY_KEYS = {
   // Appointments
   appointments: ['appointments'] as const,
   appointmentByReference: (reference: string) => ['appointment', reference] as const,
+  
+  // Analytics
+  dashboardAnalytics: ['dashboardAnalytics'] as const,
+  scheduleAnalytics: ['scheduleAnalytics'] as const,
 } as const;
 
 // ============================================================================
@@ -532,5 +540,25 @@ export function useCancelAppointmentByReference() {
         variant: 'destructive',
       });
     },
+  });
+}
+
+// ============================================================================
+// ANALYTICS HOOKS
+// ============================================================================
+
+export function useDashboardAnalytics() {
+  return useQuery({
+    queryKey: QUERY_KEYS.dashboardAnalytics,
+    queryFn: () => apiClient.getDashboardAnalytics(),
+    staleTime: 5 * 60 * 1000, // 5 minutes
+  });
+}
+
+export function useScheduleAnalytics() {
+  return useQuery({
+    queryKey: QUERY_KEYS.scheduleAnalytics,
+    queryFn: () => apiClient.getScheduleAnalytics(),
+    staleTime: 5 * 60 * 1000, // 5 minutes
   });
 } 
