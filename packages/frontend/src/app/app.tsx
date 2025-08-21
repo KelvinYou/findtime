@@ -32,12 +32,16 @@ function App() {
   const [locale, setLocale] = useState<SupportedLocale>('en');
   const [isLoading, setIsLoading] = useState(true);
 
-  const changeLocale = async (newLocale: SupportedLocale) => {
-    setIsLoading(true);
-    await dynamicActivate(newLocale);
+  const changeLocale = (newLocale: SupportedLocale) => {
+    // Since all translations are preloaded, this should be instant
+    if (i18n.messages[newLocale]) {
+      i18n.activate(newLocale);
+    } else {
+      // Fallback to dynamic loading if somehow not preloaded
+      dynamicActivate(newLocale);
+    }
     setLocale(newLocale);
     localStorage.setItem(STORAGE_KEYS.LOCALE, newLocale);
-    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -46,7 +50,20 @@ function App() {
       const savedLocale = localStorage.getItem(STORAGE_KEYS.LOCALE) as SupportedLocale;
       const initialLocale = savedLocale && ['en', 'zh', 'ms'].includes(savedLocale) ? savedLocale : 'en';
       
-      await dynamicActivate(initialLocale);
+      // Preload all translations for instant switching
+      const preloadPromises = ['en', 'zh', 'ms'].map(async (locale) => {
+        try {
+          const { messages } = await import(`../locales/generated/${locale}.ts`);
+          i18n.load(locale, messages);
+        } catch (error) {
+          console.warn(`Failed to preload locale ${locale}:`, error);
+        }
+      });
+      
+      await Promise.all(preloadPromises);
+      
+      // Activate the initial locale
+      i18n.activate(initialLocale);
       setLocale(initialLocale);
       setIsLoading(false);
     };

@@ -6,6 +6,7 @@ import { LogIn } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ROUTES } from '@/constants/routes';
 import { LocaleSelector } from '@/components/ui/locale-selector';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { UserMenu } from '@/components/auth/UserMenu';
 import { useAuth } from '@/contexts/AuthContext';
 import { SupportedLocale } from '@/lib/utils';
@@ -51,6 +52,7 @@ export function Layout({ children, locale, changeLocale }: LayoutProps) {
           </nav>
           
           <div className="flex items-center space-x-2 sm:space-x-4">
+            <ThemeToggle />
             <LocaleSelector 
               currentLocale={locale}
               onLocaleChange={changeLocale}

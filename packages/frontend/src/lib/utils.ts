@@ -16,6 +16,19 @@ export const dynamicActivate = async (locale: SupportedLocale) => {
     console.warn(`Invalid locale "${locale}", defaulting to "${SOURCE_LOCALE}"`);
     locale = SOURCE_LOCALE;
   }
+  
+  // Skip if locale is already active
+  if (i18n.locale === locale) {
+    return;
+  }
+  
+  // If messages are already loaded, just activate
+  if (i18n.messages[locale]) {
+    i18n.activate(locale);
+    return;
+  }
+  
+  // Otherwise, load and activate
   const { messages } = await import(`../locales/generated/${locale}.ts`);
   i18n.load(locale, messages);
   i18n.activate(locale);
